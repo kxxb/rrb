@@ -69,14 +69,14 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
       gridEditBt = gridEditBt.createDelegate(this);
     
     
-    this.bbar = new Ext.PagingToolbar({
-                    pageSize: 25
-                    ,store: this.store
-                    ,displayInfo: true
-                    ,displayMsg: 'Показанно{0} - {1} из {2}'
-                    ,emptyMsg: "Нет записей"
-
-                 });
+//    this.bbar = new Ext.PagingToolbar({
+//                    pageSize: 25
+//                    ,store: this.store
+//                    ,displayInfo: true
+//                    ,displayMsg: 'Показанно{0} - {1} из {2}'
+//                    ,emptyMsg: "Нет записей"
+//
+//                 });
                  
 
     
@@ -92,14 +92,14 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
                     this.store.load({
 
                         params:{
-                             start:0
-                            ,limit:25
+                             h_id:3
+                            
                         }
                     });
                }
 
         }
-    });
+    })
     
    } // eo function initComponent
 
@@ -115,8 +115,8 @@ var ColsHousing =  [
                   {
                     header: 'Название Корпуса',
                     readOnly: true,
-                    dataIndex: 'housing_name', // this is where the mapped name is important!
-                    width: 150,
+                    dataIndex: 'name', // this is where the mapped name is important!
+                    width: 450,
                     sortable: true,
                     hidden: false
                   },{
@@ -129,3 +129,19 @@ var ColsHousing =  [
                   }
                   
                   ];
+                  
+                  
+
+var rrb_housingStore1 = new Ext.data.JsonStore({
+root: 'results',
+fields: [
+//{name: 'id', mapping:'id', type: 'string'}
+ {name: 'name', mapping:'name', type: 'string'}
+,{name: 'corpse_number', mapping:'corpse_number', type: 'string'}
+
+],
+proxy: new Ext.data.ScriptTagProxy({
+url: '../helper/app.housing/housing_select.php'
+})
+});
+                  

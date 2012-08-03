@@ -8,7 +8,7 @@
  require_once('../../SYS/dbconn.php');
 
 $query = "
-SELECT t.id, t.handbook_name, t.handbook_description  FROM rrb.rrb_handbooks t ";
+SELECT t.id, t.handbook_name, t.handbook_description  FROM rrb_handbooks t ";
 
 
 

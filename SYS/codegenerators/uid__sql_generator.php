@@ -5,9 +5,9 @@
  * and open the template in the editor.
  */
 
-require_once('dbconn.php');
+require_once('../dbconn.php');
 
-$table_name ="rrb_temporary_load";
+$table_name ="rrb_housing_specification";
 
 /*sql creator*/
  $sql_part_1="";
@@ -17,7 +17,7 @@ $table_name ="rrb_temporary_load";
 /*end sql creator*/
 
 
-$query = "desc rrb.$table_name;";
+$query = "desc $table_name;";
         
         
         $connection = conn();
@@ -71,18 +71,18 @@ $query = "desc rrb.$table_name;";
         echo "BEGIN<br>";
         echo "DECLARE CONTINUE HANDLER FOR SQLSTATE '23000' SET o_result ='exit';<br>";
         echo "SET o_result = 'good_insert';<br>";
-        echo "INSERT INTO rrb.$table_name <br> (<br>";
+        echo "INSERT INTO $table_name <br> (<br>";
         echo $sql_part_2;
         echo ")<br>VALUES<br> (";
         echo $sql_part_3;
         echo ");<br>";
         echo "if o_result = 'exit' then<br>";
-        echo "update rrb.$table_name set<br>";
+        echo "update $table_name set<br>";
         echo $sql_part_4.";";
         echo "set o_result = 'good_update';<br>end if;<br>";
         
         echo "if p_mode = 'D' then<br>";
-        echo "delete from rrb.$table_name where id = p_id;<br>";
+        echo "delete from $table_name where id = p_id;<br>";
         echo "set o_result = 'good_delete';<br>";
         echo "end if;<br>";
         echo "END<br>";

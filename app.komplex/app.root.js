@@ -24,9 +24,9 @@ app.rootKomplex =  Ext.extend(
                                   ,height:150
                                   ,items:[{ xtype:'HousingGrid'
                                            ,region:'north'
-                                           ,store: HousingStore
+                                           ,store: rrb_housingStore1
                                            ,cm:new Ext.grid.ColumnModel({columns:ColsHousing})  
-                                           ,height:550
+                                           ,height:150
                                           }]
                                 }
                                 
@@ -44,7 +44,7 @@ app.rootKomplex =  Ext.extend(
             var v_grid_handbook_data;
               
             
-
+//rrb_housingStore.reload({params: {h_id:  5}});
 
 
 

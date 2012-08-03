@@ -5,8 +5,8 @@
  * and open the template in the editor.
  * 
  */
-require_once('dbconn.php');
-require_once('insert_hndb_from_tmp.php');
+require_once('../dbconn.php');
+require_once('hndb_loader.php');
 
 function take_handbook($file_name) {
         $fp = fopen($file_name,'r') or die("can't open file");
@@ -32,7 +32,7 @@ function take_handbook($file_name) {
             }
 
         $i=0;    
-        $v_insert = "insert into rrb.rrb_temp_hnb values(
+        $v_insert = "insert into rrb_temp_hnb values(
         '".$v_id."',
         '".$v_date_load."',
         '".$v_hndb_name."',

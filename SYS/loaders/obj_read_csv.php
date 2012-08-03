@@ -3,10 +3,16 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
- */
-require_once('dbconn.php');
 
-$fp = fopen('objects_base.csv','r') or die("can't open file");
+ *  */
+
+require_once('../dbconn.php');
+require_once('obj_loader.php');
+
+
+
+function  load_csv_obj($p_file_name, $p_connection){
+$fp = fopen($p_file_name,'r') or die("can't open file");
 
 
 $v_id = null;
@@ -15,7 +21,7 @@ $v_date_rec=  date("Y-m-d H:i:s");
 $v_batch_number=  "1";
 $v_val ;
 //print "<table border=1>\n";
-while($csv_line = fgetcsv($fp)) {
+while($csv_line = fgetcsv($fp,0,";")) {
    // print '<tr>';
     for ($k = 0, $j = count($csv_line); $k < $j; $k++) {
         if ($csv_line[$k]==null) {
@@ -205,7 +211,7 @@ if ($i == 173){ $v_comment_text= $v_val; }
 
 $i=0;
 
-$query_ui = "INSERT INTO rrb.rrb_temporary_load VALUES
+$query_ui = "INSERT INTO rrb_temporary_load VALUES
 (
 '".$v_id."',
 '".$v_date_rec."',
@@ -384,11 +390,11 @@ $query_ui = "INSERT INTO rrb.rrb_temporary_load VALUES
 '".$v_insert_date."',
 '".$v_comment_text."');";
 
-$connection = conn();
-$connection->query("SET NAMES 'utf8'");
-    if ($results_insupditems=$connection->query($query_ui) ) {
+
+$p_connection->query("SET NAMES 'cp1251'");
+    if ($results_insupditems=$p_connection->query($query_ui) ) {
         echo "{success:true}";
-     } else   {echo 'polniy 3.14zdec  mrd_category '.$connection->error. " | sql = ".$query_ui;}
+     } else   {echo 'polniy 3.14zdec  mrd_category '.$p_connection->error. " | sql = ".$query_ui;}
 
  
     //end of insert 
@@ -398,6 +404,12 @@ $connection->query("SET NAMES 'utf8'");
 
 fclose($fp) or die("can't close file");
 
+data_pump($p_connection);
 
+
+}
+
+load_csv_obj("base2.csv", conn() );
+//load_csv_obj("objects_base_wo_duble.csv");
 
 ?>

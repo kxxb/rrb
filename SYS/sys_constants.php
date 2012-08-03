@@ -7,4 +7,6 @@
 
 $C_COPYRIGHT_TEXT ="&nbsp;&nbsp;&nbsp;Shavrak & Kotlayr &copy; 2012";
 $C_PROJECT_NAME ="Russian Real Estate Base";
+$C_MYSQL_SET_NAMES = "SET NAMES 'cp1251'";
+
 ?>

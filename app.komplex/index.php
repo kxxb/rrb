@@ -38,7 +38,7 @@ if ($user_id != null) {
 
             
             <script type="text/javascript" src="app.root.js"></script>
-            <script type="text/javascript" src="housing_store.js"></script>
+            
             <script type="text/javascript" src="housing_grid.js"></script>
             
             <script language="javascript" >

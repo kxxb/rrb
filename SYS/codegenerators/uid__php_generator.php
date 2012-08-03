@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-require_once('dbconn.php');
+require_once('../dbconn.php');
 
 $table_name ="rrb_ipoteka_banks";
 
@@ -20,7 +20,7 @@ $table_name ="rrb_ipoteka_banks";
 /*end sql creator*/
 
 
-$query = "desc rrb.$table_name;";
+$query = "desc $table_name;";
         
         
         $connection = conn();
@@ -63,7 +63,7 @@ $query = "desc rrb.$table_name;";
         //echo "\$v_date_rec=date(\"Y-m-d H:i:s\");<br>";
         echo "\$v_mode=\$_GET[\"p_mode\"];<br>";
         
-        echo "\$query_ui = \"CALL rrb.uid_$table_name($php_part_2@output);\";<br>";
+        echo "\$query_ui = \"CALL uid_$table_name($php_part_2@output);\";<br>";
         echo "\$connection = conn();<br>";
         echo "\$connection->query(\"SET NAMES 'utf8'\");<br>";
         echo "\$stmt = \$connection->prepare(\$query_ui);<br>";

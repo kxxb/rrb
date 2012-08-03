@@ -13,7 +13,7 @@ SELECT t.id
 ,t.comercial_available
 ,t.commercial_area
 ,t.rrb_housing_id
-FROM rrb.rrb_housing_commercial t 
+FROM rrb_housing_commercial t 
 where rrb_housing_id = ?";
 $h_id = $_GET["h_id"];
 $connection = conn();

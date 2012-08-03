@@ -5,9 +5,9 @@
  * and open the template in the editor.
  */
 
-require_once('dbconn.php');
+require_once('../dbconn.php');
 
-$table_name ="rrb_flats";
+$table_name ="rrb_housing_specification";
 
 /*js creator*/
  $php_part_1="";
@@ -17,7 +17,7 @@ $table_name ="rrb_flats";
 /*end js creator*/
 
 
-$query = "desc rrb.$table_name;";
+$query = "desc $table_name;";
         
         
         $connection = conn();
@@ -63,7 +63,7 @@ $query = "desc rrb.$table_name;";
         echo "require_once('../../SYS/dbconn.php');<br>";
         echo "\$query = \"<br>";
         echo  "SELECT ". $php_part_1."";
-        echo " FROM rrb.$table_name t \";<br>";
+        echo " FROM $table_name t \";<br>";
         echo "\$h_id = \$_GET[\"h_id\"];<br>";
         echo "\$connection = conn();<br>";
         echo "\$connection->query(\"SET NAMES 'utf8'\");<br>";

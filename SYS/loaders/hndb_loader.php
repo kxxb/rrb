@@ -25,7 +25,7 @@
                          $p_tmp_hndb_key
                         ){
      
- $v_insert_handbooks_values = "insert into rrb.rrb_s_handbooks values
+ $v_insert_handbooks_values = "insert into rrb_s_handbooks values
      (?,?,?,?,?,? )";
      try {
                     
@@ -62,7 +62,7 @@
                             $p_tmp_hndb_name
          ){
         $o_id = 0;
-        $v_insert_handbooks = "insert into rrb.rrb_handbooks values 
+        $v_insert_handbooks = "insert into rrb_handbooks values 
              (?,?,?,?,?)";
 
      try {
@@ -98,7 +98,7 @@
         hndb_name,
         hndb_key,
         hndb_key_value
-     FROM rrb.rrb_temp_hnb;";
+     FROM rrb_temp_hnb;";
  
         
         $connection_s->query("SET NAMES 'utf8'");

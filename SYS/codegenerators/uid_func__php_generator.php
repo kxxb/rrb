@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-require_once('dbconn.php');
+require_once('../dbconn.php');
 
 $table_name ="rrb_apartment_comlex";
 
@@ -22,7 +22,7 @@ $table_name ="rrb_apartment_comlex";
 /*end sql creator*/
 
 
-$query = "desc rrb.$table_name;";
+$query = "desc $table_name;";
         
         
         $connection = conn();
@@ -67,7 +67,7 @@ $query = "desc rrb.$table_name;";
         echo "function uid_$table_name ( <br>\$p_connect,<br>";
         echo $php_part_1."";
         echo "\$p_last_user_id,<br>\$p_date_rec,<br>\$p_mode) {<br>\$v_result = \"\";<br>";
-        echo "\$query_ui = \"CALL rrb.uid_$table_name($php_part_2@output);\";<br>";
+        echo "\$query_ui = \"CALL uid_$table_name($php_part_2@output);\";<br>";
         
         echo "\$p_connect->query(\"SET NAMES 'utf8'\");<br>";
         echo "\$stmt = \$p_connect->prepare(\$query_ui);<br>";

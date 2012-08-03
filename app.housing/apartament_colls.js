@@ -17,7 +17,7 @@ var ColsApartament =  [
                     header: 'Название Комплекса',
                     readOnly: true,
                     dataIndex: 'complex_name', // this is where the mapped name is important!
-                    width: 150,
+                    width: 750,
                     sortable: true,
                     hidden: false
                   }

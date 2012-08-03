@@ -30,7 +30,7 @@
  
  
  
-$query_ui = "CALL rrb.uid_handbooks(?,?,?,?,?,?,@output);";
+$query_ui = "CALL uid_handbooks(?,?,?,?,?,?,@output);";
         
         $connection = conn();
         $connection->query("SET NAMES 'utf8'");

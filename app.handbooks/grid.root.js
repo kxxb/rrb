@@ -19,7 +19,7 @@ app.UAEGrid =  Ext.extend(xg.EditorGridPanel,{
                 ,loadMask:true
                 ,split: true
                 ,anchor:'100%'
-                
+                ,width :'100%'
                 ,tbar:[
                   '-'
                 ,{
@@ -125,7 +125,7 @@ var ColsHandbooks =  [
                     header: 'Значение',
                     readOnly: true,
                     dataIndex: 'name', // this is where the mapped name is important!
-                    width: 150,
+                    width: 250,
                     sortable: true,
                     hidden: false
                   }
@@ -144,7 +144,7 @@ var ColsHndbDesc =  [
                     header: 'Название',
                     readOnly: true,
                     dataIndex: 'name', // this is where the mapped name is important!
-                    width: 150,
+                    width: 850,
                     sortable: true,
                     hidden: false
                   }

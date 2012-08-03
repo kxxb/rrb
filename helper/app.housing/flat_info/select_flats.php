@@ -70,7 +70,7 @@ SELECT t.id
 ,t.total_count_6_rooms
 ,t.total_count_n_rooms
 ,t.rrb_housing_id
-FROM rrb.rrb_housing_flat_info t 
+FROM rrb_housing_flat_info t 
 where t.rrb_housing_id = ?";
 $h_id = $_GET["h_id"];
 //$h_id = 1;

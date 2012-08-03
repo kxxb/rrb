@@ -7,7 +7,7 @@
 
  require_once('../../SYS/dbconn.php');
 
-  $query = "SELECT t.id, t.hndb_value  FROM rrb.rrb_s_handbooks t
+  $query = "SELECT t.id, t.hndb_value  FROM rrb_s_handbooks t
             where t.rrb_handbooks_id =  ?  ";
         $handbooks_id = $_GET["handbooks_id"];
         

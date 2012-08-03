@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-require_once('dbconn.php');
+require_once('../dbconn.php');
 
 $table_name ="rrb_temporary_load";
 
@@ -20,7 +20,7 @@ $table_name ="rrb_temporary_load";
 /*end sql creator*/
 
 
-$query = "desc rrb.$table_name;";
+$query = "desc $table_name;";
         
         
         $connection = conn();

@@ -20,13 +20,13 @@ app.rootHousing =  Ext.extend(
                          ,items:[
                                 {  xtype:'panel'
                                   ,region:'north'
-                                  ,height:150
+                                  ,height:250
                                   ,html:'ЖК грид'
                                   ,items:[{ xtype:'HousingGrid'
                                            ,region:'north'
                                            ,store: rrb_apartment_comlexStore
                                            ,cm:new Ext.grid.ColumnModel({columns:ColsApartament})  
-                                           ,height:550
+                                           ,height:250
                                           }]
                                 }
                                 ,
@@ -34,7 +34,7 @@ app.rootHousing =  Ext.extend(
                                   ,region:'west'
                                   ,width:350
                                   ,items: new Ext.DataView({
-                                                    store: HousingStore,
+                                                    store: rrb_housingStore,
                                                     tpl: copse_list,
                                                     itemSelector:'dd',
                                                     overClass:'p-over',
@@ -43,9 +43,9 @@ app.rootHousing =  Ext.extend(
                                                  })
 //                                  ,items:[{ xtype:'HousingGrid'
 //                                           ,region:'north'
-//                                           ,store: HousingStore
+//                                           ,store: rrb_housingStore
 //                                           ,cm:new Ext.grid.ColumnModel({columns:ColsHousing})  
-//                                           ,height:550
+//                                           ,height:250
 //                                          }]
                                 }
                                 ,{xtype:'tabpanel'
@@ -60,7 +60,7 @@ app.rootHousing =  Ext.extend(
                                              
                                              //,tpl:new Ext.XTemplate(htm_tpl)
                                              ,items: new Ext.DataView({
-                                                    store: HousingStore,
+                                                    store: specificationStore,
                                                     tpl: specification_tpl,
                                                     autoHeight:true,
                                                     emptyText: 'No items to display'
@@ -147,6 +147,7 @@ app.rootHousing =  Ext.extend(
             Ext.apply(this, Ext.apply(this.initialConfig, config));
             app.rootHousing.superclass.initComponent.apply(this, arguments);
 
+            var lGridApart =  this.items.itemAt(0).items.itemAt(0);
             var lGridDesc =  this.items.itemAt(1).items.itemAt(0);
             
             var lPanDesc   = this.items.itemAt(2).items.itemAt(0);
@@ -158,17 +159,19 @@ app.rootHousing =  Ext.extend(
             var v_grid_data;
             var v_grid_handbook_data;
             
+            
+            
+            
+              lGridApart.getSelectionModel().on('rowselect', function(sm, rowIdx, r) {
+                                    rrb_housingStore.reload({params: {h_id:  r.data.id}});
+                                    RefreshPanels(0);
+    			});
+            
             lGridDesc.on('click',function (node, index, e){
-                var car_name =HousingStore.getAt(index);
+                var corpse_id =rrb_housingStore.getAt(index);
+                  RefreshPanels(corpse_id.data.id); 
                 //car_name.data.id
-
-                rrb_housing_flat_infoStore.reload({params: {h_id: car_name.data.id}});
-                rrb_housing_infrastructureStore.reload({params: {h_id: car_name.data.id}});
-                rrb_ipoteka_banksStore.reload({params: {h_id: car_name.data.id}});
-                rrb_investor_builderStore.reload({params: {h_id: car_name.data.id}});
-                rrb_housing_financeStore.reload({params: {h_id: car_name.data.id}});
-                rrb_housing_commercialStore.reload({params: {h_id: car_name.data.id}});
-                rrb_flatsStore.reload({params: {h_id: car_name.data.id}});                
+                               
                 //Ext.Msg.alert('Success','node  '+node+' index  '+index+' e  '+car_name.data.id);
             })
             
@@ -186,6 +189,17 @@ app.rootHousing =  Ext.extend(
                  Ext.Msg.alert('Success','lPanInfra();');
              });
               */
+             
+            function RefreshPanels(p_id){
+                specificationStore.reload({params: {h_id: p_id}});
+                rrb_housing_flat_infoStore.reload({params: {h_id: p_id}});
+                rrb_housing_infrastructureStore.reload({params: {h_id: p_id}});
+                rrb_ipoteka_banksStore.reload({params: {h_id: p_id}});
+                rrb_investor_builderStore.reload({params: {h_id: p_id}});
+                rrb_housing_financeStore.reload({params: {h_id: p_id}});
+                rrb_housing_commercialStore.reload({params: {h_id: p_id}});
+                rrb_flatsStore.reload({params: {h_id: p_id}}); 
+            }
              
             function OverwritePanelsDesc (data){
                /*активная заявка*/

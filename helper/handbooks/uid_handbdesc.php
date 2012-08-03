@@ -29,7 +29,7 @@
  $mode="U";
  */
  
-$query_ui = "CALL rrb.ui_handbooksdesc(?,?,?,?,?,?,@output);";
+$query_ui = "CALL ui_handbooksdesc(?,?,?,?,?,?,@output);";
         
         $connection = conn();
         $connection->query("SET NAMES 'utf8'");

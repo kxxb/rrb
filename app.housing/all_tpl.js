@@ -6,42 +6,41 @@
 var copse_list = '<tpl for=".">                              '
   +'  <dd  h_name="{housing_name}">             '
   +'      <div >                                             '
-  +'       <p><b>Название корпуса: </b>{housing_name} </p>  '
-  +'       <p><b>Идентификатор комплекса:</b> {corpse_number} </p>     '
-  +'       <p><b>Адрес:</b> {corpse_number} </p>           '
-  +'       <p><hr></p>           '
+  +'       <p><b>Номер корпуса:</b> {corpse_number} </p>     '
+      +'       <p><b>Адрес: </b>{name} </p>  '
+    +'       <p><hr></p>           '
   +'     </div>                                           '
   +'     </dd>                                           '
   
       +'</tpl>';
 
+//
 var specification_tpl ='<tpl for="."><font size="2"><table>'+
-'<tr><td><b>Название корпуса</b></td><td>{housing_name}</td></tr>'+
-'<tr><td><b>Номер корпуса</b></td><td>{corpse_number}</td></tr>'+
 '<tr><td><b>Номер секции</b></td><td>{number_of_sections}</td></tr>'+
 '<tr><td><b>тип застройки</b></td><td>{type_of_building}</td></tr>'+
 '<tr><td><b>площадь земельного участка всей застройки </b></td><td>{total_land_area}</td></tr>'+
+'<tr><td><b>технология и материал несущих конструкций</b></td><td>{bearing_material_tech_name}</td></tr>'+
 '<tr><td><b>общая площадь квартир всех объектов застройки</b></td><td>{total_floor_area}</td></tr>'+
 '<tr><td><b>площадь земельного участка объекта</b></td><td>{land_area_build}</td></tr>'+
 '<tr><td><b>материал наружных стен</b></td><td>{wall_material_name}</td></tr>'+
-'<tr><td><b>тип проектной документации</b></td><td>{proj_doc_name}</td></tr>'+
+'<tr><td><b>тип проектной документации</b></td><td>{proj_doc_type_name}</td></tr>'+
 '<tr><td><b>номер серии</b></td><td>{serial_number}</td></tr>'+
 '<tr><td><b>этажность минимальная</b></td><td>{min_floors}</td></tr>'+
 '<tr><td><b>этажность максимальная</b></td><td>{max_floors}</td></tr>'+
-'<tr><td><b>тип этажности</b></td><td>{floor_type_name}</td></tr>'+
-'<tr><td><b>потребительский класс</b></td><td>{consumer_cl_name}</td></tr>'+
-'<tr><td><b>дом экономического класса </b></td><td>{economy_cl_name}</td></tr>'+
+'<tr><td><b>тип этажности</b></td><td>{floors_type_id_name}</td></tr>'+
+'<tr><td><b>потребительский класс</b></td><td>{consumer_class_id_name}</td></tr>'+
+'<tr><td><b>дом экономического класса </b></td><td>{economy_class_house_id_name}</td></tr>'+
 '<tr><td><b>высота потолка</b></td><td>{ceiling_height}</td></tr>'+
-'<tr><td><b>тип отделки квартир</b></td><td>{finish_fl_name}</td></tr>'+
-'<tr><td><b>уровень отделки квартир</b></td><td>{finish_level_name}</td></tr>'+
-'<tr><td><b>уровень отделки общих помещений</b></td><td>{finish_c_area_name}</td></tr>'+
-'<tr><td><b>остекление лоджий / балконов</b></td><td>{glazed_log_name}</td></tr>'+
-'<tr><td><b>тип паркинга </b></td><td>{parking_name}</td></tr>'+
+'<tr><td><b>тип отделки квартир</b></td><td>{finishing_flats_id_name}</td></tr>'+
+'<tr><td><b>уровень отделки квартир</b></td><td>{finishing_level_id_name}</td></tr>'+
+'<tr><td><b>уровень отделки общих помещений</b></td><td>{common_area_finishing_id_name}</td></tr>'+
+'<tr><td><b>остекление лоджий / балконов</b></td><td>{glazed_loggia_id_name}</td></tr>'+
+'<tr><td><b>тип паркинга </b></td><td>{parking_type_id_name}</td></tr>'+
 '<tr><td><b>количество стояночных мест в паркинге</b></td><td>{num_of_parking_place}</td></tr>'+
 '<tr><td><b>лифт (число)</b></td><td>{num_of_Elevator}</td></tr>'+
 '<tr><td><b>сметная стоимость строительства объекта</b></td><td>{estimated_cost_construction}</td></tr>'+
-'<tr><td><b>ограждение территории</b></td><td>{fencing_name}</td></tr>'+
-'<tr><td><b>охрана</b></td><td>{security_name}</td></tr>'+
+'<tr><td><b>ограждение территории</b></td><td>{territory_fencing_id_name}</td></tr>'+
+'<tr><td><b>охрана</b></td><td>{security_id_name}</td></tr>'+
 '</table></font></tpl>';
 
 

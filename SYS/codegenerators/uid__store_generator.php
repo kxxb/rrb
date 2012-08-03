@@ -5,9 +5,9 @@
  * and open the template in the editor.
  */
 
-require_once('dbconn.php');
+require_once('../dbconn.php');
 
-$table_name ="rrb_housing_flat_info";
+$table_name ="rrb_housing";
 
 /*js creator*/
  $js_part_1="";
@@ -17,7 +17,7 @@ $table_name ="rrb_housing_flat_info";
 /*end js creator*/
 
 
-$query = "desc rrb.$table_name;";
+$query = "desc $table_name;";
         
         
         $connection = conn();
@@ -43,21 +43,25 @@ $query = "desc rrb.$table_name;";
           
           
           if ($i==1){
-           $js_part_1=$js_part_1."p_".$field_name ."&nbsp;&nbsp;&nbsp;:&nbsp;winHndbDesc.items.itemAt(0).items.itemAt($i).getValue()<br>" ;
+           $js_part_1=$js_part_1."{name: '".$field_name ."', mapping:'".$field_name ."', type: 'string'}<br>" ;
           }else {
-           $js_part_1=$js_part_1.",p_".$field_name ."&nbsp;&nbsp;&nbsp;:&nbsp;&nbspwinHndbDesc.items.itemAt(0).items.itemAt($i).getValue()<br>" ;
+           $js_part_1=$js_part_1.",{name: '".$field_name ."', mapping:'".$field_name ."', type: 'string'}<br>" ;
           }
         
           
         }
 
+        echo "var ".$table_name."Store = new Ext.data.JsonStore({<br>";
+        echo "root: 'results',<br>";
+        echo "fields: [<br>";
         
-        echo "params: {<br>";
         echo $js_part_1."";
-        echo ",u_id              : gUserId<br>";
-        echo ",h_mode            :'UI'<br>";
-        echo "},<br>";
-        
+        echo "],<br>";
+        echo "proxy: new Ext.data.ScriptTagProxy({<br>";
+        echo "    url: '../helper/app.housing/housing_select.php'<br>";
+        echo "})<br>";
+        echo "});<br>";
+        echo $table_name."Store.load();<br>";
         
         
         mysqli_stmt_close($stmt);

@@ -115,15 +115,15 @@ var ColsHousing =  [
                   {
                     header: 'Название Корпуса',
                     readOnly: true,
-                    dataIndex: 'housing_name', // this is where the mapped name is important!
-                    width: 150,
+                    dataIndex: 'name', // this is where the mapped name is important!
+                    width: 450,
                     sortable: true,
                     hidden: false
                   },{
                     header: 'Номер корпуса',
                     readOnly: true,
                     dataIndex: 'corpse_number', // this is where the mapped name is important!
-                    width: 150,
+                    width: 50,
                     sortable: true,
                     hidden: false
                   }

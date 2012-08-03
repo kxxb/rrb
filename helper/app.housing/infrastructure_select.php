@@ -12,7 +12,7 @@ SELECT t.id
 ,t.date_rec
 ,t.type_of_infrastructure_id
 ,t.rrb_housing_id
-FROM rrb.rrb_housing_infrastructure t 
+FROM rrb_housing_infrastructure t 
 where t.rrb_housing_id = ?";
 $h_id = $_GET["h_id"];
 $connection = conn();

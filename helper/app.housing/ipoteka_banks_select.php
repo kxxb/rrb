@@ -11,7 +11,7 @@
     ,t.date_rec
     ,t.bank_id
     ,t.rrb_housing_id
-    FROM rrb.rrb_ipoteka_banks t 
+    FROM rrb_ipoteka_banks t 
     where t.rrb_housing_id = ?";
     $h_id = $_GET["h_id"];
     $connection = conn();

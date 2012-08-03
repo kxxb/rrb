@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-require_once('dbconn.php');
+require_once('../dbconn.php');
 
 $table_name ="rrb_housing_flat_info";
 
@@ -256,7 +256,7 @@ $tpl ="       <TABLE CELLSPACING='0' COLS='2' BORDER='0'>
 	</TR>
 </TABLE>";
  
-$query = "desc rrb.$table_name;";
+$query = "desc $table_name;";
         
         
         $connection = conn();

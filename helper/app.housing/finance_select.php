@@ -56,7 +56,7 @@ SELECT t.id
 ,t.input_in_db_dt
 ,t.comment_txt
 ,t.rrb_housing_id
-FROM rrb.rrb_housing_finance t 
+FROM rrb_housing_finance t 
 where t.rrb_housing_id = ?";
 $h_id = $_GET["h_id"];
 $connection = conn();

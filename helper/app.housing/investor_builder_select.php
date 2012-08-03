@@ -29,7 +29,7 @@ SELECT t.id
 ,t.commissioning_dt
 ,t.commissioning_num
 ,t.rrb_housing_id
-FROM rrb.rrb_investor_builder t 
+FROM rrb_investor_builder t 
 where t.rrb_housing_id = ?";
 $h_id = $_GET["h_id"];
 

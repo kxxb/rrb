@@ -4,19 +4,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
+//require_once('../../SYS/sys_constants.php');
 require_once('../../SYS/dbconn.php');
 $query = "
 SELECT t.id
 ,t.complex_name
 ,t.last_user_id
 ,t.date_rec
-FROM rrb.rrb_apartment_comlex t ";
+FROM rrb_apartment_comlex t ";
 $h_id = $_GET["h_id"];
 $connection = conn();
 $connection->query("SET NAMES 'utf8'");
 $stmt = $connection->prepare($query);
-$stmt->bind_param("s", $h_id);
+//$stmt->bind_param("s", $h_id);
 /* execute query */
 mysqli_stmt_execute($stmt);
 mysqli_stmt_store_result($stmt);

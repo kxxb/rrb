@@ -27,6 +27,7 @@ app.TypicalHandbooksLayaout =  Ext.extend(
                               ,{
                                   xtype:'panel'
                                  ,region:'center'
+                                 ,width:'650'
                                  ,items:[{xtype:'hndb_value'}]
                               }
                            ]
