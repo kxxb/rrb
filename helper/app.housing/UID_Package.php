@@ -204,20 +204,62 @@ $p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_contract_type_id, $p_leasing
     return $v_result;
 }
 
-function uid_rrb_housing_flat_info(
-$p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_total_area_all_flats, $p_total_area_studio, $p_total_area_1rooms, $p_total_area_2rooms, $p_total_area_3rooms, $p_total_area_4rooms, $p_total_area_5rooms, $p_total_area_6rooms, $p_avg_area_studio, $p_min_area_studio, $p_max_area_studio, $p_min_area_st_wo_unheat, $p_max_area_st_wo_unheat, $p_avg_area_1r, $p_min_area_1r, $p_max_area_1r, $p_min_area_1r_wo_unheat, $p_max_area_1r_wo_unheat, $p_avg_area_2r, $p_min_area_2r, $p_max_area_2r, $p_min_area_2r_wo_unheat, $p_max_area_2r_wo_unheat, $p_avg_area_3r, $p_min_area_3r, $p_max_area_3r, $p_min_area_3r_wo_unheat, $p_max_area_3r_wo_unheat, $p_avg_area_4r, $p_min_area_4r, $p_max_area_4r, $p_min_area_4r_wo_unheat, $p_max_area_4r_wo_unheat, $p_avg_area_5r, $p_min_area_5r, $p_max_area_5r, $p_min_area_5r_wo_unheat, $p_max_area_5r_wo_unheat, $p_avg_area_6r, $p_min_area_6r, $p_max_area_6r, $p_min_area_6r_wo_unheat, $p_max_area_6r_wo_unheat, $p_avg_area_n_room, $p_min_area_n_room, $p_max_area_n_room, $p_min_area_n_wo_unheat, $p_max_area_n_wo_unheat, $p_total_area_n_rooms, $p_total_count_all_flats, $p_total_count_studio, $p_total_count_1_rooms, $p_total_count_2_rooms, $p_total_count_3_rooms, $p_total_count_4_rooms, $p_total_count_5_rooms, $p_total_count_6_rooms, $p_total_count_n_rooms, $p_rrb_housing_id,  $p_mode) {
+function uid_rrb_housing_flat_info( 
+        $p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_total_area_all_flats, 
+        $p_total_area_studio, $p_total_area_1rooms, $p_total_area_2rooms, 
+        $p_total_area_3rooms, $p_total_area_4rooms, $p_total_area_5rooms, 
+        $p_total_area_6rooms, $p_avg_area_studio, $p_min_area_studio, 
+        $p_max_area_studio, $p_min_area_st_wo_unheat, $p_max_area_st_wo_unheat, 
+        $p_avg_area_1r, $p_min_area_1r, $p_max_area_1r, $p_min_area_1r_wo_unheat, 
+        $p_max_area_1r_wo_unheat, $p_avg_area_2r, $p_min_area_2r, $p_max_area_2r, 
+        $p_min_area_2r_wo_unheat, $p_max_area_2r_wo_unheat, $p_avg_area_3r, $p_min_area_3r,
+        $p_max_area_3r, $p_min_area_3r_wo_unheat, $p_max_area_3r_wo_unheat, 
+        $p_avg_area_4r, $p_min_area_4r, $p_max_area_4r, $p_min_area_4r_wo_unheat, 
+        $p_max_area_4r_wo_unheat, $p_avg_area_5r, $p_min_area_5r, $p_max_area_5r, 
+        $p_min_area_5r_wo_unheat, $p_max_area_5r_wo_unheat, $p_avg_area_6r, $p_min_area_6r, 
+        $p_max_area_6r, $p_min_area_6r_wo_unheat, $p_max_area_6r_wo_unheat, $p_avg_area_n_room, 
+        $p_min_area_n_room, $p_max_area_n_room, $p_min_area_n_wo_unheat, $p_max_area_n_wo_unheat,
+        $p_total_area_n_rooms, $p_total_count_all_flats, $p_total_count_studio, 
+        $p_total_count_1_rooms, $p_total_count_2_rooms, $p_total_count_3_rooms,
+        $p_total_count_4_rooms, $p_total_count_5_rooms, $p_total_count_6_rooms, 
+        $p_total_count_n_rooms, $p_rrb_housing_id,  $p_mode) {
     $v_result = "";
-    $query_ui = "CALL uid_rrb_housing_flat_info(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,@output);";
-    $p_connect->query($C_MYSQL_SET_NAMES);
+    $query_ui = "CALL uid_rrb_housing_flat_info(?,?,?,?,?,?,?,?,?,?,
+                                                ?,?,?,?,?,?,?,?,?,?,
+                                                ?,?,?,?,?,?,?,?,?,?,
+                                                ?,?,?,?,?,?,?,?,?,?,
+                                                ?,?,?,?,?,?,?,?,?,?,
+                                                ?,?,?,?,?,?,?,?,?,?,
+                                                ?,?,?,@output);";
+    //$p_connect->query($C_MYSQL_SET_NAMES);
+    $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iisssssssssssssssssssssssssssssssssssssssssssssssssssssssssssis", $p_id, $p_last_user_id, $p_date_rec, $p_total_area_all_flats, $p_total_area_studio, $p_total_area_1rooms, $p_total_area_2rooms, $p_total_area_3rooms, $p_total_area_4rooms, $p_total_area_5rooms, $p_total_area_6rooms, $p_avg_area_studio, $p_min_area_studio, $p_max_area_studio, $p_min_area_st_wo_unheat, $p_max_area_st_wo_unheat, $p_avg_area_1r, $p_min_area_1r, $p_max_area_1r, $p_min_area_1r_wo_unheat, $p_max_area_1r_wo_unheat, $p_avg_area_2r, $p_min_area_2r, $p_max_area_2r, $p_min_area_2r_wo_unheat, $p_max_area_2r_wo_unheat, $p_avg_area_3r, $p_min_area_3r, $p_max_area_3r, $p_min_area_3r_wo_unheat, $p_max_area_3r_wo_unheat, $p_avg_area_4r, $p_min_area_4r, $p_max_area_4r, $p_min_area_4r_wo_unheat, $p_max_area_4r_wo_unheat, $p_avg_area_5r, $p_min_area_5r, $p_max_area_5r, $p_min_area_5r_wo_unheat, $p_max_area_5r_wo_unheat, $p_avg_area_6r, $p_min_area_6r, $p_max_area_6r, $p_min_area_6r_wo_unheat, $p_max_area_6r_wo_unheat, $p_avg_area_n_room, $p_min_area_n_room, $p_max_area_n_room, $p_min_area_n_wo_unheat, $p_max_area_n_wo_unheat, $p_total_area_n_rooms, $p_total_count_all_flats, $p_total_count_studio, $p_total_count_1_rooms, $p_total_count_2_rooms, $p_total_count_3_rooms, $p_total_count_4_rooms, $p_total_count_5_rooms, $p_total_count_6_rooms, $p_total_count_n_rooms, $p_rrb_housing_id,  $p_mode
+    mysqli_stmt_bind_param($stmt, "iisssssssssssssssssssssssssssssssssssssssssssssssssssssssssssis", 
+            $p_id, $p_last_user_id, $p_date_rec, $p_total_area_all_flats,
+            $p_total_area_studio, $p_total_area_1rooms, $p_total_area_2rooms,
+            $p_total_area_3rooms, $p_total_area_4rooms, $p_total_area_5rooms, 
+            $p_total_area_6rooms, $p_avg_area_studio, $p_min_area_studio, 
+            $p_max_area_studio, $p_min_area_st_wo_unheat, $p_max_area_st_wo_unheat,
+            $p_avg_area_1r, $p_min_area_1r, $p_max_area_1r, $p_min_area_1r_wo_unheat, 
+            $p_max_area_1r_wo_unheat, $p_avg_area_2r, $p_min_area_2r, $p_max_area_2r, 
+            $p_min_area_2r_wo_unheat, $p_max_area_2r_wo_unheat, $p_avg_area_3r, 
+            $p_min_area_3r, $p_max_area_3r, $p_min_area_3r_wo_unheat, $p_max_area_3r_wo_unheat, 
+            $p_avg_area_4r, $p_min_area_4r, $p_max_area_4r, $p_min_area_4r_wo_unheat, 
+            $p_max_area_4r_wo_unheat, $p_avg_area_5r, $p_min_area_5r, $p_max_area_5r,
+            $p_min_area_5r_wo_unheat, $p_max_area_5r_wo_unheat, $p_avg_area_6r, $p_min_area_6r, 
+            $p_max_area_6r, $p_min_area_6r_wo_unheat, $p_max_area_6r_wo_unheat, 
+            $p_avg_area_n_room, $p_min_area_n_room, $p_max_area_n_room, $p_min_area_n_wo_unheat,
+            $p_max_area_n_wo_unheat, $p_total_area_n_rooms, $p_total_count_all_flats,
+            $p_total_count_studio, $p_total_count_1_rooms, $p_total_count_2_rooms, 
+            $p_total_count_3_rooms, $p_total_count_4_rooms, $p_total_count_5_rooms, 
+            $p_total_count_6_rooms, $p_total_count_n_rooms, $p_rrb_housing_id,  $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
     } else {
         echo "{success:false,errors:{reason:'Ошибка выполнения процедуры MySql!'}}";
     }
-    $stmt = $connection->prepare('SELECT @output ');
+    $stmt = $p_connect->prepare('SELECT @output ');
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_store_result($stmt);
         mysqli_stmt_bind_result($stmt, $output);
@@ -289,11 +331,13 @@ function uid_rrb_housing_specification($p_connect,
         $p_date_rec, $p_rrb_housing_id,  $p_mode) {
     $v_result = "";
     $query_ui = "CALL uid_rrb_housing_specification(?,?,?,?,?,?,?,?,?,?,
-                                                        ?,?,?,?,?,?,?,?,?,?,
-                                                        ?,?,?,?,?,?,?,?,?,?,@output);";
+                                                    ?,?,?,?,?,?,?,?,?,?,
+                                                    ?,?,?,?,?,?,?,?,?,?,@output);";
     $p_connect->query($C_MYSQL_SET_NAMES);
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iiisssiiisiiiiisiiiiisssiiisis", 
+    mysqli_stmt_bind_param($stmt, "iiisssiiis
+                                   iiiiisiiii
+                                   isssiiisis", 
             $p_id, $p_number_of_sections, $p_type_of_building, 
             $p_total_land_area, $p_total_floor_area, $p_land_area_build, 
             $p_bearing_material_tech, $p_wall_material, $p_proj_doc_type, 

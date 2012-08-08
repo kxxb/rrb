@@ -139,7 +139,7 @@ fields: [
 ,{name: 'total_count_5_rooms', mapping:'total_count_5_rooms', type: 'string'}
 ,{name: 'total_count_6_rooms', mapping:'total_count_6_rooms', type: 'string'}
 ,{name: 'total_count_n_rooms', mapping:'total_count_n_rooms', type: 'string'}
-,{name: 'rrb_housing_id', mapping:'rrb_housing_id', type: 'string'}
+,{name: 'rrb_housing_id',      mapping:'rrb_housing_id', type: 'string'}
 ],
 proxy: new Ext.data.ScriptTagProxy({
 url: '../helper/app.housing/flat_info/select_flats.php'

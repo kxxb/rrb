@@ -15,270 +15,140 @@ var copse_list = '<tpl for=".">                              '
       +'</tpl>';
 
 //
-var specification_tpl ='<tpl for="."><font size="2"><table>'+
-'<tr><td><b>Номер секции</b></td><td>{number_of_sections}</td></tr>'+
-'<tr><td><b>тип застройки</b></td><td>{type_of_building}</td></tr>'+
-'<tr><td><b>площадь земельного участка всей застройки </b></td><td>{total_land_area}</td></tr>'+
-'<tr><td><b>технология и материал несущих конструкций</b></td><td>{bearing_material_tech_name}</td></tr>'+
-'<tr><td><b>общая площадь квартир всех объектов застройки</b></td><td>{total_floor_area}</td></tr>'+
-'<tr><td><b>площадь земельного участка объекта</b></td><td>{land_area_build}</td></tr>'+
-'<tr><td><b>материал наружных стен</b></td><td>{wall_material_name}</td></tr>'+
-'<tr><td><b>тип проектной документации</b></td><td>{proj_doc_type_name}</td></tr>'+
-'<tr><td><b>номер серии</b></td><td>{serial_number}</td></tr>'+
-'<tr><td><b>этажность минимальная</b></td><td>{min_floors}</td></tr>'+
-'<tr><td><b>этажность максимальная</b></td><td>{max_floors}</td></tr>'+
-'<tr><td><b>тип этажности</b></td><td>{floors_type_id_name}</td></tr>'+
-'<tr><td><b>потребительский класс</b></td><td>{consumer_class_id_name}</td></tr>'+
-'<tr><td><b>дом экономического класса </b></td><td>{economy_class_house_id_name}</td></tr>'+
-'<tr><td><b>высота потолка</b></td><td>{ceiling_height}</td></tr>'+
-'<tr><td><b>тип отделки квартир</b></td><td>{finishing_flats_id_name}</td></tr>'+
-'<tr><td><b>уровень отделки квартир</b></td><td>{finishing_level_id_name}</td></tr>'+
-'<tr><td><b>уровень отделки общих помещений</b></td><td>{common_area_finishing_id_name}</td></tr>'+
-'<tr><td><b>остекление лоджий / балконов</b></td><td>{glazed_loggia_id_name}</td></tr>'+
-'<tr><td><b>тип паркинга </b></td><td>{parking_type_id_name}</td></tr>'+
-'<tr><td><b>количество стояночных мест в паркинге</b></td><td>{num_of_parking_place}</td></tr>'+
-'<tr><td><b>лифт (число)</b></td><td>{num_of_Elevator}</td></tr>'+
-'<tr><td><b>сметная стоимость строительства объекта</b></td><td>{estimated_cost_construction}</td></tr>'+
-'<tr><td><b>ограждение территории</b></td><td>{territory_fencing_id_name}</td></tr>'+
-'<tr><td><b>охрана</b></td><td>{security_id_name}</td></tr>'+
-'</table></font></tpl>';
+var specification_tpl ='<tpl for="."><font size="2">'+
+'<table cellpading=0 cellspacing=0><tr><td valign="top"><table cellpading=0 cellspacing=0>'+    
+    '<tr><td><b>Номер секции</b></td><td>{number_of_sections}</td></tr>'+
+    '<tr><td><b>тип застройки</b></td><td>{type_of_building}</td></tr>'+
+    '<tr><td><b>площадь земельного участка всей застройки </b></td><td>{total_land_area}</td></tr>'+
+    '<tr><td><b>технология и материал несущих конструкций</b></td><td>{bearing_material_tech_name}</td></tr>'+
+    '<tr><td><b>общая площадь квартир всех объектов застройки</b></td><td>{total_floor_area}</td></tr>'+
+    '<tr><td><b>площадь земельного участка объекта</b></td><td>{land_area_build}</td></tr>'+
+    '<tr><td><b>материал наружных стен</b></td><td>{wall_material_name}</td></tr>'+
+    '<tr><td><b>тип проектной документации</b></td><td>{proj_doc_type_name}</td></tr>'+
+    '<tr><td><b>номер серии</b></td><td>{serial_number}</td></tr>'+
+    '<tr><td><b>этажность минимальная</b></td><td>{min_floors}</td></tr>'+
+    '<tr><td><b>этажность максимальная</b></td><td>{max_floors}</td></tr>'+
+    '<tr><td><b>тип этажности</b></td><td>{floors_type_id_name}</td></tr>'+
+'</table></td><td valign="top" ><table cellpading=0 cellspacing=0> '+
+    '<tr><td><b>потребительский класс</b></td><td>{consumer_class_id_name}</td></tr>'+
+    '<tr><td><b>дом экономического класса </b></td><td>{economy_class_house_id_name}</td></tr>'+
+    '<tr><td><b>высота потолка</b></td><td>{ceiling_height}</td></tr>'+
+    '<tr><td><b>тип отделки квартир</b></td><td>{finishing_flats_id_name}</td></tr>'+
+    '<tr><td><b>уровень отделки квартир</b></td><td>{finishing_level_id_name}</td></tr>'+
+    '<tr><td><b>уровень отделки общих помещений</b></td><td>{common_area_finishing_id_name}</td></tr>'+
+    '<tr><td><b>остекление лоджий / балконов</b></td><td>{glazed_loggia_id_name}</td></tr>'+
+    '<tr><td><b>тип паркинга </b></td><td>{parking_type_id_name}</td></tr>'+
+    '<tr><td><b>количество стояночных мест в паркинге</b></td><td>{num_of_parking_place}</td></tr>'+
+    '<tr><td><b>лифт (число)</b></td><td>{num_of_Elevator}</td></tr>'+
+    '<tr><td><b>сметная стоимость строительства объекта</b></td><td>{estimated_cost_construction}</td></tr>'+
+    '<tr><td><b>ограждение территории</b></td><td>{territory_fencing_id_name}</td></tr>'+
+    '<tr><td><b>охрана</b></td><td>{security_id_name}</td></tr>'+
+'</table></td></tr></table> </font></tpl>';
 
 
 
-var flatinfo_tpl ='<tpl for=".">	<TABLE >		'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общая площадь всех квартир объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_all_flats}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общая площадь квартир-студий</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_studio}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общая площадь 1-комнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_1rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общая площадь 2-комнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_2rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общая площадь 3-комнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_3rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общая площадь 4-комнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_4rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общая площадь 5-комнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_5rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общая площадь 6-комнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_6rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">студии, средн (кв. м)</TD>	'
-+'		<TD ALIGN="LEFT">{avg_area_studio}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь студии</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_studio}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь студии</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_studio}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь студии без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_st_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь студии без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_st_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">1комн., сред. (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{avg_area_1r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 1-нокомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_1r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 1-нокомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_1r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 1-нокомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_1r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 1-нокомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_1r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">2комн., сред. (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{avg_area_2r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 2-хкомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_2r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 2-хкомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_2r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 2-хкомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_2r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 2-хкомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_2r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">3комн., сред. (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{avg_area_3r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 3-хкомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_3r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 3-хкомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_3r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 3-хкомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_3r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 3-хкомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_3r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">Средняя площадь 4-комнатных квартир (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{avg_area_4r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 4-хкомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_4r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 4-хкомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_4r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 4-хкомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_4r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 4-хкомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_4r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">Средняя площадь 5-комнатных квартир (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{avg_area_5r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 5-тикомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_5r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 5-тикомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_5r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 5-тикомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_5r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 5-тикомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_5r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">Средняя площадь 6-комнатных квартир (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{avg_area_6r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 6-хкомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_6r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 6-хкомнатных квартир</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_6r}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь 6-тикомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_6r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь 6-тикомнатных квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_6r_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">многокомн., сред. (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{avg_area_n_room}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">многокомн., мин. (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_n_room}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">многокомн., макс. (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_n_room}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">минимальная площадь многокомн. квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{min_area_n_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">максимальная площадь многокомн. квартир без учета неотапливаемых помещений</TD>	'
-+'		<TD ALIGN="LEFT">{max_area_n_wo_unheat}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">Общая площадь многокомн. квартир (кв.м)</TD>	'
-+'		<TD ALIGN="LEFT">{total_area_n_rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">общее количество квартир объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_all_flats}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">количество всех квартир-студий объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_studio}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">количество всех 1-нокомнатных квартир объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_1_rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">количество всех 2-хкомнатных квартир объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_2_rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">количество всех 3-хкомнатных квартир объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_3_rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">количество всех 4-хкомнатных квартир объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_4_rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">количество всех 5-хкомнатных квартир объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_5_rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">количество всех 6-хкомнатных квартир объекта</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_6_rooms}</TD>	'
-+'		</TR>	'
-+'		<TR>	'
-+'		<TD HEIGHT="17" ALIGN="LEFT">Количество многокомн. (шт.)</TD>	'
-+'		<TD ALIGN="LEFT">{total_count_n_rooms}</TD>	'
-+'		</TR>	'
-+'		</TABLE>	</tpl>';
+var flatinfo_tpl ='<tpl for=".">'+
+'	<TABLE CELLSPACING="0" COLS="8" BORDER="0">		'+
+'		<COLGROUP WIDTH="126"></COLGROUP>	'+
+'		<COLGROUP WIDTH="85"></COLGROUP>	'+
+'		<COLGROUP WIDTH="72"></COLGROUP>	'+
+'		<COLGROUP WIDTH="85"></COLGROUP>	'+
+'		<COLGROUP WIDTH="96"></COLGROUP>	'+
+'		<COLGROUP WIDTH="98"></COLGROUP>	'+
+'		<COLGROUP WIDTH="112"></COLGROUP>	'+
+'		<COLGROUP WIDTH="118"></COLGROUP>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="62" ALIGN="LEFT"><BR></TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT" VALIGN=TOP>количество квартир</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT" VALIGN=TOP>общая площадь</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT" VALIGN=TOP>средняя площадь</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT" VALIGN=TOP>минимальная </TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT" VALIGN=TOP>максимальная</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT" VALIGN=TOP>минимальная без учета неотапливаемых помещений</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT" VALIGN=TOP>максимальная без учета неотапливаемых помещений</TD>	'+
+'		</TR>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT">1 комнатные</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="RIGHT">{total_count_1_rooms}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{total_area_1r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{avg_area_1r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_1r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_1r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_1r_wo_unheat}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_1r_wo_unheat}</TD>	'+
+'		</TR>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT">2 комнатные</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="RIGHT">{total_count_2_rooms}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{total_area_2r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{avg_area_2r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_2r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_2r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_2r_wo_unheat}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_2r_wo_unheat}</TD>	'+
+'		</TR>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT">3 комнатные</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="RIGHT">{total_count_3_rooms}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{total_area_3r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{avg_area_3r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_3r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_3r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_3r_wo_unheat}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_3r_wo_unheat}</TD>	'+
+'		</TR>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT">4 комнатные</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="RIGHT">{total_count_4_rooms}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{total_area_4r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{avg_area_4r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_4r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_4r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_4r_wo_unheat}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_4r_wo_unheat}</TD>	'+
+'		</TR>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT">5 комнатные</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="RIGHT">{total_count_5_rooms}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{total_area_5r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{avg_area_5r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_5r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_5r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_5r_wo_unheat}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_5r_wo_unheat}</TD>	'+
+'		</TR>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT">6 комнатные</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="RIGHT">{total_count_6_rooms}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{total_area_6r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{avg_area_6r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_6r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_6r}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_6r_wo_unheat}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_6r_wo_unheat}</TD>	'+
+'		</TR>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT">многокомнотные</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="RIGHT">{total_count_n_rooms}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{total_area_n_room}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{avg_area_n_room}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_n_room}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_n_room}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_n_wo_unheat}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_n_wo_unheat}</TD>	'+
+'		</TR>	'+
+'		<TR>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT">студии</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="RIGHT">{total_count_studio}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{total_area_studio}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{avg_area_studio}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_studio}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_studio}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{min_area_st_wo_unheat}</TD>	'+
+'		<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="LEFT">{max_area_st_wo_unheat}</TD>	'+
+'		</TR>	'+
+'		</TABLE>	'+
+'</tpl>';
 
 var infrastructure_tpl ='<tpl for="."><font size="2"><table>'+
 '<tr><td><b>total_area_all_flats</b></td><td>{total_area_all_flats}</td></tr>'+

@@ -8,7 +8,7 @@
 
 require_once('../dbconn.php');
 
-$table_name ="rrb_apartment_comlex";
+$table_name ="rrb_housing_flat_info";
 
 /*sql creator*/
  $php_part_1="";
