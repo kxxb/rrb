@@ -125,7 +125,8 @@ Quantity_object_3	,
 Quantity_object_4	,
 Quantity_object_5	,
 Quantity_object_6	,
-Quantity_object_mnogo	
+Quantity_object_mnogo	,
+INFR_TYPE
 
 
  
@@ -254,7 +255,9 @@ $v_Quantity_object_3	,
 $v_Quantity_object_4	,
 $v_Quantity_object_5	,
 $v_Quantity_object_6	,
-$v_Quantity_object_mnogo	
+$v_Quantity_object_mnogo,
+
+$INFR_TYPE
                 
                
                 
@@ -263,8 +266,6 @@ $v_Quantity_object_mnogo
        
         
          
-        $k = 1;
-        $h = 1;
         while (mysqli_stmt_fetch($stmt)) {
             
             //$p_connect = conn();
@@ -300,7 +301,7 @@ $v_Quantity_object_mnogo
             $p_OBJECTID_in_file = $v_id; 
             
             /*specification*/
-           /* 
+            
             $p_number_of_sections= $v_SECTION_COUNT;
             $p_type_of_building = get_hndb_key($p_connect, 15, $v_TYPE_DEVELOP);
             $p_total_land_area = $v_AREA_DEV;
@@ -327,7 +328,7 @@ $v_Quantity_object_mnogo
             $p_territory_fencing_id = get_hndb_key($p_connect, 5, $v_FENCE);
             $p_security_id = get_hndb_key($p_connect, 7, $v_SECURITY);
 
-            */
+           
             /*flat info */
             $p_total_area_all_flats		=		$v_AREA_OBJECT	;
 $p_total_area_studio		=		$v_AREA_OBJECT_STUDIO	;
@@ -392,13 +393,14 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
             
             
             if ($triger_name == $p_complex_name){
-                $h++;
+                $k = get_appartment_id($p_connect, $p_complex_name);
+                $h  = get_housing_id($p_connect, $p_name);
                 $v_result = $v_result."<hr>$k";
                 $v_result = $v_result."triger_name=$triger_name<BR>";
                 $v_result = $v_result."p_complex_name=$p_complex_name<BR>";
                 $v_result = $v_result."p_name=$p_name<BR>";
                 
-                /*
+                
                  $v_result =$v_result."<br>uid_rrb_housing =". uid_rrb_housing($p_connect, 
                          $h, $p_name, $p_corpse_number, $k, 
                          $p_last_user_id, $p_date_rec, $p_mode);
@@ -412,6 +414,7 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
                                 $p_dirrection_id, 
                                 $p_last_user_id, $p_date_rec, $p_mode);
                  
+                 
                  $v_result =$v_result. "<br>uid_rrb_housing_specification =".uid_rrb_housing_specification($p_connect, 
                                 $p_id, $p_number_of_sections, $p_type_of_building, $p_total_land_area,
                                 $p_total_floor_area, $p_land_area_build, $p_bearing_material_tech,
@@ -422,7 +425,7 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
                                 $p_num_of_parking_place, $p_num_of_Elevator, $p_estimated_cost_construction, 
                                 $p_territory_fencing_id, $p_security_id, 
                                 $p_last_user_id, $p_date_rec,$h, $p_mode);
-                 */
+                 
                  
                  $v_result =$v_result. "<br>uid_rrb_housing_flat_info =".  uid_rrb_housing_flat_info(
                                $p_connect, $p_id, $p_last_user_id, $p_date_rec, 
@@ -444,16 +447,21 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
                                $p_total_count_5_rooms, $p_total_count_6_rooms, $p_total_count_n_rooms, 
                                $h, $p_mode);
                  
-                
+                 $v_result =$v_result. "<br>uid_rrb_housing_infrastructure =".ui_infr_type(
+                         $p_connect, $INFR_TYPE, $p_id, $p_last_user_id, $p_date_rec, $h, $p_mode);
+                         
+                 
+               
             }else{
-                $k++;
-                $h++;
+                $k = get_appartment_id($p_connect, $p_complex_name);
+                $h  = get_housing_id($p_connect, $p_name);
                 $v_result = $v_result."<hr>$k";
+                $v_result = $v_result."zahod v else";
                 $v_result = $v_result."triger_name=$triger_name<BR>";
                 $v_result = $v_result."p_complex_name=$p_complex_name<BR>";
                 $v_result = $v_result."p_name=$p_name<BR>";
                 
-                /*$v_result = $v_result."<br>uid_rrb_apartment_comlex =". uid_rrb_apartment_comlex($p_connect,
+                $v_result = $v_result."<br>uid_rrb_apartment_comlex =". uid_rrb_apartment_comlex($p_connect,
                     $k, $p_complex_name, $p_last_user_id, $p_date_rec, $p_mode);
              
      
@@ -461,6 +469,7 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
                  $v_result =$v_result."<br>uid_rrb_housing =". uid_rrb_housing($p_connect, 
                          $h, $p_name, $p_corpse_number, $k, 
                          $p_last_user_id, $p_date_rec, $p_mode);
+                 
                  
                  
                  
@@ -485,7 +494,7 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
                                 $p_territory_fencing_id, $p_security_id, 
                                 $p_last_user_id, $p_date_rec,$h, $p_mode);
                         
-                        */
+                        
                         $v_result =$v_result. "<br>uid_rrb_housing_flat_info =".  uid_rrb_housing_flat_info($p_connect, 
                                $p_id, $p_last_user_id, $p_date_rec, $p_total_area_all_flats, $p_total_area_studio, 
                                $p_total_area_1rooms, $p_total_area_2rooms, $p_total_area_3rooms, $p_total_area_4rooms, 
@@ -505,8 +514,11 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
                                $p_total_count_5_rooms, $p_total_count_6_rooms, $p_total_count_n_rooms, 
                                $h, $p_mode);
                         
-                        $triger_name = $p_complex_name;
+                        $v_result =$v_result. "<br>uid_rrb_housing_infrastructure =".ui_infr_type(
+                         $p_connect, $INFR_TYPE, $p_id, $p_last_user_id, $p_date_rec, $h, $p_mode);
+                         
                         
+                        $triger_name = $p_complex_name;
                         
         }
         
@@ -518,6 +530,112 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
        
         return $v_result;  
 
+ }
+ 
+ 
+ function ui_infr_type ($p_connect,$INFR_TYPE, $p_id, $p_last_user_id, $p_date_rec, $p_rrb_housing_id, $p_mode){
+      $v_result ="uid_rrb_housing_infrastructure";
+         $tmp = explode(",", $INFR_TYPE); 
+
+        for ($k = 0, $j = count($tmp); $k < $j; $k++) {
+            
+            $p_type_of_infrastructure_id =  get_hndb_key_w_like($p_connect, 16, trim($tmp[$k]));
+            $p_id = get_infr_id_by_housing($p_connect, $p_type_of_infrastructure_id, $p_rrb_housing_id);
+            $v_result = $v_result. uid_rrb_housing_infrastructure(
+                         $p_connect, $p_id, $p_last_user_id, $p_date_rec,
+                         $p_type_of_infrastructure_id, $p_rrb_housing_id, $p_mode);
+        }
+     return $v_result;
+ }
+ 
+ function get_infr_id_by_housing($p_connect, $p_type_of_infrastructure_id, $p_rrb_housing_id){
+      
+     
+     
+     $output =0;
+    $query_ui = "CALL get_infr_id(?,?,@output);";
+    $p_connect->query("SET NAMES 'cp1251'");
+    //$p_connect->query("SET NAMES 'utf8'");
+    $stmt = $p_connect->prepare($query_ui);
+    mysqli_stmt_bind_param($stmt, "ii",$p_type_of_infrastructure_id, $p_rrb_housing_id);
+    if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "{success:false,errors:{reason:'Ошибка выполнения процедуры MySql!'}}";
+    }
+    $stmt = $p_connect->prepare('SELECT @output ');
+    if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_store_result($stmt);
+        mysqli_stmt_bind_result($stmt, $output);
+        while (mysqli_stmt_fetch($stmt)) {
+            
+        }
+        
+        mysqli_stmt_close($stmt);
+    } else {
+        $v_result = "{success:false,errors:{reason:'Ошибка выполнения результирующего запроса MySql!'}}";
+    }
+    return $output;
+     
+     
+     
+ }
+ 
+ 
+ 
+ 
+ function get_appartment_id($p_connect, $p_complex_name){
+    $output =0;
+    $query_ui = "CALL get_apart_id(?,@output);";
+    $p_connect->query("SET NAMES 'cp1251'");
+    //$p_connect->query("SET NAMES 'utf8'");
+    $stmt = $p_connect->prepare($query_ui);
+    mysqli_stmt_bind_param($stmt, "s",  $p_complex_name);
+    if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "{success:false,errors:{reason:'Ошибка выполнения процедуры MySql!'}}";
+    }
+    $stmt = $p_connect->prepare('SELECT @output ');
+    if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_store_result($stmt);
+        mysqli_stmt_bind_result($stmt, $output);
+        while (mysqli_stmt_fetch($stmt)) {
+            
+        }
+        
+        mysqli_stmt_close($stmt);
+    } else {
+        $v_result = "{success:false,errors:{reason:'Ошибка выполнения результирующего запроса MySql!'}}";
+    }
+    return $output;
+ }
+ 
+ function get_housing_id($p_connect, $p_name){
+       $output =0;
+    $query_ui = "CALL get_housing_id(?,@output);";
+    $p_connect->query("SET NAMES 'cp1251'");
+    //$p_connect->query("SET NAMES 'utf8'");get_apart_id
+    $stmt = $p_connect->prepare($query_ui);
+    mysqli_stmt_bind_param($stmt, "s",  $p_name);
+    if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "{success:false,errors:{reason:'Ошибка выполнения процедуры MySql!'}}";
+    }
+    $stmt = $p_connect->prepare('SELECT @output ');
+    if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_store_result($stmt);
+        mysqli_stmt_bind_result($stmt, $output);
+        while (mysqli_stmt_fetch($stmt)) {
+            
+        }
+        
+        mysqli_stmt_close($stmt);
+    } else {
+        $v_result = "{success:false,errors:{reason:'Ошибка выполнения результирующего запроса MySql!'}}";
+    }
+    return $output;
  }
  
  echo data_pump(conn());

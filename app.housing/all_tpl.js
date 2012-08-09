@@ -151,8 +151,8 @@ var flatinfo_tpl ='<tpl for=".">'+
 '</tpl>';
 
 var infrastructure_tpl ='<tpl for="."><font size="2"><table>'+
-'<tr><td><b>total_area_all_flats</b></td><td>{total_area_all_flats}</td></tr>'+
-'<tr><td><b>total_area_studio</b></td><td>{total_area_studio}</td></tr>'+
+'<tr><td><b>Тип инфраструктуры: </b></td><td>{type_of_infrastructure_name}</td></tr>'+
+
 '</table></font></tpl>';
 
 var ipoteka_banks_tpl ='<tpl for=".">'
@@ -237,6 +237,7 @@ var investor_tpl ='<tpl for=".">	<TABLE CELLSPACING="0" COLS="2" BORDER="0">	'
 +'		<TD ALIGN="LEFT">{commissioning_num}</TD>	'
 +'		</TR>	'
 +'		</TABLE>	</tpl>';
+
 var finance_tpl ='<tpl for=".">'
 +'	<TABLE CELLSPACING="0" COLS="2" BORDER="0">		'
 +'		<COLGROUP WIDTH="455"></COLGROUP>	'
@@ -428,5 +429,6 @@ var finance_tpl ='<tpl for=".">'
 var comercial_tpl ='<tpl for=".">'
 
                         +'</tpl>';
+
 var flats_tpl ='<tpl for=".">'
                         +'</tpl>';

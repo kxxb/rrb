@@ -33,6 +33,13 @@ var rrb_housing_infrastructureStore = new Ext.data.JsonStore({
         mapping:'rrb_housing_id', 
         type: 'string'
     }
+    ,{
+        name: 'type_of_infrastructure_name', 
+        mapping:'type_of_infrastructure_name', 
+        type: 'string'
+    }
+    
+    
     ],
     proxy: new Ext.data.ScriptTagProxy({
         url: '../helper/app.housing/infrastructure_select.php'
