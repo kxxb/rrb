@@ -17,38 +17,41 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
                 ,loadMask:true
                 ,split: true
                 ,anchor:'100%'
+                ,plugins: expander
+                ,collapsible: true
+                ,animCollapse: false
                 
-                ,tbar:[
-                  '-'
-                ,{
-                 text: 'Новый '
-                 ,tooltip: 'Новый '
-                 ,iconCls:'silk-add'
-                 ,handler: function(){
-                     /*вызываю функцию(объект),
-                      *у которой область видимости
-                      *такая же что и у тулбара.
-                      *То есть тулбар и функция находяться на одном уровне видимости
-                      **/
-                   gridAddtBt.call()
-                 }
-                }
-                ,'-'
-                ,{
-                 text: 'Редактировать'
-                 ,tooltip: 'Редактировать'
-                 ,iconCls:'silk-application-view-list'
-                 ,handler: function(){
-                     /*вызываю функцию(объект),
-                      *у которой область видимости
-                      *такая же что и у тулбара.
-                      *То есть тулбар и функция находяться на одном уровне видимости
-                      **/
-                   gridEditBt.call()
-                 }
-               }
-               ,'-'
-                ]
+//                ,tbar:[
+//                  '-'
+//                ,{
+//                 text: 'Новый '
+//                 ,tooltip: 'Новый '
+//                 ,iconCls:'silk-add'
+//                 ,handler: function(){
+//                     /*вызываю функцию(объект),
+//                      *у которой область видимости
+//                      *такая же что и у тулбара.
+//                      *То есть тулбар и функция находяться на одном уровне видимости
+//                      **/
+//                   gridAddtBt.call()
+//                 }
+//                }
+//                ,'-'
+//                ,{
+//                 text: 'Редактировать'
+//                 ,tooltip: 'Редактировать'
+//                 ,iconCls:'silk-application-view-list'
+//                 ,handler: function(){
+//                     /*вызываю функцию(объект),
+//                      *у которой область видимости
+//                      *такая же что и у тулбара.
+//                      *То есть тулбар и функция находяться на одном уровне видимости
+//                      **/
+//                   gridEditBt.call()
+//                 }
+//               }
+//               ,'-'
+//                ]
                 
             };
 
@@ -111,19 +114,19 @@ Ext.reg('HousingGrid', app.HousingGrid);
 
 
 var ColsHousing =  [
-                    
+                  expander, 
                   {
-                    header: 'Название Корпуса',
+                    header: 'Идентфикатор комплекса',
                     readOnly: true,
-                    dataIndex: 'name', // this is where the mapped name is important!
-                    width: 450,
+                    dataIndex: 'id', // this is where the mapped name is important!
+                    width: 250,
                     sortable: true,
                     hidden: false
                   },{
-                    header: 'Номер корпуса',
+                    header: 'Комплекс',
                     readOnly: true,
-                    dataIndex: 'corpse_number', // this is where the mapped name is important!
-                    width: 150,
+                    dataIndex: 'complex_name', // this is where the mapped name is important!
+                    width: 550,
                     sortable: true,
                     hidden: false
                   }
@@ -144,4 +147,18 @@ proxy: new Ext.data.ScriptTagProxy({
 url: '../helper/app.housing/housing_select.php'
 })
 });
-                  
+       
+       
+     
+var rrb_komplex_store = new Ext.data.JsonStore({
+root: 'results',
+fields: [
+ //{name: 'id', mapping:'id', type: 'string'}
+ {name: 'complex_name', mapping:'complex_name', type: 'string'}
+,{name: 'name', mapping:'name', type: 'string'}
+,{name: 'corpse_number', mapping:'corpse_number', type: 'string'}
+],
+proxy: new Ext.data.ScriptTagProxy({
+url: '../helper/app.komplex/komplex_select.php'
+})
+});

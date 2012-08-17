@@ -21,6 +21,7 @@ if ($user_id != null) {
             <title>
                 <? echo $C_PROJECT_NAME; ?> - komplex    
             </title>
+            
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
             <!-- ** CSS ** -->
@@ -31,16 +32,23 @@ if ($user_id != null) {
 
             <!-- ** Javascript ** -->
             <!-- base library -->
-
+ <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"
+            type="text/javascript"></script>
+            
 
             <script type="text/javascript" src="../js/ext-3.2.1/adapter/ext/ext-base.js"></script>
             <script type="text/javascript" src="../js/ext-3.2.1/ext-all-debug-w-comments.js"></script>
+            <script type="text/javascript" src="../js/ext-3.2.1/ux/RowExpander.js"></script>
 
             
+           
+            
+   
+            <script type="text/javascript" src="app.maps.js"></script>
+    
             <script type="text/javascript" src="app.root.js"></script>
-            
             <script type="text/javascript" src="housing_grid.js"></script>
-            
+           
             <script language="javascript" >
                 gUserId = <?echo $user_id?>;
                 
@@ -66,15 +74,17 @@ if ($user_id != null) {
                      var viewport = new Ext.Viewport({
                          layout: 'border',
                          renderTo: Ext.getBody(),
-                         items: [{
+                         items: [
+                             {
                                  region: 'north',
                                  xtype: 'panel',
                                  height:28,
                                  tbar:tb
-                             }// eof    region: 'north',
-                             ,{region: 'center'
+                             },// eof    region: 'north',
+                             {region: 'center'
                                  /*здесь будут все табы*/
                                  ,xtype :'komplex_root'
+                                 
                                  
                                  
                         
@@ -95,8 +105,7 @@ if ($user_id != null) {
             
             </script>
 
-            
-
+   
 
         </head>   
         <body>   

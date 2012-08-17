@@ -183,7 +183,17 @@ $p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_contract_type_id, $p_leasing
     //$p_connect->query($C_MYSQL_SET_NAMES);
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iisiisisssssssssssssssssssssssssssssssssiisssissis", $p_id, $p_last_user_id, $p_date_rec, $p_contract_type_id, $p_leasing_id, $p_leasing_conditions, $p_ipoteka_id, $p_ipoteka_conditions, $p_min_price, $p_avg_unit_price, $p_max_price, $p_avg_unit_price_1r, $p_avg_unit_price_2r, $p_avg_unit_price_3r, $p_avg_unit_price_4r, $p_avg_unit_price_5r, $p_avg_unit_price_6r, $p_avg_unit_price_nr, $p_total_flats_sale, $p_total_1r_flats_sale, $p_total_2r_flats_sale, $p_total_3r_flats_sale, $p_total_4r_flats_sale, $p_total_5r_flats_sale, $p_total_6r_flats_sale, $p_total_nr_flats_sale, $p_koefficent, $p_rates_sales_quarterly, $p_rates_sales_from_start, $p_avg_area_of_flat, $p_tot_area_flat_in_offer, $p_total_whole_price_in_offer, $p_tot_area_1r_flat_offer, $p_total_1r_whole_price_offer, $p_tot_area_2r_flat_offer, $p_total_2r_whole_price_offer, $p_tot_area_3r_flat_offer, $p_total_3r_whole_price_offer, $p_tot_area_nr_flat_offer, $p_total_nr_whole_price_offer, $p_quotas_id, $p_update_category_id, $p_info_source, $p_collect_information_dt, $p_report_on_phase_dt, $p_impl_status_id, $p_input_in_db_dt, $p_comment_txt, $p_rrb_housing_id,  $p_mode
+    mysqli_stmt_bind_param($stmt, "iisiisisssssssssssssssssssssssssssssssssiisssissis", 
+            $p_id, $p_last_user_id, $p_date_rec, $p_contract_type_id, $p_leasing_id, 
+            $p_leasing_conditions, $p_ipoteka_id, $p_ipoteka_conditions, $p_min_price, $p_avg_unit_price, 
+            $p_max_price, $p_avg_unit_price_1r, $p_avg_unit_price_2r, $p_avg_unit_price_3r, $p_avg_unit_price_4r, 
+            $p_avg_unit_price_5r, $p_avg_unit_price_6r, $p_avg_unit_price_nr, $p_total_flats_sale, $p_total_1r_flats_sale,
+            $p_total_2r_flats_sale, $p_total_3r_flats_sale, $p_total_4r_flats_sale, $p_total_5r_flats_sale, $p_total_6r_flats_sale, 
+            $p_total_nr_flats_sale, $p_koefficent, $p_rates_sales_quarterly, $p_rates_sales_from_start, $p_avg_area_of_flat, 
+            $p_tot_area_flat_in_offer, $p_total_whole_price_in_offer, $p_tot_area_1r_flat_offer, $p_total_1r_whole_price_offer, $p_tot_area_2r_flat_offer, 
+            $p_total_2r_whole_price_offer, $p_tot_area_3r_flat_offer, $p_total_3r_whole_price_offer, $p_tot_area_nr_flat_offer, $p_total_nr_whole_price_offer, 
+            $p_quotas_id, $p_update_category_id, $p_info_source, $p_collect_information_dt, $p_report_on_phase_dt, 
+            $p_impl_status_id, $p_input_in_db_dt, $p_comment_txt, $p_rrb_housing_id,  $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);

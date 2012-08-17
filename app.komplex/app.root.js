@@ -16,9 +16,10 @@ app.rootKomplex =  Ext.extend(
         initComponent: function(){
 
            var config = {xtype:'panel'
-                         ,border: false
+                         ,border: true
                          ,layout:'border'
                          ,items:[
+                             
                                 {  xtype:'panel'
                                   ,region:'north'
                                   ,height:150
@@ -29,6 +30,13 @@ app.rootKomplex =  Ext.extend(
                                            ,height:150
                                           }]
                                 }
+                                ,{xtype:'map_panel'
+                                      //, height: 150   
+                                      ,region: 'center'
+                                      //,title:'Спецификация'  
+                                       }
+                                
+                                
                                 
                               
                            ]
@@ -42,10 +50,52 @@ app.rootKomplex =  Ext.extend(
             var v_id =null;
             var v_grid_data;
             var v_grid_handbook_data;
+            var grid =  this.items.itemAt(0);
+            var map =  this.items.itemAt(1);
               
             
 //rrb_housingStore.reload({params: {h_id:  5}});
-
+      var gridAddtBt = function(){
+            /*Запускаю своё событие, от кнопки с тулбара*/
+         //Ext.Msg.alert('Success','node  ');
+          addTab();
+        }
+      gridAddtBt = gridAddtBt.createDelegate(this);
+      
+      
+//      var coords = [55.802539787861406, 37.84515313804151];
+//     
+//       
+//                
+//            map.balloon.open(
+//                // Позиция балуна
+//                [55.76, 37.64], {
+//                    // Свойства балуна
+//                    contentBody: 'Москва'
+//                }, {
+//                    // Опции балуна. В данном примере указываем, что балун не должен иметь кнопку закрытия.
+//                    closeButton: false
+//                });
+//      
+      
+      //tabs.update();
+      
+      function addTab(){
+        index = 1;  
+        tabs.add({
+            title: 'New Tab ' + (++index),
+            iconCls: 'tabs',
+//            html: 'Tab Body ' + (index) + '<br/><br/>'
+//                    + 'Ext.example.bogusMarkup',
+            items:[  
+                                            {xtype:'panel'
+                                             
+                                             ,html: 'Tab Body '
+                                          }
+                                    ]
+            ,closable:true
+        }).show();
+    }
 
 
    }
@@ -54,3 +104,12 @@ app.rootKomplex =  Ext.extend(
 Ext.reg('komplex_root', app.rootKomplex);
 
 
+ var expander = new Ext.ux.grid.RowExpander({
+        tpl : new Ext.Template(
+            '<hr>', 
+            '<p> {name} - {corpse_number}</p>'
+        )
+    });
+    
+    
+    

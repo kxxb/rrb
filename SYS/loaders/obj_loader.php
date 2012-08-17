@@ -126,7 +126,54 @@ Quantity_object_4	,
 Quantity_object_5	,
 Quantity_object_6	,
 Quantity_object_mnogo	,
-INFR_TYPE
+INFR_TYPE,
+
+CONTRACT_TYPE	,
+0 as INSTALLMENT_PLAN_ID	,
+INSTALLMENT_PLAN	,
+MORTGAGE	,
+MORTGAGE	,
+Price_min_object	,
+Price_avg_object	,
+Price_max_object	,
+Price_avg_1	,
+Price_avg_2	,
+Price_avg_3	,
+Price_avg_4	,
+Price_avg_5	,
+Price_avg_6	,
+Price_avg_mnogo	,
+Quantity_sell_object	,
+Quantity_sell_1	,
+Quantity_sell_2	,
+Quantity_sell_3	,
+Quantity_sell_4	,
+Quantity_sell_5	,
+Quantity_sell_6	,
+total_n_rooms	,
+koefficent	,
+sale_temp_kavrtal	,
+sale_temp_from_start	,
+avg_flat_area	,
+total_area_offer	,
+total_whoole_price	,
+total_area_offer_1r	,
+total_wh_price_1r	,
+total_area_offer_2r	,
+total_wh_price_2r	,
+total_area_offer_3r	,
+total_wh_price_3r	,
+total_area_offer_nr	,
+total_wh_price_nr	,
+quotas	,
+update_category	,
+SOURCE_DESC	,
+DATE_RESEARCH	,
+DATE_IN_BASE	,
+SALE_STATUS	,
+insert_date	,
+comment_text	
+
 
 
  
@@ -257,7 +304,54 @@ $v_Quantity_object_5	,
 $v_Quantity_object_6	,
 $v_Quantity_object_mnogo,
 
-$INFR_TYPE
+$INFR_TYPE,
+                
+$CONTRACT_TYPE,
+$INSTALLMENT_PLAN_ID,
+$INSTALLMENT_PLAN,
+$MORTGAGE,
+$MORTGAGE,
+$Price_min_object,
+$Price_avg_object,
+$Price_max_object,
+$Price_avg_1,
+$Price_avg_2,
+$Price_avg_3,
+$Price_avg_4,
+$Price_avg_5,
+$Price_avg_6,
+$Price_avg_mnogo,
+$Quantity_sell_object,
+$Quantity_sell_1,
+$Quantity_sell_2,
+$Quantity_sell_3,
+$Quantity_sell_4,
+$Quantity_sell_5,
+$Quantity_sell_6,
+$total_n_rooms,
+$koefficent,
+$sale_temp_kavrtal,
+$sale_temp_from_start,
+$avg_flat_area,
+$total_area_offer,
+$total_whoole_price,
+$total_area_offer_1r,
+$total_wh_price_1r,
+$total_area_offer_2r,
+$total_wh_price_2r,
+$total_area_offer_3r,
+$total_wh_price_3r,
+$total_area_offer_nr,
+$total_wh_price_nr,
+$quotas,
+$update_category,
+$SOURCE_DESC,
+$DATE_RESEARCH,
+$DATE_IN_BASE,
+$SALE_STATUS,
+$insert_date,
+$comment_text
+                
                 
                
                 
@@ -331,63 +425,110 @@ $INFR_TYPE
            
             /*flat info */
             $p_total_area_all_flats		=		$v_AREA_OBJECT	;
-$p_total_area_studio		=		$v_AREA_OBJECT_STUDIO	;
-$p_total_area_1rooms		=		$v_AREA_OBJECT_1	;
-$p_total_area_2rooms		=		$v_AREA_OBJECT_2	;
-$p_total_area_3rooms		=		$v_AREA_OBJECT_3	;
-$p_total_area_4rooms		=		$v_AREA_OBJECT_4	;
-$p_total_area_5rooms		=		$v_AREA_OBJECT_5	;
-$p_total_area_6rooms		=		$v_AREA_OBJECT_6	;
-$p_avg_area_studio		=		$v_arae_studio_avg	;
-$p_min_area_studio		=		$v_AREA_OBJECT_STUDIO_MIN	;
-$p_max_area_studio		=		$v_AREA_OBJECT_STUDIO_MAX	;
-$p_min_area_st_wo_unheat		=		$v_AREA_OBJECT_STUDIO_NOT_HEAT_MIN	;
-$p_max_area_st_wo_unheat		=		$v_AREA_OBJECT_STUDIO_NOT_HEAT_MAX	;
-$p_avg_area_1r		=		$v_Area_object_1_av	;
-$p_min_area_1r		=		$v_AREA_OBJECT_1_MIN	;
-$p_max_area_1r		=		$v_AREA_OBJECT_1_MAX	;
-$p_min_area_1r_wo_unheat		=		$v_AREA_OBJECT_1_NOT_HEAT_MIN	;
-$p_max_area_1r_wo_unheat		=		$v_AREA_OBJECT_1_NOT_HEAT_MAX	;
-$p_avg_area_2r		=		$v_Area_object_2_av	;
-$p_min_area_2r		=		$v_AREA_OBJECT_2_MIN	;
-$p_max_area_2r		=		$v_AREA_OBJECT_2_MAX	;
-$p_min_area_2r_wo_unheat		=		$v_AREA_OBJECT_2_NOT_HEAT_MIN	;
-$p_max_area_2r_wo_unheat		=		$v_AREA_OBJECT_2_NOT_HEAT_MAX	;
-$p_avg_area_3r		=		$v_Area_object_3_av	;
-$p_min_area_3r		=		$v_AREA_OBJECT_3_MIN	;
-$p_max_area_3r		=		$v_AREA_OBJECT_3_MAX	;
-$p_min_area_3r_wo_unheat		=		$v_AREA_OBJECT_3_NOT_HEAT_MIN	;
-$p_max_area_3r_wo_unheat		=		$v_AREA_OBJECT_3_NOT_HEAT_MAX	;
-$p_avg_area_4r		=		$v_Area_object_4_av	;
-$p_min_area_4r		=		$v_AREA_OBJECT_4_MIN	;
-$p_max_area_4r		=		$v_AREA_OBJECT_4_MAX	;
-$p_min_area_4r_wo_unheat		=		$v_AREA_OBJECT_4_NOT_HEAT_MIN	;
-$p_max_area_4r_wo_unheat		=		$v_AREA_OBJECT_4_NOT_HEAT_MAX	;
-$p_avg_area_5r		=		$v_Area_object_5_av	;
-$p_min_area_5r		=		$v_AREA_OBJECT_5_MIN	;
-$p_max_area_5r		=		$v_AREA_OBJECT_5_MAX	;
-$p_min_area_5r_wo_unheat		=		$v_AREA_OBJECT_5_NOT_HEAT_MIN	;
-$p_max_area_5r_wo_unheat		=		$v_AREA_OBJECT_5_NOT_HEAT_MAX	;
-$p_avg_area_6r		=		$v_Area_object_6_av	;
-$p_min_area_6r		=		$v_AREA_OBJECT_6_MIN	;
-$p_max_area_6r		=		$v_AREA_OBJECT_6_MAX	;
-$p_min_area_6r_wo_unheat		=		$v_AREA_OBJECT_6_NOT_HEAT_MIN	;
-$p_max_area_6r_wo_unheat		=		$v_AREA_OBJECT_6_NOT_HEAT_MAX	;
-$p_avg_area_n_room		=		$v_Area_object_mnogo_av	;
-$p_min_area_n_room		=		$v_Area_object_mnogo_min	;
-$p_max_area_n_room		=		$v_Area_object_mnogo_max	;
-$p_min_area_n_wo_unheat		=		$v_Area_object_mnogo_wo_h_min	;
-$p_max_area_n_wo_unheat		=		$v_Area_object_mnogo_wo_h_max	;
-$p_total_area_n_rooms		=		$v_Area_object_mnogo	;
-$p_total_count_all_flats		=		$v_Quantity_object	;
-$p_total_count_studio		=		$v_QUANTITY_OBJECT_STUDIO	;
-$p_total_count_1_rooms		=		$v_Quantity_object_1	;
-$p_total_count_2_rooms		=		$v_Quantity_object_2	;
-$p_total_count_3_rooms		=		$v_Quantity_object_3	;
-$p_total_count_4_rooms		=		$v_Quantity_object_4	;
-$p_total_count_5_rooms		=		$v_Quantity_object_5	;
-$p_total_count_6_rooms		=		$v_Quantity_object_6	;
-$p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
+            $p_total_area_studio		=		$v_AREA_OBJECT_STUDIO	;
+            $p_total_area_1rooms		=		$v_AREA_OBJECT_1	;
+            $p_total_area_2rooms		=		$v_AREA_OBJECT_2	;
+            $p_total_area_3rooms		=		$v_AREA_OBJECT_3	;
+            $p_total_area_4rooms		=		$v_AREA_OBJECT_4	;
+            $p_total_area_5rooms		=		$v_AREA_OBJECT_5	;
+            $p_total_area_6rooms		=		$v_AREA_OBJECT_6	;
+            $p_avg_area_studio		=		$v_arae_studio_avg	;
+            $p_min_area_studio		=		$v_AREA_OBJECT_STUDIO_MIN	;
+            $p_max_area_studio		=		$v_AREA_OBJECT_STUDIO_MAX	;
+            $p_min_area_st_wo_unheat		=		$v_AREA_OBJECT_STUDIO_NOT_HEAT_MIN	;
+            $p_max_area_st_wo_unheat		=		$v_AREA_OBJECT_STUDIO_NOT_HEAT_MAX	;
+            $p_avg_area_1r		=		$v_Area_object_1_av	;
+            $p_min_area_1r		=		$v_AREA_OBJECT_1_MIN	;
+            $p_max_area_1r		=		$v_AREA_OBJECT_1_MAX	;
+            $p_min_area_1r_wo_unheat		=		$v_AREA_OBJECT_1_NOT_HEAT_MIN	;
+            $p_max_area_1r_wo_unheat		=		$v_AREA_OBJECT_1_NOT_HEAT_MAX	;
+            $p_avg_area_2r		=		$v_Area_object_2_av	;
+            $p_min_area_2r		=		$v_AREA_OBJECT_2_MIN	;
+            $p_max_area_2r		=		$v_AREA_OBJECT_2_MAX	;
+            $p_min_area_2r_wo_unheat		=		$v_AREA_OBJECT_2_NOT_HEAT_MIN	;
+            $p_max_area_2r_wo_unheat		=		$v_AREA_OBJECT_2_NOT_HEAT_MAX	;
+            $p_avg_area_3r		=		$v_Area_object_3_av	;
+            $p_min_area_3r		=		$v_AREA_OBJECT_3_MIN	;
+            $p_max_area_3r		=		$v_AREA_OBJECT_3_MAX	;
+            $p_min_area_3r_wo_unheat		=		$v_AREA_OBJECT_3_NOT_HEAT_MIN	;
+            $p_max_area_3r_wo_unheat		=		$v_AREA_OBJECT_3_NOT_HEAT_MAX	;
+            $p_avg_area_4r		=		$v_Area_object_4_av	;
+            $p_min_area_4r		=		$v_AREA_OBJECT_4_MIN	;
+            $p_max_area_4r		=		$v_AREA_OBJECT_4_MAX	;
+            $p_min_area_4r_wo_unheat		=		$v_AREA_OBJECT_4_NOT_HEAT_MIN	;
+            $p_max_area_4r_wo_unheat		=		$v_AREA_OBJECT_4_NOT_HEAT_MAX	;
+            $p_avg_area_5r		=		$v_Area_object_5_av	;
+            $p_min_area_5r		=		$v_AREA_OBJECT_5_MIN	;
+            $p_max_area_5r		=		$v_AREA_OBJECT_5_MAX	;
+            $p_min_area_5r_wo_unheat		=		$v_AREA_OBJECT_5_NOT_HEAT_MIN	;
+            $p_max_area_5r_wo_unheat		=		$v_AREA_OBJECT_5_NOT_HEAT_MAX	;
+            $p_avg_area_6r		=		$v_Area_object_6_av	;
+            $p_min_area_6r		=		$v_AREA_OBJECT_6_MIN	;
+            $p_max_area_6r		=		$v_AREA_OBJECT_6_MAX	;
+            $p_min_area_6r_wo_unheat		=		$v_AREA_OBJECT_6_NOT_HEAT_MIN	;
+            $p_max_area_6r_wo_unheat		=		$v_AREA_OBJECT_6_NOT_HEAT_MAX	;
+            $p_avg_area_n_room		=		$v_Area_object_mnogo_av	;
+            $p_min_area_n_room		=		$v_Area_object_mnogo_min	;
+            $p_max_area_n_room		=		$v_Area_object_mnogo_max	;
+            $p_min_area_n_wo_unheat		=		$v_Area_object_mnogo_wo_h_min	;
+            $p_max_area_n_wo_unheat		=		$v_Area_object_mnogo_wo_h_max	;
+            $p_total_area_n_rooms		=		$v_Area_object_mnogo	;
+            $p_total_count_all_flats		=		$v_Quantity_object	;
+            $p_total_count_studio		=		$v_QUANTITY_OBJECT_STUDIO	;
+            $p_total_count_1_rooms		=		$v_Quantity_object_1	;
+            $p_total_count_2_rooms		=		$v_Quantity_object_2	;
+            $p_total_count_3_rooms		=		$v_Quantity_object_3	;
+            $p_total_count_4_rooms		=		$v_Quantity_object_4	;
+            $p_total_count_5_rooms		=		$v_Quantity_object_5	;
+            $p_total_count_6_rooms		=		$v_Quantity_object_6	;
+            $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
+
+            /*finance*/
+            $p_contract_type_id = 	get_hndb_key($p_connect, 14, $CONTRACT_TYPE);
+            $p_leasing_id = 	$INSTALLMENT_PLAN_ID;
+            $p_leasing_conditions = 	$INSTALLMENT_PLAN;
+            $p_ipoteka_id = 	get_hndb_key($p_connect, 2, $MORTGAGE);
+            $p_ipoteka_conditions = 	$MORTGAGE;
+            $p_min_price = 	$Price_min_object;
+            $p_avg_unit_price = 	$Price_avg_object;
+            $p_max_price = 	$Price_max_object;
+            $p_avg_unit_price_1r = 	$Price_avg_1;
+            $p_avg_unit_price_2r = 	$Price_avg_2;
+            $p_avg_unit_price_3r = 	$Price_avg_3;
+            $p_avg_unit_price_4r = 	$Price_avg_4;
+            $p_avg_unit_price_5r = 	$Price_avg_5;
+            $p_avg_unit_price_6r = 	$Price_avg_6;
+            $p_avg_unit_price_nr = 	$Price_avg_mnogo;
+            $p_total_flats_sale = 	$Quantity_sell_object;
+            $p_total_1r_flats_sale = 	$Quantity_sell_1;
+            $p_total_2r_flats_sale = 	$Quantity_sell_2;
+            $p_total_3r_flats_sale = 	$Quantity_sell_3;
+            $p_total_4r_flats_sale = 	$Quantity_sell_4;
+            $p_total_5r_flats_sale = 	$Quantity_sell_5;
+            $p_total_6r_flats_sale = 	$Quantity_sell_6;
+            $p_total_nr_flats_sale = 	$total_n_rooms;
+            $p_koefficent = 	$koefficent;
+            $p_rates_sales_quarterly = 	$sale_temp_kavrtal;
+            $p_rates_sales_from_start = 	$sale_temp_from_start;
+            $p_avg_area_of_flat = 	$avg_flat_area;
+            $p_tot_area_flat_in_offer = 	$total_area_offer;
+            $p_total_whole_price_in_offer = 	$total_whoole_price;
+            $p_tot_area_1r_flat_offer = 	$total_area_offer_1r;
+            $p_total_1r_whole_price_offer = 	$total_wh_price_1r;
+            $p_tot_area_2r_flat_offer = 	$total_area_offer_2r;
+            $p_total_2r_whole_price_offer = 	$total_wh_price_2r;
+            $p_tot_area_3r_flat_offer = 	$total_area_offer_3r;
+            $p_total_3r_whole_price_offer = 	$total_wh_price_3r;
+            $p_tot_area_nr_flat_offer = 	$total_area_offer_nr;
+            $p_total_nr_whole_price_offer = 	$total_wh_price_nr;
+            $p_quotas_id = 	get_hndb_key($p_connect, 49, $quotas);
+            $p_update_category_id = 	get_hndb_key($p_connect, 50, $update_category);
+            $p_info_source = 	$SOURCE_DESC;
+            $p_collect_information_dt = 	$DATE_RESEARCH;
+            $p_report_on_phase_dt = 	$DATE_IN_BASE;
+            $p_impl_status_id = 	get_hndb_key($p_connect, 10, $SALE_STATUS);
+            $p_input_in_db_dt = 	$insert_date;
+            $p_comment_txt = 	$comment_text;
 
             
             
@@ -401,55 +542,71 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
                 $v_result = $v_result."p_name=$p_name<BR>";
                 
                 
-                 $v_result =$v_result."<br>uid_rrb_housing =". uid_rrb_housing($p_connect, 
-                         $h, $p_name, $p_corpse_number, $k, 
-                         $p_last_user_id, $p_date_rec, $p_mode);
-                 
-                 $v_result =$v_result."<br>uid_rrb_housing_address =".uid_rrb_housing_address($p_connect, 
-                                $p_id, $h, $p_kladr_code, $p_ot_mkad, 
-                                $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, 
-                                $p_building_address, $p_house_number, $p_house_letter, 
-                                $p_house_corps, $p_house_building, $p_house_ownership, 
-                                $p_state_id, $p_subject_of_state_id, $p_street_type_id, 
-                                $p_dirrection_id, 
-                                $p_last_user_id, $p_date_rec, $p_mode);
-                 
-                 
-                 $v_result =$v_result. "<br>uid_rrb_housing_specification =".uid_rrb_housing_specification($p_connect, 
-                                $p_id, $p_number_of_sections, $p_type_of_building, $p_total_land_area,
-                                $p_total_floor_area, $p_land_area_build, $p_bearing_material_tech,
-                                $p_wall_material, $p_proj_doc_type, $p_serial_number, $p_min_floors, 
-                                $p_max_floors, $p_floors_type_id, $p_consumer_class_id, $p_economy_class_house_id,
-                                $p_ceiling_height, $p_finishing_flats_id, $p_finishing_level_id, 
-                                $p_common_area_finishing_id, $p_glazed_loggia_id, $p_parking_type_id, 
-                                $p_num_of_parking_place, $p_num_of_Elevator, $p_estimated_cost_construction, 
-                                $p_territory_fencing_id, $p_security_id, 
-                                $p_last_user_id, $p_date_rec,$h, $p_mode);
-                 
-                 
-                 $v_result =$v_result. "<br>uid_rrb_housing_flat_info =".  uid_rrb_housing_flat_info(
-                               $p_connect, $p_id, $p_last_user_id, $p_date_rec, 
-                               $p_total_area_all_flats, $p_total_area_studio, 
-                               $p_total_area_1rooms, $p_total_area_2rooms, $p_total_area_3rooms, $p_total_area_4rooms, 
-                               $p_total_area_5rooms, $p_total_area_6rooms, $p_avg_area_studio, $p_min_area_studio, 
-                               $p_max_area_studio, $p_min_area_st_wo_unheat, $p_max_area_st_wo_unheat, $p_avg_area_1r,
-                               $p_min_area_1r, $p_max_area_1r, $p_min_area_1r_wo_unheat, $p_max_area_1r_wo_unheat, 
-                               $p_avg_area_2r, $p_min_area_2r, $p_max_area_2r, $p_min_area_2r_wo_unheat, 
-                               $p_max_area_2r_wo_unheat, $p_avg_area_3r, $p_min_area_3r, $p_max_area_3r, 
-                               $p_min_area_3r_wo_unheat, $p_max_area_3r_wo_unheat, $p_avg_area_4r, $p_min_area_4r, 
-                               $p_max_area_4r, $p_min_area_4r_wo_unheat, $p_max_area_4r_wo_unheat, $p_avg_area_5r, 
-                               $p_min_area_5r, $p_max_area_5r, $p_min_area_5r_wo_unheat, $p_max_area_5r_wo_unheat, 
-                               $p_avg_area_6r, $p_min_area_6r, $p_max_area_6r, $p_min_area_6r_wo_unheat, 
-                               $p_max_area_6r_wo_unheat, $p_avg_area_n_room, $p_min_area_n_room, $p_max_area_n_room, 
-                               $p_min_area_n_wo_unheat, $p_max_area_n_wo_unheat, $p_total_area_n_rooms, 
-                               $p_total_count_all_flats, $p_total_count_studio, $p_total_count_1_rooms, 
-                               $p_total_count_2_rooms, $p_total_count_3_rooms, $p_total_count_4_rooms, 
-                               $p_total_count_5_rooms, $p_total_count_6_rooms, $p_total_count_n_rooms, 
-                               $h, $p_mode);
-                 
-                 $v_result =$v_result. "<br>uid_rrb_housing_infrastructure =".ui_infr_type(
-                         $p_connect, $INFR_TYPE, $p_id, $p_last_user_id, $p_date_rec, $h, $p_mode);
-                         
+//                 $v_result =$v_result."<br>uid_rrb_housing =". uid_rrb_housing($p_connect, 
+//                         $h, $p_name, $p_corpse_number, $k, 
+//                         $p_last_user_id, $p_date_rec, $p_mode);
+//                 
+//                 $v_result =$v_result."<br>uid_rrb_housing_address =".uid_rrb_housing_address($p_connect, 
+//                                $p_id, $h, $p_kladr_code, $p_ot_mkad, 
+//                                $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, 
+//                                $p_building_address, $p_house_number, $p_house_letter, 
+//                                $p_house_corps, $p_house_building, $p_house_ownership, 
+//                                $p_state_id, $p_subject_of_state_id, $p_street_type_id, 
+//                                $p_dirrection_id, 
+//                                $p_last_user_id, $p_date_rec, $p_mode);
+//                 
+//                 
+//                 $v_result =$v_result. "<br>uid_rrb_housing_specification =".uid_rrb_housing_specification($p_connect, 
+//                                $p_id, $p_number_of_sections, $p_type_of_building, $p_total_land_area,
+//                                $p_total_floor_area, $p_land_area_build, $p_bearing_material_tech,
+//                                $p_wall_material, $p_proj_doc_type, $p_serial_number, $p_min_floors, 
+//                                $p_max_floors, $p_floors_type_id, $p_consumer_class_id, $p_economy_class_house_id,
+//                                $p_ceiling_height, $p_finishing_flats_id, $p_finishing_level_id, 
+//                                $p_common_area_finishing_id, $p_glazed_loggia_id, $p_parking_type_id, 
+//                                $p_num_of_parking_place, $p_num_of_Elevator, $p_estimated_cost_construction, 
+//                                $p_territory_fencing_id, $p_security_id, 
+//                                $p_last_user_id, $p_date_rec,$h, $p_mode);
+//                 
+//                 
+//                 $v_result =$v_result. "<br>uid_rrb_housing_flat_info =".  uid_rrb_housing_flat_info(
+//                               $p_connect, $p_id, $p_last_user_id, $p_date_rec, 
+//                               $p_total_area_all_flats, $p_total_area_studio, 
+//                               $p_total_area_1rooms, $p_total_area_2rooms, $p_total_area_3rooms, $p_total_area_4rooms, 
+//                               $p_total_area_5rooms, $p_total_area_6rooms, $p_avg_area_studio, $p_min_area_studio, 
+//                               $p_max_area_studio, $p_min_area_st_wo_unheat, $p_max_area_st_wo_unheat, $p_avg_area_1r,
+//                               $p_min_area_1r, $p_max_area_1r, $p_min_area_1r_wo_unheat, $p_max_area_1r_wo_unheat, 
+//                               $p_avg_area_2r, $p_min_area_2r, $p_max_area_2r, $p_min_area_2r_wo_unheat, 
+//                               $p_max_area_2r_wo_unheat, $p_avg_area_3r, $p_min_area_3r, $p_max_area_3r, 
+//                               $p_min_area_3r_wo_unheat, $p_max_area_3r_wo_unheat, $p_avg_area_4r, $p_min_area_4r, 
+//                               $p_max_area_4r, $p_min_area_4r_wo_unheat, $p_max_area_4r_wo_unheat, $p_avg_area_5r, 
+//                               $p_min_area_5r, $p_max_area_5r, $p_min_area_5r_wo_unheat, $p_max_area_5r_wo_unheat, 
+//                               $p_avg_area_6r, $p_min_area_6r, $p_max_area_6r, $p_min_area_6r_wo_unheat, 
+//                               $p_max_area_6r_wo_unheat, $p_avg_area_n_room, $p_min_area_n_room, $p_max_area_n_room, 
+//                               $p_min_area_n_wo_unheat, $p_max_area_n_wo_unheat, $p_total_area_n_rooms, 
+//                               $p_total_count_all_flats, $p_total_count_studio, $p_total_count_1_rooms, 
+//                               $p_total_count_2_rooms, $p_total_count_3_rooms, $p_total_count_4_rooms, 
+//                               $p_total_count_5_rooms, $p_total_count_6_rooms, $p_total_count_n_rooms, 
+//                               $h, $p_mode);
+//                 
+//                 $v_result =$v_result. "<br>uid_rrb_housing_infrastructure =".ui_infr_type(
+//                         $p_connect, $INFR_TYPE, $p_id, $p_last_user_id, $p_date_rec, $h, $p_mode);
+//                 
+                 $v_result =$v_result. "<br>uid_rrb_housing_finance =".uid_rrb_housing_finance(
+                         $p_connect, $p_id, $p_last_user_id, $p_date_rec, 
+                         $p_contract_type_id, $p_leasing_id, $p_leasing_conditions, $p_ipoteka_id, 
+                         $p_ipoteka_conditions, $p_min_price, $p_avg_unit_price, $p_max_price, 
+                         $p_avg_unit_price_1r, $p_avg_unit_price_2r, $p_avg_unit_price_3r, 
+                         $p_avg_unit_price_4r, $p_avg_unit_price_5r, $p_avg_unit_price_6r, 
+                         $p_avg_unit_price_nr, $p_total_flats_sale, $p_total_1r_flats_sale, $p_total_2r_flats_sale, 
+                         $p_total_3r_flats_sale, $p_total_4r_flats_sale, $p_total_5r_flats_sale, 
+                         $p_total_6r_flats_sale, $p_total_nr_flats_sale, $p_koefficent, $p_rates_sales_quarterly, 
+                         $p_rates_sales_from_start, $p_avg_area_of_flat, $p_tot_area_flat_in_offer, 
+                         $p_total_whole_price_in_offer, $p_tot_area_1r_flat_offer, $p_total_1r_whole_price_offer, 
+                         $p_tot_area_2r_flat_offer, $p_total_2r_whole_price_offer, $p_tot_area_3r_flat_offer, 
+                         $p_total_3r_whole_price_offer, $p_tot_area_nr_flat_offer, $p_total_nr_whole_price_offer, 
+                         $p_quotas_id, $p_update_category_id, $p_info_source, $p_collect_information_dt, 
+                         $p_report_on_phase_dt, $p_impl_status_id, $p_input_in_db_dt, $p_comment_txt, 
+                         $h, $p_mode);
                  
                
             }else{
@@ -461,62 +618,78 @@ $p_total_count_n_rooms		=		$v_Quantity_object_mnogo	;
                 $v_result = $v_result."p_complex_name=$p_complex_name<BR>";
                 $v_result = $v_result."p_name=$p_name<BR>";
                 
-                $v_result = $v_result."<br>uid_rrb_apartment_comlex =". uid_rrb_apartment_comlex($p_connect,
-                    $k, $p_complex_name, $p_last_user_id, $p_date_rec, $p_mode);
-             
-     
-     
-                 $v_result =$v_result."<br>uid_rrb_housing =". uid_rrb_housing($p_connect, 
-                         $h, $p_name, $p_corpse_number, $k, 
-                         $p_last_user_id, $p_date_rec, $p_mode);
-                 
-                 
-                 
-                 
-                        $v_result =$v_result. "<br>uid_rrb_housing_address =".uid_rrb_housing_address($p_connect, 
-                                $p_id, $h, $p_kladr_code, $p_ot_mkad, 
-                                $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, 
-                                $p_building_address, $p_house_number, $p_house_letter, 
-                                $p_house_corps, $p_house_building, $p_house_ownership, 
-                                $p_state_id, $p_subject_of_state_id, $p_street_type_id, 
-                                $p_dirrection_id, 
-                                $p_last_user_id, $p_date_rec, $p_mode);
-                        
-                        
-                        $v_result =$v_result. "<br>uid_rrb_housing_specification =".uid_rrb_housing_specification($p_connect, 
-                                $p_id, $p_number_of_sections, $p_type_of_building, $p_total_land_area,
-                                $p_total_floor_area, $p_land_area_build, $p_bearing_material_tech,
-                                $p_wall_material, $p_proj_doc_type, $p_serial_number, $p_min_floors, 
-                                $p_max_floors, $p_floors_type_id, $p_consumer_class_id, $p_economy_class_house_id,
-                                $p_ceiling_height, $p_finishing_flats_id, $p_finishing_level_id, 
-                                $p_common_area_finishing_id, $p_glazed_loggia_id, $p_parking_type_id, 
-                                $p_num_of_parking_place, $p_num_of_Elevator, $p_estimated_cost_construction, 
-                                $p_territory_fencing_id, $p_security_id, 
-                                $p_last_user_id, $p_date_rec,$h, $p_mode);
-                        
-                        
-                        $v_result =$v_result. "<br>uid_rrb_housing_flat_info =".  uid_rrb_housing_flat_info($p_connect, 
-                               $p_id, $p_last_user_id, $p_date_rec, $p_total_area_all_flats, $p_total_area_studio, 
-                               $p_total_area_1rooms, $p_total_area_2rooms, $p_total_area_3rooms, $p_total_area_4rooms, 
-                               $p_total_area_5rooms, $p_total_area_6rooms, $p_avg_area_studio, $p_min_area_studio, 
-                               $p_max_area_studio, $p_min_area_st_wo_unheat, $p_max_area_st_wo_unheat, $p_avg_area_1r,
-                               $p_min_area_1r, $p_max_area_1r, $p_min_area_1r_wo_unheat, $p_max_area_1r_wo_unheat, 
-                               $p_avg_area_2r, $p_min_area_2r, $p_max_area_2r, $p_min_area_2r_wo_unheat, 
-                               $p_max_area_2r_wo_unheat, $p_avg_area_3r, $p_min_area_3r, $p_max_area_3r, 
-                               $p_min_area_3r_wo_unheat, $p_max_area_3r_wo_unheat, $p_avg_area_4r, $p_min_area_4r, 
-                               $p_max_area_4r, $p_min_area_4r_wo_unheat, $p_max_area_4r_wo_unheat, $p_avg_area_5r, 
-                               $p_min_area_5r, $p_max_area_5r, $p_min_area_5r_wo_unheat, $p_max_area_5r_wo_unheat, 
-                               $p_avg_area_6r, $p_min_area_6r, $p_max_area_6r, $p_min_area_6r_wo_unheat, 
-                               $p_max_area_6r_wo_unheat, $p_avg_area_n_room, $p_min_area_n_room, $p_max_area_n_room, 
-                               $p_min_area_n_wo_unheat, $p_max_area_n_wo_unheat, $p_total_area_n_rooms, 
-                               $p_total_count_all_flats, $p_total_count_studio, $p_total_count_1_rooms, 
-                               $p_total_count_2_rooms, $p_total_count_3_rooms, $p_total_count_4_rooms, 
-                               $p_total_count_5_rooms, $p_total_count_6_rooms, $p_total_count_n_rooms, 
-                               $h, $p_mode);
-                        
-                        $v_result =$v_result. "<br>uid_rrb_housing_infrastructure =".ui_infr_type(
-                         $p_connect, $INFR_TYPE, $p_id, $p_last_user_id, $p_date_rec, $h, $p_mode);
-                         
+//                $v_result = $v_result."<br>uid_rrb_apartment_comlex =". uid_rrb_apartment_comlex($p_connect,
+//                    $k, $p_complex_name, $p_last_user_id, $p_date_rec, $p_mode);
+//             
+//     
+//     
+//                 $v_result =$v_result."<br>uid_rrb_housing =". uid_rrb_housing($p_connect, 
+//                         $h, $p_name, $p_corpse_number, $k, 
+//                         $p_last_user_id, $p_date_rec, $p_mode);
+//                 
+//                 
+//                 
+//                 
+//                        $v_result =$v_result. "<br>uid_rrb_housing_address =".uid_rrb_housing_address($p_connect, 
+//                                $p_id, $h, $p_kladr_code, $p_ot_mkad, 
+//                                $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, 
+//                                $p_building_address, $p_house_number, $p_house_letter, 
+//                                $p_house_corps, $p_house_building, $p_house_ownership, 
+//                                $p_state_id, $p_subject_of_state_id, $p_street_type_id, 
+//                                $p_dirrection_id, 
+//                                $p_last_user_id, $p_date_rec, $p_mode);
+//                        
+//                        
+//                        $v_result =$v_result. "<br>uid_rrb_housing_specification =".uid_rrb_housing_specification($p_connect, 
+//                                $p_id, $p_number_of_sections, $p_type_of_building, $p_total_land_area,
+//                                $p_total_floor_area, $p_land_area_build, $p_bearing_material_tech,
+//                                $p_wall_material, $p_proj_doc_type, $p_serial_number, $p_min_floors, 
+//                                $p_max_floors, $p_floors_type_id, $p_consumer_class_id, $p_economy_class_house_id,
+//                                $p_ceiling_height, $p_finishing_flats_id, $p_finishing_level_id, 
+//                                $p_common_area_finishing_id, $p_glazed_loggia_id, $p_parking_type_id, 
+//                                $p_num_of_parking_place, $p_num_of_Elevator, $p_estimated_cost_construction, 
+//                                $p_territory_fencing_id, $p_security_id, 
+//                                $p_last_user_id, $p_date_rec,$h, $p_mode);
+//                        
+//                        
+//                        $v_result =$v_result. "<br>uid_rrb_housing_flat_info =".  uid_rrb_housing_flat_info($p_connect, 
+//                               $p_id, $p_last_user_id, $p_date_rec, $p_total_area_all_flats, $p_total_area_studio, 
+//                               $p_total_area_1rooms, $p_total_area_2rooms, $p_total_area_3rooms, $p_total_area_4rooms, 
+//                               $p_total_area_5rooms, $p_total_area_6rooms, $p_avg_area_studio, $p_min_area_studio, 
+//                               $p_max_area_studio, $p_min_area_st_wo_unheat, $p_max_area_st_wo_unheat, $p_avg_area_1r,
+//                               $p_min_area_1r, $p_max_area_1r, $p_min_area_1r_wo_unheat, $p_max_area_1r_wo_unheat, 
+//                               $p_avg_area_2r, $p_min_area_2r, $p_max_area_2r, $p_min_area_2r_wo_unheat, 
+//                               $p_max_area_2r_wo_unheat, $p_avg_area_3r, $p_min_area_3r, $p_max_area_3r, 
+//                               $p_min_area_3r_wo_unheat, $p_max_area_3r_wo_unheat, $p_avg_area_4r, $p_min_area_4r, 
+//                               $p_max_area_4r, $p_min_area_4r_wo_unheat, $p_max_area_4r_wo_unheat, $p_avg_area_5r, 
+//                               $p_min_area_5r, $p_max_area_5r, $p_min_area_5r_wo_unheat, $p_max_area_5r_wo_unheat, 
+//                               $p_avg_area_6r, $p_min_area_6r, $p_max_area_6r, $p_min_area_6r_wo_unheat, 
+//                               $p_max_area_6r_wo_unheat, $p_avg_area_n_room, $p_min_area_n_room, $p_max_area_n_room, 
+//                               $p_min_area_n_wo_unheat, $p_max_area_n_wo_unheat, $p_total_area_n_rooms, 
+//                               $p_total_count_all_flats, $p_total_count_studio, $p_total_count_1_rooms, 
+//                               $p_total_count_2_rooms, $p_total_count_3_rooms, $p_total_count_4_rooms, 
+//                               $p_total_count_5_rooms, $p_total_count_6_rooms, $p_total_count_n_rooms, 
+//                               $h, $p_mode);
+//                        
+//                        $v_result =$v_result. "<br>uid_rrb_housing_infrastructure =".ui_infr_type(
+//                         $p_connect, $INFR_TYPE, $p_id, $p_last_user_id, $p_date_rec, $h, $p_mode);
+//                         
+                         $v_result =$v_result. "<br>uid_rrb_housing_finance =".uid_rrb_housing_finance(
+                                     $p_connect, $p_id, $p_last_user_id, $p_date_rec, 
+                                     $p_contract_type_id, $p_leasing_id, $p_leasing_conditions, $p_ipoteka_id, 
+                                     $p_ipoteka_conditions, $p_min_price, $p_avg_unit_price, $p_max_price, 
+                                     $p_avg_unit_price_1r, $p_avg_unit_price_2r, $p_avg_unit_price_3r, 
+                                     $p_avg_unit_price_4r, $p_avg_unit_price_5r, $p_avg_unit_price_6r, 
+                                     $p_avg_unit_price_nr, $p_total_flats_sale, $p_total_1r_flats_sale, $p_total_2r_flats_sale, 
+                                     $p_total_3r_flats_sale, $p_total_4r_flats_sale, $p_total_5r_flats_sale, 
+                                     $p_total_6r_flats_sale, $p_total_nr_flats_sale, $p_koefficent, $p_rates_sales_quarterly, 
+                                     $p_rates_sales_from_start, $p_avg_area_of_flat, $p_tot_area_flat_in_offer, 
+                                     $p_total_whole_price_in_offer, $p_tot_area_1r_flat_offer, $p_total_1r_whole_price_offer, 
+                                     $p_tot_area_2r_flat_offer, $p_total_2r_whole_price_offer, $p_tot_area_3r_flat_offer, 
+                                     $p_total_3r_whole_price_offer, $p_tot_area_nr_flat_offer, $p_total_nr_whole_price_offer, 
+                                     $p_quotas_id, $p_update_category_id, $p_info_source, $p_collect_information_dt, 
+                                     $p_report_on_phase_dt, $p_impl_status_id, $p_input_in_db_dt, $p_comment_txt, 
+                                     $h, $p_mode);
                         
                         $triger_name = $p_complex_name;
                         
