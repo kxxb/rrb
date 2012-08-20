@@ -9,11 +9,11 @@ function get_hndb_key($p_connection, $p_hndb_id,$p_value){
     $v_key =-999;
     $query="SELECT id FROM rrb_s_handbooks
             where rrb_handbooks_id = ?
-            and hndb_value = ?  ";
+            and upper(hndb_value) = ?  ";
      //$p_connection->query("SET NAMES 'utf8'");
      $p_connection->query("SET NAMES 'cp1251'");
         $stmt = $p_connection->prepare($query);
-        $stmt->bind_param("is",$p_hndb_id, $p_value); 
+        $stmt->bind_param("is",$p_hndb_id,strtoupper (  $p_value )); 
 
         /* execute query */
         mysqli_stmt_execute($stmt);
@@ -29,7 +29,7 @@ function get_hndb_key_w_like($p_connection, $p_hndb_id,$p_value){
     $v_key =-999;
     $query="SELECT id FROM rrb_s_handbooks
             where rrb_handbooks_id = $p_hndb_id
-            and hndb_value like \"".$p_value."%\" ";
+            and upper(hndb_value) like \"".strtoupper (  $p_value )."%\" ";
     
     // $p_connection->query("SET NAMES 'utf8'");
    $p_connection->query("SET NAMES 'cp1251'");
