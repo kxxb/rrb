@@ -14,7 +14,7 @@ app.rootHousing =  Ext.extend(
     Ext.Panel,{
         initComponent: function(){
 
-           var config = {xtype:'panel'
+           var config = { xtype:'panel'
                          ,border: true
                          ,layout:'border'
                          ,items:[
@@ -51,6 +51,7 @@ app.rootHousing =  Ext.extend(
                                 ,{xtype:'tabpanel'
                                  ,activeTab: 0
                                  ,region:'center'
+                                 ,enableTabScroll:true
                                     ,defaults:{
                                         autoScroll: true
                                     }

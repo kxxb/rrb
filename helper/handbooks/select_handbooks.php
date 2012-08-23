@@ -44,7 +44,7 @@
                 '})';  
   */
         
-        echo $_GET["callback"].'({"totalCount":10,"results":'.json_encode($users_arr).
+        echo $_GET["callback"].'({"totalCount":1,"results":'.json_encode($users_arr).
                 '})';  
   
 ?>

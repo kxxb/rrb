@@ -524,10 +524,10 @@ $comment_text
             $p_quotas_id = 	get_hndb_key($p_connect, 49, $quotas);
             $p_update_category_id = 	get_hndb_key($p_connect, 50, $update_category);
             $p_info_source = 	$SOURCE_DESC;
-            $p_collect_information_dt = 	$DATE_RESEARCH;
-            $p_report_on_phase_dt = 	$DATE_IN_BASE;
+            $p_collect_information_dt = 	date('Y-m-d H:i:s', strtotime ($DATE_RESEARCH));
+            $p_report_on_phase_dt = 	date('Y-m-d H:i:s', strtotime ($DATE_IN_BASE));
             $p_impl_status_id = 	get_hndb_key($p_connect, 10, $SALE_STATUS);
-            $p_input_in_db_dt = 	$insert_date;
+            $p_input_in_db_dt = 	date('Y-m-d H:i:s', strtotime ($insert_date));
             $p_comment_txt = 	$comment_text;
 
             

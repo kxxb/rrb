@@ -17,9 +17,11 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
                 ,loadMask:true
                 ,split: true
                 ,anchor:'100%'
-                ,plugins: expander
-                ,collapsible: true
-                ,animCollapse: false
+                ,autoExpandColumn: 'complex_name'
+               // ,trackMouseOver:false
+                //,plugins: expander
+                //,collapsible: true
+                //,animCollapse: false
                 
 //                ,tbar:[
 //                  '-'
@@ -72,20 +74,12 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
       gridEditBt = gridEditBt.createDelegate(this);
     
     
-//    this.bbar = new Ext.PagingToolbar({
-//                    pageSize: 25
-//                    ,store: this.store
-//                    ,displayInfo: true
-//                    ,displayMsg: 'Показанно{0} - {1} из {2}'
-//                    ,emptyMsg: "Нет записей"
-//
-//                 });
-                 
+             
 
     
     app.HousingGrid.superclass.initComponent.apply(this, arguments);
 
-// load the store at the latest possible moment
+ //load the store at the latest possible moment
         this.on({
             afterlayout:{
                 scope:this,
@@ -95,7 +89,7 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
                     this.store.load({
 
                         params:{
-                             h_id:3
+                             par:3
                             
                         }
                     });
@@ -112,28 +106,47 @@ Ext.reg('HousingGrid', app.HousingGrid);
 //}}}
 
 
+function renderObject(value, p, record){
+        return String.format(
+               ' {1} - {2}\n\
+                <p> <b> Тип договора </b>: {3}</p> \n\
+                <p><b> Возможность ипотеки </b>: {4} </p> \n\
+                <p><b> Материал  </b>: {5} </p>\n\
+                <p><a href="">Подробнее</a> </p>',
+            value, record.data.name, 
+                   record.data.corpse_number, 
+                   record.data.contract_type_id_name,
+                   record.data.ipoteka_id_name, 
+                   record.data.bearing_material_tech_name )
+             }
 
 var ColsHousing =  [
-                  expander, 
+                  //expander, 
                   {
                     header: 'Идентфикатор комплекса',
+                   
                     readOnly: true,
                     dataIndex: 'id', // this is where the mapped name is important!
                     width: 250,
                     sortable: true,
                     hidden: false
+                    
                   },{
                     header: 'Комплекс',
                     readOnly: true,
+                     id: 'complex_name',
                     dataIndex: 'complex_name', // this is where the mapped name is important!
                     width: 550,
                     sortable: true,
-                    hidden: false
+                    hidden: false,
+                    renderer:renderObject
                   }
                   
                   ];
                   
-                  
+    
+    
+      
 
 var rrb_housingStore1 = new Ext.data.JsonStore({
 root: 'results',
@@ -153,12 +166,90 @@ url: '../helper/app.housing/housing_select.php'
 var rrb_komplex_store = new Ext.data.JsonStore({
 root: 'results',
 fields: [
- //{name: 'id', mapping:'id', type: 'string'}
- {name: 'complex_name', mapping:'complex_name', type: 'string'}
+ {name: 'id', mapping:'id', type: 'string'}
+ ,{name: 'complex_name', mapping:'complex_name', type: 'string'}
 ,{name: 'name', mapping:'name', type: 'string'}
 ,{name: 'corpse_number', mapping:'corpse_number', type: 'string'}
+,{name: 'contract_type_id_name', mapping:'contract_type_id_name', type: 'string'}
+,{name: 'bearing_material_tech_name', mapping:'bearing_material_tech_name', type: 'string'}
+,{name: 'ipoteka_id_name', mapping:'ipoteka_id_name', type: 'string'}
+
+ 
 ],
 proxy: new Ext.data.ScriptTagProxy({
 url: '../helper/app.komplex/komplex_select.php'
 })
+});
+
+
+     
+var rrb_komplex_store1 = new Ext.data.JsonStore({
+root: 'results',
+fields: [
+ {name: 'id', mapping:'id', type: 'string'}
+ ,{name: 'complex_name', mapping:'complex_name', type: 'string'}
+,{name: 'name', mapping:'name', type: 'string'}
+,{name: 'corpse_number', mapping:'corpse_number', type: 'string'}
+,{name: 'contract_type_id_name', mapping:'contract_type_id_name', type: 'string'}
+,{name: 'bearing_material_tech_name', mapping:'bearing_material_tech_name', type: 'string'}
+,{name: 'ipoteka_id_name', mapping:'ipoteka_id_name', type: 'string'}
+
+ 
+],
+proxy: new Ext.data.ScriptTagProxy({
+url: '../helper/app.komplex/komplex_select.php'
+})
+});
+
+var rrb_komplex_store2 = new Ext.data.JsonStore({
+root: 'results',
+fields: [
+ {name: 'id', mapping:'id', type: 'string'}
+ ,{name: 'complex_name', mapping:'complex_name', type: 'string'}
+,{name: 'name', mapping:'name', type: 'string'}
+,{name: 'corpse_number', mapping:'corpse_number', type: 'string'}
+,{name: 'contract_type_id_name', mapping:'contract_type_id_name', type: 'string'}
+,{name: 'bearing_material_tech_name', mapping:'bearing_material_tech_name', type: 'string'}
+,{name: 'ipoteka_id_name', mapping:'ipoteka_id_name', type: 'string'}
+
+ 
+],
+proxy: new Ext.data.ScriptTagProxy({
+url: '../helper/app.komplex/komplex_select.php'
+})
+});
+
+
+/*Universal add edit grid*/
+app.AGrid =  Ext.extend(xg.EditorGridPanel,{
+    initComponent: function(){
+        var config ={
+                 selModel: new Ext.grid.RowSelectionModel({
+                  singleSelect:false
+                })
+                ,loadMask:true
+                ,split: true
+                ,anchor:'100%'
+                ,autoExpandColumn: 'complex_name'
+               // ,trackMouseOver:false
+                //,plugins: expander
+                //,collapsible: true
+                //,animCollapse: false
+                
+          
+            };
+
+     // apply config
+    Ext.apply(this, Ext.apply(this.initialConfig, config));
+    
+    
+             
+
+    
+    app.AGrid.superclass.initComponent.apply(this, arguments);
+
+ 
+    
+   } // eo function initComponent
+
 });

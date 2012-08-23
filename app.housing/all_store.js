@@ -301,6 +301,14 @@ fields: [
 ,{name: 'input_in_db_dt', mapping:'input_in_db_dt', type: 'string'}
 ,{name: 'comment_txt', mapping:'comment_txt', type: 'string'}
 ,{name: 'rrb_housing_id', mapping:'rrb_housing_id', type: 'string'}
+,{name: 'contract_type_id_name', mapping:'contract_type_id_name', type: 'string'}
+,{name: 'ipoteka_id_name', mapping:'ipoteka_id_name', type: 'string'}
+,{name: 'quotas_id_name', mapping:'quotas_id_name', type: 'string'}
+,{name: 'update_category_id_name', mapping:'update_category_id_name', type: 'string'}
+,{name: 'impl_status_id_name', mapping:'impl_status_id_name', type: 'string'}
+
+
+
 ],
 proxy: new Ext.data.ScriptTagProxy({
 url: '../helper/app.housing/finance_select.php'

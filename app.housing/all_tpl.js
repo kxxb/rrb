@@ -238,6 +238,9 @@ var investor_tpl ='<tpl for=".">	<TABLE CELLSPACING="0" COLS="2" BORDER="0">	'
 +'		</TR>	'
 +'		</TABLE>	</tpl>';
 
+
+
+
 var finance_tpl ='<tpl for=".">'+
 '	<TABLE CELLSPACING="0" COLS="8" BORDER="0">				'+
 '		<COLGROUP WIDTH="261"></COLGROUP>			'+
@@ -344,7 +347,7 @@ var finance_tpl ='<tpl for=".">'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT"><B><FONT FACE="Times New Roman">тип заключаемого договора с покупателем</FONT></B></TD>		'+
-'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER">{contract_type_id}</TD>		'+
+'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER">{contract_type_id_name}</TD>		'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT" BGCOLOR="#83CAFF"><B><FONT FACE="Times New Roman">наличие рассрочки</FONT></B></TD>		'+
@@ -356,7 +359,7 @@ var finance_tpl ='<tpl for=".">'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT" BGCOLOR="#83CAFF"><B><FONT FACE="Times New Roman">наличие ипотеки</FONT></B></TD>		'+
-'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER" BGCOLOR="#83CAFF">{ipoteka_id}</TD>		'+
+'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER" BGCOLOR="#83CAFF">{ipoteka_id_name}</TD>		'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT"><B><FONT FACE="Times New Roman">условия ипотеки</FONT></B></TD>		'+
@@ -364,11 +367,11 @@ var finance_tpl ='<tpl for=".">'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT" BGCOLOR="#83CAFF"><B><FONT FACE="Times New Roman">Квотирование (да/нет)</FONT></B></TD>		'+
-'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER" BGCOLOR="#83CAFF">{quotas_id}</TD>		'+
+'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER" BGCOLOR="#83CAFF">{quotas_id_name}</TD>		'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT"><B><FONT FACE="Times New Roman">Категория обновляемости объекта (корпуса)». </FONT></B></TD>		'+
-'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER">{update_category_id}</TD>		'+
+'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER">{update_category_id_name}</TD>		'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="34" ALIGN="LEFT" BGCOLOR="#83CAFF"><B><FONT FACE="Times New Roman">источник информации об объекте</FONT></B></TD>		'+
@@ -384,7 +387,7 @@ var finance_tpl ='<tpl for=".">'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT"><B><FONT FACE="Times New Roman">статус реализации</FONT></B></TD>		'+
-'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER">{impl_status_id}</TD>		'+
+'			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN="CENTER">{impl_status_id_name}</TD>		'+
 '		</TR>			'+
 '		<TR>			'+
 '			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT="17" ALIGN="LEFT" BGCOLOR="#83CAFF"><B><FONT FACE="Times New Roman">Дата ввода в базу</FONT></B></TD>		'+

@@ -32,21 +32,20 @@ if ($user_id != null) {
 
             <!-- ** Javascript ** -->
             <!-- base library -->
- <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"
-            type="text/javascript"></script>
+
             
 
             <script type="text/javascript" src="../js/ext-3.2.1/adapter/ext/ext-base.js"></script>
             <script type="text/javascript" src="../js/ext-3.2.1/ext-all-debug-w-comments.js"></script>
             <script type="text/javascript" src="../js/ext-3.2.1/ux/RowExpander.js"></script>
 
-            
-           
-            
-   
-            <script type="text/javascript" src="app.maps.js"></script>
+      
+       
     
             <script type="text/javascript" src="app.root.js"></script>
+            <script type="text/javascript" src="hndb_stores.js"></script>
+            <script type="text/javascript" src="app.Dashboard.js"></script>
+            
             <script type="text/javascript" src="housing_grid.js"></script>
            
             <script language="javascript" >

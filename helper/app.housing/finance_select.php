@@ -6,7 +6,7 @@
  */
 
 require_once('../../SYS/dbconn.php');
-$query = "
+$query_old = "
 SELECT t.id
 ,t.last_user_id
 ,t.date_rec
@@ -58,6 +58,89 @@ SELECT t.id
 ,t.rrb_housing_id
 FROM rrb_housing_finance t 
 where t.rrb_housing_id = ?";
+
+$query = "
+
+SELECT t.id
+,t.last_user_id
+,t.date_rec
+,t.contract_type_id
+,t.leasing_id
+,t.leasing_conditions
+,t.ipoteka_id
+,t.ipoteka_conditions
+,t.min_price
+,t.avg_unit_price
+,t.max_price
+,t.avg_unit_price_1r
+,t.avg_unit_price_2r
+,t.avg_unit_price_3r
+,t.avg_unit_price_4r
+,t.avg_unit_price_5r
+,t.avg_unit_price_6r
+,t.avg_unit_price_nr
+,t.total_flats_sale
+,t.total_1r_flats_sale
+,t.total_2r_flats_sale
+,t.total_3r_flats_sale
+,t.total_4r_flats_sale
+,t.total_5r_flats_sale
+,t.total_6r_flats_sale
+,t.total_nr_flats_sale
+,t.koefficent
+,t.rates_sales_quarterly
+,t.rates_sales_from_start
+,t.avg_area_of_flat
+,t.tot_area_flat_in_offer
+,t.total_whole_price_in_offer
+,t.tot_area_1r_flat_offer
+,t.total_1r_whole_price_offer
+,t.tot_area_2r_flat_offer
+,t.total_2r_whole_price_offer
+,t.tot_area_3r_flat_offer
+,t.total_3r_whole_price_offer
+,t.tot_area_nr_flat_offer
+,t.total_nr_whole_price_offer
+,t.quotas_id
+,t.update_category_id
+,t.info_source
+,t.collect_information_dt
+,t.report_on_phase_dt
+,t.impl_status_id
+,t.input_in_db_dt
+,t.comment_txt
+,t.rrb_housing_id
+,cti.hndb_value as contract_type_id_name
+,ii.hndb_value as ipoteka_id_name
+,qi.hndb_value as quotas_id_name
+,uci.hndb_value as update_category_id_name
+,isi.hndb_value as impl_status_id_name
+FROM rrb_housing_finance t left join 
+	        rrb_s_handbooks cti 		on
+            cti.id = t.contract_type_id
+        and cti.rrb_handbooks_id  = 14
+
+left join 
+	        rrb_s_handbooks ii 		on
+            ii.id = t.ipoteka_id
+        and ii.rrb_handbooks_id  = 2
+
+left join 
+	        rrb_s_handbooks qi 		on
+            qi.id = t.quotas_id
+        and qi.rrb_handbooks_id  = 49
+
+left join 
+	        rrb_s_handbooks uci 		on
+            uci.id = t.update_category_id
+        and uci.rrb_handbooks_id  = 50
+
+left join 
+	        rrb_s_handbooks isi 		on
+            isi.id = t.impl_status_id
+        and isi.rrb_handbooks_id  = 10
+  where t.rrb_housing_id = ?      
+";
 $h_id = $_GET["h_id"];
 $connection = conn();
 $connection->query("SET NAMES 'utf8'");
@@ -115,6 +198,11 @@ mysqli_stmt_bind_result($stmt, $id
         , $input_in_db_dt
         , $comment_txt
         , $rrb_housing_id
+        ,$contract_type_id_name
+        ,$ipoteka_id_name
+        ,$quotas_id_name
+        ,$update_category_id_name
+        ,$impl_status_id_name
 );
 $hndb_arr = array();
 while (mysqli_stmt_fetch($stmt)) {
@@ -169,6 +257,11 @@ while (mysqli_stmt_fetch($stmt)) {
         , 'input_in_db_dt' => $input_in_db_dt
         , 'comment_txt' => $comment_txt
         , 'rrb_housing_id' => $rrb_housing_id
+        , 'contract_type_id_name' => $contract_type_id_name
+        , 'ipoteka_id_name' => $ipoteka_id_name
+        , 'quotas_id_name' => $quotas_id_name
+        , 'update_category_id_name' => $update_category_id_name
+        , 'impl_status_id_name' => $impl_status_id_name
     );
 }
 mysqli_stmt_close($stmt);
