@@ -40,7 +40,6 @@ if ($user_id != null) {
             <script type="text/javascript" src="../js/ext-3.2.1/ux/RowExpander.js"></script>
 
       
-       
     
             <script type="text/javascript" src="app.root.js"></script>
             <script type="text/javascript" src="hndb_stores.js"></script>

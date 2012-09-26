@@ -5,8 +5,8 @@
  * 
  */
 
-require_once('../SYS/hello_user.php');
-require_once('../SYS/dbconn.php');
+require_once('hello_user.php');
+require_once('dbconn.php');
 
 
 function u_login($login, $pass){

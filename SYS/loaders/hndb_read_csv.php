@@ -9,6 +9,18 @@ require_once('../dbconn.php');
 require_once('hndb_loader.php');
 
 function take_handbook($file_name) {
+    
+    
+    /*удаление*/
+$connection = conn();
+$query_d = "truncate table rrb_temp_hnb;";
+
+ if ($results_insupditems=$connection->query($query_d) ) {
+        echo "{success:true}";
+     } else   {echo 'polniy 3.14zdec  mrd_category '.$connection->error. " | sql = ".$query_ui;}
+
+     
+     
         $fp = fopen($file_name,'r') or die("can't open file");
         $v_id = null;
 
@@ -39,7 +51,7 @@ function take_handbook($file_name) {
         '".$v_hndb_key."',
         '".$v_hndb_key_value."')";
 
-        $connection = conn();
+        
         $connection->query("SET NAMES 'utf8'");
             if ($results_insupditems=$connection->query($v_insert) ) {
                null; // echo "row = success<br>";

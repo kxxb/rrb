@@ -11,11 +11,15 @@ SELECT t.id
 ,t.complex_name
 ,t.last_user_id
 ,t.date_rec
-FROM rrb_apartment_comlex t ";
+,(select count(*) from rrb_apartment_comlex) as c
+FROM rrb_apartment_comlex t limit ?,?";
 $h_id = $_GET["h_id"];
+$h_limit = $_GET["limit"];
+$h_start = $_GET["start"];
 $connection = conn();
 $connection->query("SET NAMES 'utf8'");
 $stmt = $connection->prepare($query);
+$stmt->bind_param("ii",$h_start,$h_limit);
 //$stmt->bind_param("s", $h_id);
 /* execute query */
 mysqli_stmt_execute($stmt);
@@ -24,6 +28,7 @@ mysqli_stmt_bind_result($stmt, $id
         , $complex_name
         , $last_user_id
         , $date_rec
+        ,$c
 );
 $hndb_arr = array();
 while (mysqli_stmt_fetch($stmt)) {
@@ -36,6 +41,6 @@ while (mysqli_stmt_fetch($stmt)) {
     );
 }
 mysqli_stmt_close($stmt);
-echo $_GET["callback"] . '({"results":' . json_encode($hndb_arr) .
- '})';
+echo $_GET["callback"].'({totalcount:"'.$c.'","results":'.json_encode($hndb_arr).
+'})'; 
 ?>

@@ -7,7 +7,7 @@
 
 require_once('../dbconn.php');
 
-$table_name ="rrb_ipoteka_banks";
+$table_name ="rrb_housing_address";
 
 /*sql creator*/
  $php_part_1="";

@@ -14,11 +14,11 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
     take_handbook($uploadfile);
     echo "Файл корректен и был успешно загружен.\n";
 } else {
-    echo "Возможная атака с помощью файловой загрузки!\n";
+    echo "Загрузка справочников\n";
 }
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<form enctype="multipart/form-data" action="take_hndb_csv.php" method="POST">
+<form enctype="multipart/form-data" action="hndb_loader_form.php" method="POST">
     <!-- Поле MAX_FILE_SIZE должно быть указано до поля загрузки файла -->
     
     <!-- Название элемента input определяет имя в массиве $_FILES -->

@@ -155,8 +155,7 @@ var infrastructure_tpl ='<tpl for="."><font size="2"><table>'+
 
 '</table></font></tpl>';
 
-var ipoteka_banks_tpl ='<tpl for=".">'
-                        +'</tpl>';
+
 var investor_tpl ='<tpl for=".">	<TABLE CELLSPACING="0" COLS="2" BORDER="0">	'	
 +'		<COLGROUP WIDTH="455"></COLGROUP>	'
 +'		<COLGROUP WIDTH="174"></COLGROUP>	'
@@ -401,9 +400,10 @@ var finance_tpl ='<tpl for=".">'+
 
 
                         '</tpl>';
-var comercial_tpl ='<tpl for=".">'
-
-                        +'</tpl>';
+var comercial_tpl ='<tpl for="."><font size="2"><table>'+
+    '<tr><td><b>НАЛИЧИЕ_И_МЕСТО_РАСПОЛОЖЕНИЯ_КОММЕРЧЕСКИХ_ПОМЕЩЕНИЙ: </b></td><td>{comercial_available}</td></tr>'+  
+    '<tr><td><b>ПЛОЩАДЬ_КОММЕРЧЕСКИХ_ПОМЕЩЕНИЙ: </b></td><td>{commercial_area}</td></tr>' 
+                        +'</table></font></tpl>';
 
 var flats_tpl ='<tpl for=".">'
                         +'</tpl>';

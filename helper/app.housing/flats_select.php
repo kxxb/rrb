@@ -25,8 +25,9 @@ SELECT t.id
 ,t.collect_information_dt
 ,t.report_on_phase_dt
 ,t.rrb_housing_id
-FROM rrb_flats t 
-where t.rrb_housing_id = ?";
+FROM rrb.rrb_flats t 
+where t.rrb_housing_id = ?
+";
 $h_id = $_GET["h_id"];
 $connection = conn();
 $connection->query("SET NAMES 'utf8'");

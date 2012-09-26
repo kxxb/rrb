@@ -48,6 +48,20 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
                  }
                }
                ,'-'
+               ,{
+                 text: 'На сайт'
+                 ,tooltip: 'На сайт'
+                 ,iconCls:'silk-application-view-list'
+                 ,handler: function(){
+                     /*вызываю функцию(объект),
+                      *у которой область видимости
+                      *такая же что и у тулбара.
+                      *То есть тулбар и функция находяться на одном уровне видимости
+                      **/
+                   gridSyncBt.call()
+                 }
+               }
+               ,'-'
                 ]
                 
             };
@@ -67,6 +81,12 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
          this.fireEvent('editTb');
         }
       gridEditBt = gridEditBt.createDelegate(this);
+    
+      var gridSyncBt = function(){
+            /*Запускаю своё событие, от кнопки с тулбара*/
+         this.fireEvent('syncTb');
+        }
+    gridSyncBt = gridSyncBt.createDelegate(this);
     
     
     this.bbar = new Ext.PagingToolbar({
@@ -129,3 +149,127 @@ var ColsHousing =  [
                   }
                   
                   ];
+                  
+                  
+ var ColsFlats =  [
+                    
+                  {
+                    header: 'Секция',
+                    readOnly: true,
+                    dataIndex: 'section', // this is where the mapped name is important!
+                    width: 50,
+                    sortable: true,
+                    hidden: false
+                  },{
+                    header: 'Этаж',
+                    readOnly: true,
+                    dataIndex: 'floor_numb', // this is where the mapped name is important!
+                    width: 50,
+                    sortable: true,
+                    hidden: false
+                  }
+                  ,{
+                    header: 'количество комнат в квартире',
+                    readOnly: true,
+                    dataIndex: 'quant_rooms_in_flat', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                  ,{
+                    header: 'общая площадь квартиры',
+                    readOnly: true,
+                    dataIndex: 'total_flat_area', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                
+                   ,{
+                    header: 'жилая площадь квартиры',
+                    readOnly: true,
+                    dataIndex: 'live_area', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                   ,{
+                    header: 'площадь кухни',
+                    readOnly: true,
+                    dataIndex: 'kitchen_area', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                   ,{
+                    header: 'площадь балкона',
+                    readOnly: true,
+                    dataIndex: 'balcony_area', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                   ,{
+                    header: 'общая стоимость квартиры при 100% оплате',
+                    readOnly: true,
+                    dataIndex: 'price_whoole_payment', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                 
+                           ,{
+                    header: 'описание',
+                    readOnly: true,
+                    dataIndex: 'flat_descripton', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                           ,{
+                    header: 'наименование продавца',
+                    readOnly: true,
+                    dataIndex: 'saler_name', // this is where the mapped name is important!
+                    width: 120,
+                    sortable: true,
+                    hidden: false
+                  }
+                              ,{
+                    header: 'контакты продавцаа',
+                    readOnly: true,
+                    dataIndex: 'saler_contact', // this is where the mapped name is important!
+                    width: 100,
+                    sortable: true,
+                    hidden: false
+                  }
+                  
+                   
+                  
+                              ,{
+                    header: 'ссылка на источник',
+                    readOnly: true,
+                    dataIndex: 'link_to_source_inf', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                  
+                              ,{
+                    header: 'дата сбора информации',
+                    readOnly: true,
+                    dataIndex: 'collect_information_dt', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                                     ,{
+                    header: 'дата отчета по этапу',
+                    readOnly: true,
+                    dataIndex: 'report_on_phase_dt', // this is where the mapped name is important!
+                    width: 75,
+                    sortable: true,
+                    hidden: false
+                  }
+                  ];
+                  
+                  			

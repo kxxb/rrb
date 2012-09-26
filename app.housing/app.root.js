@@ -88,16 +88,16 @@ app.rootHousing =  Ext.extend(
                                                  })
                                              //,tpl:new Ext.XTemplate('{security_name}')
                                          }
-                                         ,{  xtype:'panel'
-                                             ,title:'Банки и ипотека'
-                                             ,items: new Ext.DataView({
-                                                    store: rrb_ipoteka_banksStore,
-                                                    tpl: ipoteka_banks_tpl,
-                                                    autoHeight:true,
-                                                    emptyText: 'No items to display'
-                                                 })
-                                             //,tpl:new Ext.XTemplate('{security_name}')
-                                          }
+//                                         ,{  xtype:'panel'
+//                                             ,title:'Банки и ипотека'
+//                                             ,items: new Ext.DataView({
+//                                                    store: rrb_ipoteka_banksStore,
+//                                                    tpl: ipoteka_banks_tpl,
+//                                                    autoHeight:true,
+//                                                    emptyText: 'No items to display'
+//                                                 })
+//                                             //,tpl:new Ext.XTemplate('{security_name}')
+//                                          }
                                          ,{  xtype:'panel'
                                              ,title:'Инвестор и застройщик'
                                              ,items: new Ext.DataView({
@@ -119,7 +119,7 @@ app.rootHousing =  Ext.extend(
                                              //,tpl:new Ext.XTemplate('{security_name}')
                                           }
                                          ,{  xtype:'panel'
-                                             ,title:'Коммерческая информация'
+                                             ,title:'Коммерческие помещения'
                                              ,items: new Ext.DataView({
                                                     store: rrb_housing_commercialStore,
                                                     tpl: comercial_tpl,
@@ -130,12 +130,20 @@ app.rootHousing =  Ext.extend(
                                           }                                          
                                          ,{  xtype:'panel'
                                              ,title:'Квартиры'
-                                             ,items: new Ext.DataView({
-                                                    store: rrb_flatsStore,
-                                                    tpl: flats_tpl,
-                                                    autoHeight:true,
-                                                    emptyText: 'No items to display'
-                                                 })
+                                             ,items:[{
+                                                      xtype:'HousingGrid'
+                                                   ,region:'center'
+                                                   ,store: rrb_flatsStore
+                                                   ,cm:new Ext.grid.ColumnModel({columns:ColsFlats})  
+                                                   ,height:308
+                                          
+                                            }]
+//                                                 new Ext.DataView({
+//                                                    store: ,
+//                                                    tpl: flats_tpl,
+//                                                    autoHeight:true,
+//                                                    emptyText: 'No items to display'
+//                                                 })
                                              //,tpl:new Ext.XTemplate('{security_name}')
                                           }                                          
                                     ]
@@ -159,14 +167,46 @@ app.rootHousing =  Ext.extend(
             var v_id =null;
             var v_grid_data;
             var v_grid_handbook_data;
-            
+            var a_id = 0;
             
             
             
               lGridApart.getSelectionModel().on('rowselect', function(sm, rowIdx, r) {
+                                    a_id = r.data.id
                                     rrb_housingStore.reload({params: {h_id:  r.data.id}});
                                     RefreshPanels(0);
     			});
+                        
+              lGridApart.on('syncTb', function(){
+                  if ( a_id ==0){
+                      Ext.Msg.alert('Sync','на Руль!');
+                  }else{
+                     
+                      
+                  Ext.Ajax.request({
+                              url: '../helper/app.housing/sync.php',
+                              method: 'GET',
+                              params: {
+                                       a_id            : a_id
+                                     },
+
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+
+                           }
+                   });
+              
+                 }
+                  
+              });          
             
             lGridDesc.on('click',function (node, index, e){
                 var corpse_id =rrb_housingStore.getAt(index);
@@ -195,7 +235,7 @@ app.rootHousing =  Ext.extend(
                 specificationStore.reload({params: {h_id: p_id}});
                 rrb_housing_flat_infoStore.reload({params: {h_id: p_id}});
                 rrb_housing_infrastructureStore.reload({params: {h_id: p_id}});
-                rrb_ipoteka_banksStore.reload({params: {h_id: p_id}});
+             
                 rrb_investor_builderStore.reload({params: {h_id: p_id}});
                 rrb_housing_financeStore.reload({params: {h_id: p_id}});
                 rrb_housing_commercialStore.reload({params: {h_id: p_id}});

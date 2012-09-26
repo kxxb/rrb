@@ -7,12 +7,21 @@
  *  */
 
 require_once('../dbconn.php');
-require_once('obj_loader.php');
+require_once('obj_loader_partitions.php');
 
 
 
 function  load_csv_obj($p_file_name, $p_connection){
 $fp = fopen($p_file_name,'r') or die("can't open file");
+
+
+/*удаление*/
+
+$query_d = "truncate table rrb_temporary_load;";
+
+ if ($results_insupditems=$p_connection->query($query_d) ) {
+        echo "{success:true}";
+     } else   {echo 'polniy 3.14zdec  mrd_category '.$p_connection->error. " | sql = ".$query_ui;}
 
 
 $v_id = null;
@@ -204,8 +213,27 @@ if ($i == 171){ $v_SALE_STATUS= $v_val; }
 if ($i == 172){ $v_insert_date= $v_val; }
 if ($i == 173){ $v_comment_text= $v_val; }
 
+if ($i == 174){ $v_link1= $v_val; }
+if ($i == 175){ $v_link2= $v_val; }
+if ($i == 176){ $v_link3= $v_val; }
+if ($i == 177){ $v_link4= $v_val; }
+if ($i == 178){ $v_link5= $v_val; }
+if ($i == 179){ $v_link6= $v_val; }
+if ($i == 180){ $v_link7= $v_val; }
+if ($i == 181){ $v_link8= $v_val; }
+if ($i == 182){ $v_link9= $v_val; }
+if ($i == 183){ $v_link10= $v_val; }
 
 
+/*[18:34:18] Severyanov_Anton: добавь еще 3 поля под названиями: Ссылка 2, Ссылка 3, Ссылка 4
+[18:34:40] Severyanov_Anton: это тоже самое как "ИСТОЧНИК_ИНФОРМАЦИИ_ОБ_ОБЪЕКТЕ".
+[18:34:48] Severyanov_Anton: там будет ссылка на сайт
+[18:35:08] Severyanov_Anton: просто бывает, что 1 корпус могут продавать сразу много продавцов.
+
+[12:16:31] artem2306: давай лучше 10 полей сделаем link, link2 и т.д., это будет проще и все равно больше 10 не бывает.
+  
+ * Ссылка 2, Ссылка 3, Ссылка 4
+ */
 }
     
 
@@ -388,12 +416,24 @@ $query_ui = "INSERT INTO rrb_temporary_load VALUES
 '".$v_DATE_IN_BASE."',
 '".$v_SALE_STATUS."',
 '".$v_insert_date."',
-'".$v_comment_text."');";
+'".$v_comment_text."',
+'".$v_link1."',    
+'".$v_link2."',    
+'".$v_link3."',    
+'".$v_link4."',    
+'".$v_link5."',    
+'".$v_link6."',    
+'".$v_link7."',    
+'".$v_link8."',    
+'".$v_link9."',    
+'".$v_link10."'
+
+    );";
 
 
 $p_connection->query("SET NAMES 'cp1251'");
     if ($results_insupditems=$p_connection->query($query_ui) ) {
-        echo "{success:true}";
+       // echo "{success:true}";
      } else   {echo 'polniy 3.14zdec  mrd_category '.$p_connection->error. " | sql = ".$query_ui;}
 
  
@@ -404,12 +444,23 @@ $p_connection->query("SET NAMES 'cp1251'");
 
 fclose($fp) or die("can't close file");
 
-data_pump($p_connection);
+//data_pump($p_connection);
 
 
+
+
+echo load_rrb_apartment_comlex($p_connection);
+echo load_rrb_housing_comlex($p_connection);
+echo load_rrb_housing_adress($p_connection);
+echo load_rrb_housing_specification($p_connection);
+echo load_rrb_housing_flat_info($p_connection);
+echo load_rrb_housing_infr_type($p_connection);
+echo load_rrb_housing_finance($p_connection);
+echo load_rrb_housing_investor_builder($p_connection);
+echo load_rrb_housing_commercial($p_connection);
 }
 
-load_csv_obj("base2.csv", conn() );
+//load_csv_obj("base2.csv", conn() );
 //load_csv_obj("objects_base_wo_duble.csv");
 
 ?>

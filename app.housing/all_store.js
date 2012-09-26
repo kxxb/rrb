@@ -50,6 +50,7 @@ rrb_housing_infrastructureStore.load();
 //apartment_comlex
 var rrb_apartment_comlexStore = new Ext.data.JsonStore({
 root: 'results',
+totalProperty: 'totalcount',
 fields: [
 {name: 'id', mapping:'id', type: 'string'}
 ,{name: 'complex_name', mapping:'complex_name', type: 'string'}
@@ -351,21 +352,7 @@ url: '../helper/app.housing/investor_builder_select.php'
 });
 rrb_investor_builderStore.load();
 
-//ipoteka_banks
-var rrb_ipoteka_banksStore = new Ext.data.JsonStore({
-root: 'results',
-fields: [
-{name: 'id', mapping:'id', type: 'string'}
-,{name: 'last_user_id', mapping:'last_user_id', type: 'string'}
-,{name: 'date_rec', mapping:'date_rec', type: 'string'}
-,{name: 'bank_id', mapping:'bank_id', type: 'string'}
-,{name: 'rrb_housing_id', mapping:'rrb_housing_id', type: 'string'}
-],
-proxy: new Ext.data.ScriptTagProxy({
-url: '../helper/app.housing/ipoteka_banks_select.php'
-})
-});
-rrb_ipoteka_banksStore.load();
+
 
 //flats
 

@@ -97,15 +97,31 @@ $p_connect, $p_id, $p_name, $p_corpse_number, $p_apartment_coplex_id,
     return $v_result;
 }
 
-function uid_rrb_housing_address(
-$p_connect, $p_id, $p_rrb_housing_id, $p_kladr_code, $p_ot_mkad, $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, $p_building_address, $p_house_number, $p_house_letter, $p_house_corps, $p_house_building, $p_house_ownership, $p_state_id, $p_subject_of_state_id, $p_street_type_id, $p_dirrection_id, $p_last_user_id, $p_date_rec,  $p_mode) {
+
+
+function uid_rrb_housing_address($p_connect, 
+     $p_id, $p_rrb_housing_id, $p_state_id, $p_building_address, $p_ot_mkad, 
+     $p_dirrection_id, $p_subject_of_state_id, $p_okato_code, $p_cadastral_code, $p_district_of_subject, 
+        $p_region, $p_settlement, $p_city, $p_vgt, $p_street_type_id, 
+        $p_street, $p_house_number, $p_house_letter, $p_house_corps, $p_house_building, 
+        $p_house_ownership, $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, $p_last_user_id, 
+        $p_date_rec, $p_mode) {
     $v_result = "";
-    $query_ui = "CALL uid_rrb_housing_address(?,?,?,?,?,?,?,?,?,?,
-                                              ?,?,?,?,?,?,?,?,?,?,@output);";
-    //$p_connect->query($C_MYSQL_SET_NAMES);
+    $query_ui = "CALL uid_rrb_housing_address(?,?,?,?,?,
+                                              ?,?,?,?,?,
+                                              ?,?,?,?,?,
+                                              ?,?,?,?,?,
+                                              ?,?,?,?,?,
+                                              ?,?,@output);";
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iisisssssssssiiiiiss", $p_id, $p_rrb_housing_id, $p_kladr_code, $p_ot_mkad, $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, $p_building_address, $p_house_number, $p_house_letter, $p_house_corps, $p_house_building, $p_house_ownership, $p_state_id, $p_subject_of_state_id, $p_street_type_id, $p_dirrection_id, $p_last_user_id, $p_date_rec,  $p_mode
+    mysqli_stmt_bind_param($stmt, "iiisiiisssssssisssssssssiss", 
+            $p_id, $p_rrb_housing_id, $p_state_id, $p_building_address, $p_ot_mkad, 
+            $p_dirrection_id, $p_subject_of_state_id, $p_okato_code, $p_cadastral_code, $p_district_of_subject, 
+            $p_region, $p_settlement, $p_city, $p_vgt, $p_street_type_id, 
+            $p_street, $p_house_number, $p_house_letter, $p_house_corps, $p_house_building, 
+            $p_house_ownership, $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, $p_last_user_id, 
+            $p_date_rec, $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
@@ -135,14 +151,25 @@ $p_connect, $p_id, $p_rrb_housing_id, $p_kladr_code, $p_ot_mkad, $p_longitude_ya
     return $v_result;
 }
 
-function uid_rrb_housing_commercial(
-$p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_comercial_available, $p_commercial_area, $p_rrb_housing_id,  $p_mode) {
+
+
+function uid_rrb_housing_address_old($p_connect, 
+        $p_id, $p_rrb_housing_id, $p_kladr_code, $p_ot_mkad, $p_longitude_yandex, 
+        $p_latitude_yandex, $p_cadastral_number, $p_building_address, $p_house_number, $p_house_letter, 
+        $p_house_corps, $p_house_building, $p_house_ownership, $p_state_id, $p_subject_of_state_id, 
+        $p_street_type_id, $p_dirrection_id, $p_last_user_id, $p_date_rec,  $p_mode) {
     $v_result = "";
-    $query_ui = "CALL uid_rrb_housing_commercial(?,?,?,?,?,?,?,@output);";
+    $query_ui = "CALL uid_rrb_housing_address(?,?,?,?,?,?,?,?,?,?,
+                                              ?,?,?,?,?,?,?,?,?,?,@output);";
     //$p_connect->query($C_MYSQL_SET_NAMES);
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iisisis", $p_id, $p_last_user_id, $p_date_rec, $p_comercial_available, $p_commercial_area, $p_rrb_housing_id,  $p_mode
+    mysqli_stmt_bind_param($stmt, "iisissssss
+                                   sssiiiiiss", 
+            $p_id, $p_rrb_housing_id, $p_kladr_code, $p_ot_mkad, $p_longitude_yandex, 
+            $p_latitude_yandex, $p_cadastral_number, $p_building_address, $p_house_number, $p_house_letter, 
+            $p_house_corps, $p_house_building, $p_house_ownership, $p_state_id, $p_subject_of_state_id, 
+            $p_street_type_id, $p_dirrection_id, $p_last_user_id, $p_date_rec,  $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
@@ -171,6 +198,7 @@ $p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_comercial_available, $p_comm
     }
     return $v_result;
 }
+
 
 function uid_rrb_housing_finance(
 $p_connect, $p_id, $p_last_user_id, $p_date_rec, 
@@ -412,21 +440,33 @@ function uid_rrb_housing_specification($p_connect,
     return $v_result;
 }
 
-function uid_rrb_investor_builder(
-$p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_investor_id, $p_investor_contact, $p_investor_site, $p_general_contractor_id, $p_customer_of_object_id, $p_architect_id, $p_building_permits_date, $p_building_permits_number, $p_date_sale_start, $p_date_start_build, $p_build_stage_id, $p_build_status_id, $p_schedul_dt_commiss, $p_fact_dt_commiss, $p_End_of_implementation, $p_Commissioning, $p_Postponement_entry, $p_commissioning_dt, $p_commissioning_num, $p_rrb_housing_id,  $p_mode) {
+function uid_rrb_investor_builder($p_connect, 
+        $p_id, $p_last_user_id, $p_date_rec, $p_investor, $p_investor_contact,
+        $p_investor_site, $p_general_contractor, $p_customer_of_object, $p_architect, $p_building_permits_date, 
+        $p_building_permits_number, $p_date_sale_start, $p_date_start_build, $p_build_stage_id, $p_build_status_id,
+        $p_schedul_dt_commiss, $p_fact_dt_commiss, $p_End_of_implementation, $p_Commissioning, $p_Postponement_entry, 
+        $p_commissioning_dt, $p_commissioning_num, $p_rrb_housing_id,  $p_mode) {
     $v_result = "";
-    $query_ui = "CALL uid_rrb_investor_builder(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,@output);";
-    //$p_connect->query($C_MYSQL_SET_NAMES);
+    $query_ui = "CALL uid_rrb_investor_builder(?,?,?,?,?,
+                                               ?,?,?,?,?,
+                                               ?,?,?,?,?,
+                                               ?,?,?,?,?,
+                                               ?,?,?,?,@output);";
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iisissiiissssiisssssssis", $p_id, $p_last_user_id, $p_date_rec, $p_investor_id, $p_investor_contact, $p_investor_site, $p_general_contractor_id, $p_customer_of_object_id, $p_architect_id, $p_building_permits_date, $p_building_permits_number, $p_date_sale_start, $p_date_start_build, $p_build_stage_id, $p_build_status_id, $p_schedul_dt_commiss, $p_fact_dt_commiss, $p_End_of_implementation, $p_Commissioning, $p_Postponement_entry, $p_commissioning_dt, $p_commissioning_num, $p_rrb_housing_id,  $p_mode
+    mysqli_stmt_bind_param($stmt, "iisssssssssssiisssssssis", 
+            $p_id, $p_last_user_id, $p_date_rec, $p_investor, $p_investor_contact, 
+            $p_investor_site, $p_general_contractor, $p_customer_of_object, $p_architect, $p_building_permits_date, 
+            $p_building_permits_number, $p_date_sale_start, $p_date_start_build, $p_build_stage_id, $p_build_status_id, 
+            $p_schedul_dt_commiss, $p_fact_dt_commiss, $p_End_of_implementation, $p_Commissioning, $p_Postponement_entry, 
+            $p_commissioning_dt, $p_commissioning_num, $p_rrb_housing_id,  $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
     } else {
         echo "{success:false,errors:{reason:'Ошибка выполнения процедуры MySql!'}}";
     }
-    $stmt = $connection->prepare('SELECT @output ');
+    $stmt = $p_connect->prepare('SELECT @output ');
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_store_result($stmt);
         mysqli_stmt_bind_result($stmt, $output);
@@ -449,24 +489,21 @@ $p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_investor_id, $p_investor_con
     return $v_result;
 }
 
-/* * *************************************** */
 
-function uid_ipoteka_banks(
-$p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_bank_id, $p_rrb_housing_id, $p_date_rec, $p_mode
-) {
+function uid_rrb_housing_commercial(
+$p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_comercial_available, $p_commercial_area, $p_rrb_housing_id, $p_mode) {
     $v_result = "";
-    $query_ui = "CALL uid_rrb_ipoteka_banks(?,?,?,?,?,?,@output);";
-    //$p_connect->query($C_MYSQL_SET_NAMES);
+    $query_ui = "CALL uid_rrb_housing_commercial(?,?,?,?,?,?,?,@output);";
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iisiis", $p_id, $p_last_user_id, $p_date_rec, $p_bank_id, $p_rrb_housing_id,  $p_mode
+    mysqli_stmt_bind_param($stmt, "iisssis", $p_id, $p_last_user_id, $p_date_rec, $p_comercial_available, $p_commercial_area, $p_rrb_housing_id, $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
     } else {
-        $v_result = "{success:false,errors:{reason:'Ошибка выполнения процедуры MySql!'}}";
+        echo "{success:false,errors:{reason:'Ошибка выполнения процедуры MySql!'}}";
     }
-    $stmt = $connection->prepare('SELECT @output ');
+    $stmt = $p_connect->prepare('SELECT @output ');
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_store_result($stmt);
         mysqli_stmt_bind_result($stmt, $output);
@@ -488,6 +525,10 @@ $p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_bank_id, $p_rrb_housing_id, 
     }
     return $v_result;
 }
+
+
+/* * *************************************** */
+
 
 function uid_rrb_flats(
 $p_connect, $p_id, $p_last_user_id, $p_date_rec, $p_section, $p_floor_numb, $p_quant_rooms_in_flat, $p_total_flat_area, $p_live_area, $p_kitchen_area, $p_balcony_area, $p_price_whoole_payment, $p_price_lease_payment, $p_flat_descripton, $p_saler_name, $p_saler_contact, $p_link_to_source_inf, $p_collect_information_dt, $p_report_on_phase_dt, $p_rrb_housing_id, $p_last_user_id, $p_date_rec, $p_mode) {

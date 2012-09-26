@@ -66,22 +66,20 @@ $query = "desc $table_name;";
         //echo "\$v_date_rec=date(\"Y-m-d H:i:s\");<br>";
         echo "function uid_$table_name ( <br>\$p_connect,<br>";
         echo $php_part_1."";
-        echo "\$p_last_user_id,<br>\$p_date_rec,<br>\$p_mode) {<br>\$v_result = \"\";<br>";
-        echo "\$query_ui = \"CALL uid_$table_name($php_part_2@output);\";<br>";
+        echo ",<br>\$p_mode) {<br>\$v_result = \"\";<br>";
+        echo "\$query_ui = \"CALL uid_$table_name($php_part_2?,@output);\";<br>";
         
         echo "\$p_connect->query(\"SET NAMES 'utf8'\");<br>";
         echo "\$stmt = \$p_connect->prepare(\$query_ui);<br>";
         echo "mysqli_stmt_bind_param(\$stmt, \"".$php_part_3."s\",<br>";
-        echo "$php_part_4\$p_last_user_id,<br>\$p_date_rec,<br>\$p_mode<br>);<br>";
-        
-        
-        
+        echo "$php_part_4\,<br>\$p_mode<br>);<br>";
+         
         echo "if (\$results_insupdhndb=mysqli_stmt_execute(\$stmt) ) {<br>";
         echo "  mysqli_stmt_close(\$stmt); <br>";
         echo "} else  {<br>";
         echo "echo \"{success:false,errors:{reason:'Ошибка выполнения процедуры MySql!'}}\";<br>";
         echo "}<br>";
-        echo "\$stmt = \$connection->prepare('SELECT @output ');<br>";
+        echo "\$stmt = \$p_connect->prepare('SELECT @output ');<br>";
         echo "if (\$results_insupdhndb=mysqli_stmt_execute(\$stmt) ) {<br>";
         echo "    mysqli_stmt_store_result(\$stmt);<br>";
         echo "    mysqli_stmt_bind_result(\$stmt, \$output);<br>";

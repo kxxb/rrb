@@ -24,13 +24,30 @@ proxy_obj = new Ext.data.ScriptTagProxy({
             xtype:'panel',
             height:350,
             id:this.id,
-            store:rrb_komplex_store,
+//            tbar:[
+//                  '-'
+//                ,{
+//                 text: 'Новый '
+//                 ,tooltip: 'Новый '
+//                 ,iconCls:'silk-add'
+//                 ,handler: function(){
+//                     /*вызываю функцию(объект),
+//                      *у которой область видимости
+//                      *такая же что и у тулбара.
+//                      *То есть тулбар и функция находяться на одном уровне видимости
+//                      **/
+//                   gridAddtBt.call()
+//                 }
+//                }],
+           // store:rrb_komplex_store,
+            
             items:[
                 {xtype:'HousingGrid'
-                   ,store: lstore
+                   ,store: this.store
                    ,cm:new Ext.grid.ColumnModel({columns:ColsHousing})   
                    ,region:'center' 
                    ,height:350
+                   
                 } 
             ]
 //            items:[new Ext.DataView( {
@@ -58,14 +75,15 @@ proxy_obj = new Ext.data.ScriptTagProxy({
        app.Pan.superclass.initComponent.apply(this, arguments);
 //       
       var lstore = this.store;
+      var l_id = this.id;
 //      
-//          var gridAddtBt = function(){
-//            /*Запускаю своё событие, от кнопки с тулбара*/
-//        //lstore.reload({params: { test_h_id:2}})
-//        Ext.MessageBox.alert('Ipoteka','id '+lstore.indexOfId(1).data); 
-//        }
+          var gridAddtBt = function(){
+            /*Запускаю своё событие, от кнопки с тулбара*/
+        //lstore.reload({params: { test_h_id:2}})
+        Ext.MessageBox.alert('Ipoteka','id '+l_id); 
+        }
 //      
-      lstore.reload({params: { test_h_id:this.id}});
+      lstore.reload({params: { test_h_id:l_id}});
 //       ,callback: function(r, options, success){
 //              if(success && r.length > 0){
 //                var row = r[0];
@@ -147,12 +165,17 @@ app.rootKomplex =  Ext.extend(
 
            
             var tabs  =  this.items.itemAt(0);
+            var dash1 =  this.items.itemAt(0).items.itemAt(1);
             var dash =  this.items.itemAt(0).items.itemAt(0).items.itemAt(0);
+            
         
             var grid =  this.items.itemAt(0).items.itemAt(0).items.itemAt(1);
               
-            
-
+         dash1.on('activate', function(){
+                dash1.store.reload({params: { test_h_id:dash1.id}});
+                Ext.MessageBox.alert('Ipoteka', dash1.id);
+             });   
+      
       
     ipoteka_store.load({params: { handbooks_id:2}
     });  

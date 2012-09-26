@@ -9,12 +9,12 @@ $query = "
 SELECT t.id
 ,t.last_user_id
 ,t.date_rec
-,t.investor_id
+,t.investor
 ,t.investor_contact
 ,t.investor_site
-,t.general_contractor_id
-,t.customer_of_object_id
-,t.architect_id
+,t.general_contractor
+,t.customer_of_object
+,t.architect
 ,t.building_permits_date
 ,t.building_permits_number
 ,t.date_sale_start
