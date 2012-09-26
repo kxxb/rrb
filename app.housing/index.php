@@ -27,6 +27,7 @@ if ($user_id != null) {
             <!-- base library -->
 
             <link rel="stylesheet" type="text/css" href="../js/ext-3.2.1/resources/css/ext-all.css" />
+             <link rel="stylesheet" type="text/css" href="../js/ext-3.2.1/resources/shared/icons/silk.css" />
             <style rel="stylesheet" type="text/css"> 
              p-over {background: #F5FDE3;}
             </style>

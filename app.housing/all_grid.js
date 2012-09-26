@@ -19,10 +19,38 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
                 ,anchor:'100%'
                 
                 ,tbar:[
-                  '-'
-                ,{
-                 text: 'Новый '
-                 ,tooltip: 'Новый '
+//                  '-'
+//                ,{
+//                 text: 'Новый '
+//                 ,tooltip: 'Новый '
+//                 ,iconCls:'silk-add'
+//                 ,handler: function(){
+//                     /*вызываю функцию(объект),
+//                      *у которой область видимости
+//                      *такая же что и у тулбара.
+//                      *То есть тулбар и функция находяться на одном уровне видимости
+//                      **/
+//                   gridAddtBt.call()
+//                 }
+//                }
+//                ,'-'
+//                ,{
+//                 text: 'Редактировать'
+//                 ,tooltip: 'Редактировать'
+//                 ,iconCls:'silk-application-view-list'
+//                 ,handler: function(){
+//                     /*вызываю функцию(объект),
+//                      *у которой область видимости
+//                      *такая же что и у тулбара.
+//                      *То есть тулбар и функция находяться на одном уровне видимости
+//                      **/
+//                   gridEditBt.call()
+//                 }
+//               }
+               '-'
+               ,{
+                 text: 'На сайт'
+                 ,tooltip: 'На сайт'
                  ,iconCls:'silk-add'
                  ,handler: function(){
                      /*вызываю функцию(объект),
@@ -30,35 +58,21 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
                       *такая же что и у тулбара.
                       *То есть тулбар и функция находяться на одном уровне видимости
                       **/
-                   gridAddtBt.call()
-                 }
-                }
-                ,'-'
-                ,{
-                 text: 'Редактировать'
-                 ,tooltip: 'Редактировать'
-                 ,iconCls:'silk-application-view-list'
-                 ,handler: function(){
-                     /*вызываю функцию(объект),
-                      *у которой область видимости
-                      *такая же что и у тулбара.
-                      *То есть тулбар и функция находяться на одном уровне видимости
-                      **/
-                   gridEditBt.call()
+                   gridSyncBt.call()
                  }
                }
                ,'-'
                ,{
-                 text: 'На сайт'
-                 ,tooltip: 'На сайт'
-                 ,iconCls:'silk-application-view-list'
+                 text: 'Убрать с сайта'
+                 ,tooltip: 'Убрать с сайта'
+                 ,iconCls:'silk-delete'
                  ,handler: function(){
                      /*вызываю функцию(объект),
                       *у которой область видимости
                       *такая же что и у тулбара.
                       *То есть тулбар и функция находяться на одном уровне видимости
                       **/
-                   gridSyncBt.call()
+                   gridSyncDelBt.call()
                  }
                }
                ,'-'
@@ -87,6 +101,13 @@ app.HousingGrid =  Ext.extend(xg.EditorGridPanel,{
          this.fireEvent('syncTb');
         }
     gridSyncBt = gridSyncBt.createDelegate(this);
+    
+    var gridSyncDelBt = function(){
+            /*Запускаю своё событие, от кнопки с тулбара*/
+         this.fireEvent('sync_del_Tb');
+        }
+    gridSyncDelBt = gridSyncDelBt.createDelegate(this);
+    
     
     
     this.bbar = new Ext.PagingToolbar({

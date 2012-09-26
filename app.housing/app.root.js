@@ -206,7 +206,39 @@ app.rootHousing =  Ext.extend(
               
                  }
                   
-              });          
+              });    
+              
+              
+               lGridApart.on('sync_del_Tb', function(){
+                  if ( a_id ==0){
+                      Ext.Msg.alert('Sync','на Руль!');
+                  }else{
+                     
+                      
+                  Ext.Ajax.request({
+                              url: '../helper/app.housing/sync_delete.php',
+                              method: 'GET',
+                              params: {
+                                       a_id            : a_id
+                                     },
+
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+
+                           }
+                   });
+              
+                 }
+                  
+              }); 
             
             lGridDesc.on('click',function (node, index, e){
                 var corpse_id =rrb_housingStore.getAt(index);
