@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 require_once 'Log.php';
 require_once 'PHPUnit/Framework/TestCase.php';
 require_once 'SnakeCase_PHPUnit_Framework_TestCase.php';

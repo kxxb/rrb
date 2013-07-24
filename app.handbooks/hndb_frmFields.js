@@ -22,6 +22,7 @@
                                 ,maxLengthText:'Максимум {0} символов' 
                                 
                                }
+                               
                         ]
                         
                         
@@ -32,6 +33,15 @@
                                 fieldLabel: 'Значение',
                                 anchor:'98%'
                                 ,maxLength: 1400
+                                ,maxLengthText:'Максимум {0} символов' 
+                                
+                               }
+                               ,{
+                                xtype:'textfield',
+                                height:100,
+                                fieldLabel: 'Маска',
+                                anchor:'98%'
+                                ,maxLength: 450
                                 ,maxLengthText:'Максимум {0} символов' 
                                 
                                }

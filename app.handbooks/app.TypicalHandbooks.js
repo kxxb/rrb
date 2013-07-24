@@ -111,6 +111,7 @@ app.TypicalHandbooksLayaout =  Ext.extend(
                     } else {
                         winHndb.show();
                         winHndb.items.itemAt(0).items.itemAt(0).setValue(v_grid_handbook_data.name);
+                        winHndb.items.itemAt(0).items.itemAt(1).setValue(v_grid_handbook_data.hndb_mask);
                         
                     }
                 }      
@@ -193,7 +194,7 @@ function fn_submitForm(){
 winHndb = new  hndb.win({
       title:'Наполнение и редактирование справочника'
      ,width: 675
-     ,height: 200
+     ,height: 350
      ,items:[{xtype:'hndb_UIfrm'
            ,items: hndb_Fields  
          }]
@@ -221,6 +222,7 @@ function fn_submitHandbookForm(){
                   method: 'GET',
                   params: {
                            h_value           : winHndb.items.itemAt(0).items.itemAt(0).getValue()
+                          ,h_mask            : winHndb.items.itemAt(0).items.itemAt(1).getValue()
                           ,h_id              : h_id
                           ,v_id              : v_id    
                           ,u_id              : gUserId

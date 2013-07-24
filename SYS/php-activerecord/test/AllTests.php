@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 require_once 'PHPUnit/Framework.php';
 
 foreach (glob('*Test.php') as $file)

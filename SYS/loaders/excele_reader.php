@@ -1,4 +1,4 @@
- <?php
+ <?php	                                       			
     require_once '../phpExcelReader/Excel/reader.php';
     $excel = new Spreadsheet_Excel_Reader();
     $excel->setOutputEncoding('CP1251');

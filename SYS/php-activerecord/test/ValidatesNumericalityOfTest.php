@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 include 'helpers/config.php';
 
 class BookNumericality extends ActiveRecord\Model

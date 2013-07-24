@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 include 'helpers/config.php';
 require '../lib/Serialization.php';
 

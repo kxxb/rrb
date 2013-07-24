@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates
@@ -12,7 +12,7 @@ SELECT t.id
 ,t.last_user_id
 ,t.date_rec
 ,(select count(*) from rrb_apartment_comlex) as c
-FROM rrb_apartment_comlex t limit ?,?";
+FROM rrb_apartment_comlex t order by 1 limit ?,?";
 $h_id = $_GET["h_id"];
 $h_limit = $_GET["limit"];
 $h_start = $_GET["start"];

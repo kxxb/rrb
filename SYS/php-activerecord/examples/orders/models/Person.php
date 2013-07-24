@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 class Person extends ActiveRecord\Model
 {
 	// a person can have many orders and payments

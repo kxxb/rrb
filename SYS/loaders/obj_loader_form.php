@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates
@@ -23,6 +23,6 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
     <!-- Поле MAX_FILE_SIZE должно быть указано до поля загрузки файла -->
     
     <!-- Название элемента input определяет имя в массиве $_FILES -->
-    Отправить этот файл: <input name="userfile" type="file" />
+    Отправить этот файлd: <input name="userfile" type="file" />
     <input type="submit" value="Send File" />
 </form>

@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates
@@ -9,11 +9,11 @@ function get_hndb_key($p_connection, $p_hndb_id,$p_value){
     $v_key =-999;
     $query="SELECT id FROM rrb_s_handbooks
             where rrb_handbooks_id = ?
-            and upper(hndb_value) = ?  ";
+            and TRIM(upper(hndb_value)) = ?  ";
      //$p_connection->query("SET NAMES 'utf8'");
      $p_connection->query("SET NAMES 'cp1251'");
         $stmt = $p_connection->prepare($query);
-        $stmt->bind_param("is",$p_hndb_id,strtoupper (  $p_value )); 
+        $stmt->bind_param("is",$p_hndb_id,trim(strtoupper($p_value))); 
 
         /* execute query */
         mysqli_stmt_execute($stmt);

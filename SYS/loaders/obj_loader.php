@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=cp1251"/>
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates

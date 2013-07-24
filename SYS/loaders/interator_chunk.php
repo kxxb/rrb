@@ -5,7 +5,7 @@
               content="text/html;charset=utf-8"/>
     </head>
     <body>
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates

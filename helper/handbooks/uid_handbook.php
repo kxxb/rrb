@@ -15,6 +15,7 @@
  $id= $_GET["v_id"];
  $rrb_handbooks_id=$_GET["h_id"];
  $hndb_value=$_GET["h_value"];
+ $hndb_mask=$_GET["h_mask"];
  $last_user_id=$_GET["u_id"];
  $date_rec=date("Y-m-d H:i:s");
  $mode=$_GET["h_mode"];
@@ -30,15 +31,16 @@
  
  
  
-$query_ui = "CALL uid_handbooks(?,?,?,?,?,?,@output);";
+$query_ui = "CALL uid_handbooks(?,?,?,?,?,?,?,@output);";
         
         $connection = conn();
         $connection->query("SET NAMES 'utf8'");
         $stmt = $connection->prepare($query_ui);
-        mysqli_stmt_bind_param($stmt, "iisiss",
+        mysqli_stmt_bind_param($stmt, "iississ",
                 $id, 
                 $rrb_handbooks_id,
                 $hndb_value,
+                $hndb_mask,
                 $last_user_id,
                 $date_rec,
                 $mode); 

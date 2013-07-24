@@ -7,7 +7,7 @@
 
  require_once('../../SYS/dbconn.php');
 
-  $query = "SELECT t.id, t.hndb_value  FROM rrb_s_handbooks t
+  $query = "SELECT t.id, t.hndb_value, t.hndb_mask  FROM rrb_s_handbooks t
             where t.rrb_handbooks_id =  ?  ";
         $handbooks_id = $_GET["handbooks_id"];
         
@@ -22,7 +22,7 @@
         
         mysqli_stmt_store_result($stmt);
         mysqli_stmt_bind_result($stmt, 
-                $id, $name);
+                $id, $name,  $hndb_mask);
        
         
          
@@ -31,7 +31,9 @@
             $i++;
             $users_arr[]= array(
                 'id'=>$id, 
-                'name'=>$name
+                'name'=>$name,
+                'hndb_mask'=> $hndb_mask
+                   
                 );
             
           

@@ -5,7 +5,7 @@
               content="text/html;charset=utf-8"/>
     </head>
     <body>
-        <?php
+        <?php	                                       			
 ini_set("max_execution_time","600");
 ini_set("memory_limit","512M");
 $inputFileType = 'Excel2007';

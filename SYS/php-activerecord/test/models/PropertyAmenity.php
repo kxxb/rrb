@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 class PropertyAmenity extends ActiveRecord\Model
 {
 	static $table_name = 'property_amenities';

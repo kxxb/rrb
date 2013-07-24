@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 use ActiveRecord\Column;
 
 class AdapterTest extends DatabaseTest

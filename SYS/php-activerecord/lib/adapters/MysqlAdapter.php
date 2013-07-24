@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 /**
  * @package ActiveRecord
  */
@@ -68,6 +68,12 @@ class MysqlAdapter extends Connection
 		$c->default = $c->cast($column['default'],$this);
 
 		return $c;
+	}
+        
+        public function set_encoding($charset)
+	{
+		$params = array($charset);
+		$this->query('SET NAMES ?',$params);
 	}
 }
 ?>

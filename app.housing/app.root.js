@@ -184,10 +184,12 @@ app.rootHousing =  Ext.extend(
                      
                       
                   Ext.Ajax.request({
-                              url: '../helper/app.housing/sync.php',
-                              method: 'GET',
+                              // url: '../helper/app.housing/zoo_sync.php',
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
                               params: {
                                        a_id            : a_id
+                                      ,f               : '1'
                                      },
 
                               success: function ( result, request ) {
@@ -213,13 +215,12 @@ app.rootHousing =  Ext.extend(
                   if ( a_id ==0){
                       Ext.Msg.alert('Sync','на Руль!');
                   }else{
-                     
-                      
                   Ext.Ajax.request({
-                              url: '../helper/app.housing/sync_delete.php',
-                              method: 'GET',
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
                               params: {
                                        a_id            : a_id
+                                      ,f               : '2'
                                      },
 
                               success: function ( result, request ) {
@@ -240,28 +241,152 @@ app.rootHousing =  Ext.extend(
                   
               }); 
             
+    
+    
+    lGridApart.on('SyncBtMoscow', function(){
+                  Ext.Ajax.request({
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
+                              params: {f  : 'SyncBtMoscow'},
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+                           }
+                   });}); 
+            
+    lGridApart.on('SyncBtMO', function(){
+                  Ext.Ajax.request({
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
+                              params: {f  : 'SyncBtMO'},
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+                           }
+                   });}); 
+    lGridApart.on('SyncBtRussia', function(){
+                  Ext.Ajax.request({
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
+                              params: {f  : 'SyncBtRussia'},
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+                           }
+                   });}); 
+
+    lGridApart.on('SyncBtSng', function(){
+                  Ext.Ajax.request({
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
+                              params: {f  : 'SyncBtSng'},
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+                           }
+                   });}); 
+
+    lGridApart.on('SyncDelBtMoscow', function(){
+                  Ext.Ajax.request({
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
+                              params: {f  : 'SyncDelBtMoscow'},
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+                           }
+                   });}); 
+                
+    
+            lGridApart.on('SyncDelBtMO', function(){
+                  Ext.Ajax.request({
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
+                              params: {f  : 'SyncDelBtMO'},
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+                           }
+                   });}); 
+               
+               lGridApart.on('SyncDelBtRussia', function(){
+                  Ext.Ajax.request({
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
+                              params: {f  : 'SyncDelBtRussia'},
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+                           }
+                   });}); 
+               
+               lGridApart.on('SyncDelBtSng', function(){
+                  Ext.Ajax.request({
+                              url: '../SYS/zoo_inserts/starter.php',
+                              method: 'POST',
+                              params: {f  : 'SyncDelBtSng'},
+                              success: function ( result, request ) {
+                                  var jsonData = Ext.util.JSON.decode(result.responseText);
+                                  var resultMessage = jsonData.errors.reason;
+                                  Ext.MessageBox.alert('Sync',resultMessage);
+                           },
+                              failure: function ( result, request ) {
+                               var jsonData = Ext.util.JSON.decode(result.responseText);
+                               var resultMessage = jsonData.errors.reason;
+                               Ext.MessageBox.alert('Sync',resultMessage);
+                           }
+                   });}); 
+               
+                      
+                      
             lGridDesc.on('click',function (node, index, e){
                 var corpse_id =rrb_housingStore.getAt(index);
                   RefreshPanels(corpse_id.data.id); 
-                //car_name.data.id
-                               
-                //Ext.Msg.alert('Success','node  '+node+' index  '+index+' e  '+car_name.data.id);
+                
             })
-            
-//             lGridDesc.getSelectionModel().on('rowselect', function(sm, rowIdx, r) {
-//                                     h_id = r.data.id;
-//                                    // OverwritePanelsDesc(r.data);
-//                                    
-//    			});
-                /*        
-             lPanInfo.on('activate', function(){
-                 Ext.Msg.alert('Success','JustRefreshStore();');
-             });
-                           
-             lPanInfra.on('activate', function(){
-                 Ext.Msg.alert('Success','lPanInfra();');
-             });
-              */
+    
              
             function RefreshPanels(p_id){
                 specificationStore.reload({params: {h_id: p_id}});

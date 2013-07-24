@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates
@@ -25,6 +25,7 @@ $query_d = "truncate table rrb_temporary_load;";
 
 
 $v_id = null;
+$v_CplxID = 9999;
 
 $v_date_rec=  date("Y-m-d H:i:s");
 $v_batch_number=  "1";
@@ -34,7 +35,7 @@ while($csv_line = fgetcsv($fp,0,";")) {
    // print '<tr>';
     for ($k = 0, $j = count($csv_line); $k < $j; $k++) {
         if ($csv_line[$k]==null) {
-        $v_val ='is null';    
+        $v_val ='99999';    
         }else {
          $v_val = $csv_line[$k];
         }
@@ -137,92 +138,118 @@ if ($i == 95){ $v_Area_object_mnogo= $v_val; }
 if ($i == 96){ $v_Area_object_mnogo_av= $v_val; }
 if ($i == 97){ $v_Area_object_mnogo_min= $v_val; }
 if ($i == 98){ $v_Area_object_mnogo_max= $v_val; }
-if ($i == 99){ $v_Studio= $v_val; }
-if ($i == 100){ $v_Quantity_object= $v_val; }
-if ($i == 101){ $v_QUANTITY_OBJECT_STUDIO= $v_val; }
-if ($i == 102){ $v_Quantity_object_1= $v_val; }
-if ($i == 103){ $v_Quantity_object_2= $v_val; }
-if ($i == 104){ $v_Quantity_object_3= $v_val; }
-if ($i == 105){ $v_Quantity_object_4= $v_val; }
-if ($i == 106){ $v_Quantity_object_5= $v_val; }
-if ($i == 107){ $v_Quantity_object_6= $v_val; }
-if ($i == 108){ $v_Quantity_object_mnogo= $v_val; }
-if ($i == 109){ $v_COMMERCE_PLACE= $v_val; }
-if ($i == 110){ $v_AREA_COMMERCE= $v_val; }
-if ($i == 111){ $v_DEVELOPER= $v_val; }
-if ($i == 112){ $v_CONTACTS= $v_val; }
-if ($i == 113){ $v_URL_INFO= $v_val; }
-if ($i == 114){ $v_BUILDER= $v_val; }
-if ($i == 115){ $v_Investor= $v_val; }
-if ($i == 116){ $v_architect= $v_val; }
-if ($i == 117){ $v_DATE_PERMIT= $v_val; }
-if ($i == 118){ $v_NUMBER_PERMIT= $v_val; }
-if ($i == 119){ $v_BEGIN_SALE= $v_val; }
-if ($i == 120){ $v_BEGIN_BUILT= $v_val; }
-if ($i == 121){ $v_CONST_STAGE= $v_val; }
-if ($i == 122){ $v_CONST_STATUS= $v_val; }
-if ($i == 123){ $v_EXPL_PLAN= $v_val; }
-if ($i == 124){ $v_EXPL_FACT= $v_val; }
-if ($i == 125){ $v_impl_end= $v_val; }
-if ($i == 126){ $v_expl_start= $v_val; }
-if ($i == 127){ $v_delay_sheduly= $v_val; }
-if ($i == 128){ $v_EXPL_DATE= $v_val; }
-if ($i == 129){ $v_EXPL_NUMBER= $v_val; }
-if ($i == 130){ $v_INFR_TYPE= $v_val; }
-if ($i == 131){ $v_CONTRACT_TYPE= $v_val; }
-if ($i == 132){ $v_INSTALLMENT_PLAN= $v_val; }
-if ($i == 133){ $v_MORTGAGE= $v_val; }
-if ($i == 134){ $v_Price_min_object= $v_val; }
-if ($i == 135){ $v_Price_avg_object= $v_val; }
-if ($i == 136){ $v_Price_max_object= $v_val; }
-if ($i == 137){ $v_Price_avg_1= $v_val; }
-if ($i == 138){ $v_Price_avg_2= $v_val; }
-if ($i == 139){ $v_Price_avg_3= $v_val; }
-if ($i == 140){ $v_Price_avg_4= $v_val; }
-if ($i == 141){ $v_Price_avg_5= $v_val; }
-if ($i == 142){ $v_Price_avg_6= $v_val; }
-if ($i == 143){ $v_Price_avg_mnogo= $v_val; }
-if ($i == 144){ $v_Quantity_sell_object= $v_val; }
-if ($i == 145){ $v_Quantity_sell_1= $v_val; }
-if ($i == 146){ $v_Quantity_sell_2= $v_val; }
-if ($i == 147){ $v_Quantity_sell_3= $v_val; }
-if ($i == 148){ $v_Quantity_sell_4= $v_val; }
-if ($i == 149){ $v_Quantity_sell_5= $v_val; }
-if ($i == 150){ $v_Quantity_sell_6= $v_val; }
-if ($i == 151){ $v_total_n_rooms= $v_val; }
-if ($i == 152){ $v_koefficent= $v_val; }
-if ($i == 153){ $v_sale_temp_kavrtal= $v_val; }
-if ($i == 154){ $v_sale_temp_from_start= $v_val; }
-if ($i == 155){ $v_avg_flat_area= $v_val; }
-if ($i == 156){ $v_total_area_offer= $v_val; }
-if ($i == 157){ $v_total_whoole_price= $v_val; }
-if ($i == 158){ $v_total_area_offer_1r= $v_val; }
-if ($i == 159){ $v_total_wh_price_1r= $v_val; }
-if ($i == 160){ $v_total_area_offer_2r= $v_val; }
-if ($i == 161){ $v_total_wh_price_2r= $v_val; }
-if ($i == 162){ $v_total_area_offer_3r= $v_val; }
-if ($i == 163){ $v_total_wh_price_3r= $v_val; }
-if ($i == 164){ $v_total_area_offer_nr= $v_val; }
-if ($i == 165){ $v_total_wh_price_nr= $v_val; }
-if ($i == 166){ $v_quotas= $v_val; }
-if ($i == 167){ $v_update_category= $v_val; }
-if ($i == 168){ $v_SOURCE_DESC= $v_val; }
-if ($i == 169){ $v_DATE_RESEARCH= $v_val; }
-if ($i == 170){ $v_DATE_IN_BASE= $v_val; }
-if ($i == 171){ $v_SALE_STATUS= $v_val; }
-if ($i == 172){ $v_insert_date= $v_val; }
-if ($i == 173){ $v_comment_text= $v_val; }
 
-if ($i == 174){ $v_link1= $v_val; }
-if ($i == 175){ $v_link2= $v_val; }
-if ($i == 176){ $v_link3= $v_val; }
-if ($i == 177){ $v_link4= $v_val; }
-if ($i == 178){ $v_link5= $v_val; }
-if ($i == 179){ $v_link6= $v_val; }
-if ($i == 180){ $v_link7= $v_val; }
-if ($i == 181){ $v_link8= $v_val; }
-if ($i == 182){ $v_link9= $v_val; }
-if ($i == 183){ $v_link10= $v_val; }
+// if ($i == 99){ $v_Studio= $v_val; }
+
+if ($i == 99){ $v_Quantity_object= $v_val; }
+if ($i == 100){ $v_QUANTITY_OBJECT_STUDIO= $v_val; }
+if ($i == 101){ $v_Quantity_object_1= $v_val; }
+if ($i == 102){ $v_Quantity_object_2= $v_val; }
+if ($i == 103){ $v_Quantity_object_3= $v_val; }
+if ($i == 104){ $v_Quantity_object_4= $v_val; }
+if ($i == 105){ $v_Quantity_object_5= $v_val; }
+if ($i == 106){ $v_Quantity_object_6= $v_val; }
+if ($i == 107){ $v_Quantity_object_mnogo= $v_val; }
+if ($i == 108){ $v_COMMERCE_PLACE= $v_val; }
+if ($i == 109){ $v_AREA_COMMERCE= $v_val; }
+if ($i == 110){ $v_DEVELOPER= $v_val; }
+if ($i == 111){ $v_CONTACTS= $v_val; }
+if ($i == 112){ $v_URL_INFO= $v_val; }
+if ($i == 113){ $v_BUILDER= $v_val; }
+if ($i == 114){ $v_Investor= $v_val; }
+if ($i == 115){ $v_architect= $v_val; }
+if ($i == 116){ $v_DATE_PERMIT= $v_val; }
+if ($i == 117){ $v_NUMBER_PERMIT= $v_val; }
+if ($i == 118){ $v_BEGIN_SALE= $v_val; }
+if ($i == 119){ $v_BEGIN_BUILT= $v_val; }
+if ($i == 120){ $v_CONST_STAGE= $v_val; }
+if ($i == 121){ $v_CONST_STATUS= $v_val; }
+if ($i == 122){ $v_EXPL_PLAN= $v_val; }
+if ($i == 123){ $v_EXPL_FACT= $v_val; }
+if ($i == 124){ $v_impl_end= $v_val; }
+if ($i == 125){ $v_expl_start= $v_val; }
+if ($i == 126){ $v_delay_sheduly= $v_val; }
+if ($i == 127){ $v_EXPL_DATE= $v_val; }
+if ($i == 128){ $v_EXPL_NUMBER= $v_val; }
+if ($i == 129){ $v_INFR_TYPE= $v_val; }
+if ($i == 130){ $v_CONTRACT_TYPE= $v_val; }
+if ($i == 131){ $v_INSTALLMENT_PLAN= $v_val; }
+if ($i == 132){ $v_MORTGAGE= $v_val; }
+if ($i == 133){ $v_Price_min_object= $v_val; }
+if ($i == 134){ $v_Price_avg_object= $v_val; }
+if ($i == 135){ $v_Price_max_object= $v_val; }
+if ($i == 136){ $v_Price_avg_1= $v_val; }
+if ($i == 137){ $v_Price_avg_2= $v_val; }
+if ($i == 138){ $v_Price_avg_3= $v_val; }
+if ($i == 139){ $v_Price_avg_4= $v_val; }
+if ($i == 140){ $v_Price_avg_5= $v_val; }
+if ($i == 141){ $v_Price_avg_6= $v_val; }
+if ($i == 142){ $v_Price_avg_mnogo= $v_val; }
+if ($i == 143){ $v_Quantity_sell_object= $v_val; }
+if ($i == 144){ $v_Quantity_sell_1= $v_val; }
+if ($i == 145){ $v_Quantity_sell_2= $v_val; }
+if ($i == 146){ $v_Quantity_sell_3= $v_val; }
+if ($i == 147){ $v_Quantity_sell_4= $v_val; }
+if ($i == 148){ $v_Quantity_sell_5= $v_val; }
+if ($i == 149){ $v_Quantity_sell_6= $v_val; }
+if ($i == 150){ $v_total_n_rooms= $v_val; }
+if ($i == 151){ $v_koefficent= $v_val; }
+if ($i == 152){ $v_sale_temp_kavrtal= $v_val; }
+if ($i == 153){ $v_sale_temp_from_start= $v_val; }
+if ($i == 154){ $v_avg_flat_area= $v_val; }
+if ($i == 155){ $v_total_area_offer= $v_val; }
+if ($i == 156){ $v_total_whoole_price= $v_val; }
+if ($i == 157){ $v_total_area_offer_1r= $v_val; }
+if ($i == 158){ $v_total_wh_price_1r= $v_val; }
+if ($i == 159){ $v_total_area_offer_2r= $v_val; }
+if ($i == 160){ $v_total_wh_price_2r= $v_val; }
+if ($i == 161){ $v_total_area_offer_3r= $v_val; }
+if ($i == 162){ $v_total_wh_price_3r= $v_val; }
+if ($i == 163){ $v_total_area_offer_nr= $v_val; }
+if ($i == 164){ $v_total_wh_price_nr= $v_val; }
+if ($i == 165){ $v_quotas= $v_val; }
+if ($i == 166){ $v_update_category= $v_val; }
+if ($i == 167){ $v_SOURCE_DESC= $v_val; }
+if ($i == 168){ $v_DATE_RESEARCH= $v_val; }
+if ($i == 169){ $v_DATE_IN_BASE= $v_val; }
+if ($i == 170){ $v_SALE_STATUS= $v_val; }
+if ($i == 171){ $v_insert_date= $v_val; }
+if ($i == 172){ $v_comment_text= $v_val; }
+
+if ($i == 173){ $v_link1= $v_val; }
+if ($i == 174){ $v_link2= $v_val; }
+if ($i == 175){ $v_link3= $v_val; }
+if ($i == 176){ $v_link4= $v_val; }
+if ($i == 177){ $v_link5= $v_val; }
+if ($i == 178){ $v_link6= $v_val; }
+if ($i == 179){ $v_link7= $v_val; }
+if ($i == 180){ $v_link8= $v_val; }
+if ($i == 181){ $v_link9= $v_val; }
+if ($i == 182 ){ $v_link10= $v_val; }
+
+
+if ($i == 183 ){ $v_Railway_station= $v_val; }
+if ($i == 184 ){ $v_Subway_station= $v_val; }
+if ($i == 185 ){ $v_Price_Avg_1_wo_st= $v_val; }
+if ($i == 186 ){ $v_Price_Avg_Studio= $v_val; }
+if ($i == 187 ){ $v_Quantity_Sell_1_wo_st= $v_val; }
+if ($i == 188 ){ $v_Quantity_Sell_Studio= $v_val; }
+if ($i == 189 ){ $v_Total_Area_Offer_1r_wo_st= $v_val; }
+if ($i == 190 ){ $v_Total_Wh_Price_1r_wo_st= $v_val; }
+if ($i == 191 ){ $v_Total_Area_Offer_Studio= $v_val; }
+if ($i == 192 ){ $v_Total_Wh_Price_Studio= $v_val; }
+if ($i == 193 ){ $v_Seller_1= $v_val; }
+if ($i == 194 ){ $v_Seller_2= $v_val; }
+if ($i == 195 ){ $v_Seller_3= $v_val; }
+if ($i == 196 ){ $v_Seller_4= $v_val; }
+if ($i == 197 ){ $v_Seller_5= $v_val; }
+if ($i == 198 ){ $v_Seller_6= $v_val; }
+
+if ($i == 199 ){ $v_State = $v_val; }
+if ($i == 200 ){ $v_CplxID = $v_val; }
+
+
+
 
 
 /*[18:34:18] Severyanov_Anton: добавь еще 3 поля под названиями: Ссылка 2, Ссылка 3, Ссылка 4
@@ -233,6 +260,15 @@ if ($i == 183){ $v_link10= $v_val; }
 [12:16:31] artem2306: давай лучше 10 полей сделаем link, link2 и т.д., это будет проще и все равно больше 10 не бывает.
   
  * Ссылка 2, Ссылка 3, Ссылка 4
+ */
+
+/*
+ https://docs.google.com/spreadsheet/ccc?key=0AhUjEtiC7QAedG84a0EwaWFjNmctaTQycEdVSXgxUnc#gid=0
+[16:40:29] artem2306: Кирилл, оставляем эти поля.
+[16:41:00] artem2306: если потом ГИС методами можно будет высчитывать расстояние до метро и ЖД, то можно будет это добавить, но пока не актуально
+[16:41:35] Severyanov_Anton: Бери перфоратор и ебошь )))))
+[16:42:54] Шаврак Кирилл: ну  всё начинаю, я их добиваю за 10 ссылками
+ * 
  */
 }
     
@@ -342,7 +378,6 @@ $query_ui = "INSERT INTO rrb_temporary_load VALUES
 '".$v_Area_object_mnogo_av."',
 '".$v_Area_object_mnogo_min."',
 '".$v_Area_object_mnogo_max."',
-'".$v_Studio."',
 '".$v_Quantity_object."',
 '".$v_QUANTITY_OBJECT_STUDIO."',
 '".$v_Quantity_object_1."',
@@ -426,9 +461,30 @@ $query_ui = "INSERT INTO rrb_temporary_load VALUES
 '".$v_link7."',    
 '".$v_link8."',    
 '".$v_link9."',    
-'".$v_link10."'
-
+'".$v_link10."',
+    
+'".$v_Railway_station."',    
+'".$v_Subway_station."',    
+'".$v_Price_Avg_1_wo_st."',    
+'".$v_Price_Avg_Studio."',    
+'".$v_Quantity_Sell_1_wo_st."',    
+'".$v_Quantity_Sell_Studio."',    
+'".$v_Total_Area_Offer_1r_wo_st."',    
+'".$v_Total_Wh_Price_1r_wo_st."',    
+'".$v_Total_Area_Offer_Studio."',    
+'".$v_Total_Wh_Price_Studio."',    
+'".$v_Seller_1."',    
+'".$v_Seller_2."',    
+'".$v_Seller_3."',    
+'".$v_Seller_4."',    
+'".$v_Seller_5."',    
+'".$v_Seller_6."',
+'".$v_State."',
+'".$v_CplxID."'        
+    
     );";
+
+    
 
 
 $p_connection->query("SET NAMES 'cp1251'");

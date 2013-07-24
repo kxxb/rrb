@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 class Order extends ActiveRecord\Model
 {
 	// order belongs to a person

@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 namespace ActiveRecord;
 
 class DateTime extends \DateTime

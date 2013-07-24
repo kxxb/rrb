@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates
@@ -54,6 +54,8 @@ $connection = conn();
             if ($i == 15){ $v_link_to_source_inf= $v_val; }
             if ($i == 16){ $v_collect_information_dt= $v_val; }
             if ($i == 17){ $v_report_on_phase_dt= $v_val; }
+            if ($i == 18){ $v_state= $v_val; }
+            if ($i == 19){ $v_city= $v_val; }
             
             
 
@@ -79,12 +81,14 @@ $connection = conn();
         '".$v_saler_contact."',
         '".$v_link_to_source_inf."',
         '".$v_collect_information_dt."',
-        '".$v_report_on_phase_dt."')";
+        '".$v_report_on_phase_dt."',
+        '".$v_state."',
+        '".$v_city."')";
 
        
 
         
-        $connection->query("SET NAMES 'utf8'");
+	$connection->query("SET NAMES 'cp1251'");
             if ($results_insupditems=$connection->query($v_insert) ) {
                null; // echo "row = success<br>";
              } else   {echo 'polniy 3.14zdec  mrd_category '.$connection->error. " | sql = ".$v_insert;}

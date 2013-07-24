@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 class Payment extends ActiveRecord\Model
 {
 	// payment belongs to a person

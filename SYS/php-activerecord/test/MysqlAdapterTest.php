@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 use ActiveRecord\Column;
 
 include 'helpers/config.php';

@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates
@@ -100,18 +100,17 @@ $korps_tmp ='<table width="100%">
 		</tr>
  	</tbody>
      </table>';   
-return $korps_tmp;
-   };
+   return $korps_tmp;
+  };
 
 function get_hnbdb_value($key){
-$value_name ='';
+    $value_name ='';
     try{
-$value_name =  rrb_handbooks::find('all', array('conditions' => 'id = '.$key));
-$value_name  = $value_name[0]->hndb_value;
+    $value_name =  rrb_handbooks::find('all', array('conditions' => 'id = '.$key));
+    $value_name  = $value_name[0]->hndb_value;
 
- } catch (Exception $e) {
-       
-        $value_name = 'пусто ';
+     } catch (Exception $e) {
+            $value_name = 'пусто ';
     }
 
 return $value_name;
@@ -159,12 +158,12 @@ $dirrection_name = get_hnbdb_value($h_adreses[0]->dirrection_id);
    
    /*
   catid
-19 НОВОСТРОЙКИ МОСКВЫ
-21 НОВОСТРОЙКИ МОСКОВСКОЙ ОБЛАСТИ
-22 НОВОСТРОЙКИ НОВОЙ МОСКВЫ
-23 НОВОСТРОЙКИ РОССИИ
-24 НОВОСТРОЙКИ СНГ
-	
+        19 НОВОСТРОЙКИ МОСКВЫ
+        21 НОВОСТРОЙКИ МОСКОВСКОЙ ОБЛАСТИ
+        22 НОВОСТРОЙКИ НОВОЙ МОСКВЫ
+        23 НОВОСТРОЙКИ РОССИИ
+        24 НОВОСТРОЙКИ СНГ
+
 */
  
    
@@ -210,7 +209,7 @@ $rrbgate_joom_object->checked_out= 42;
 $rrbgate_joom_object->state= 1;
 $rrbgate_joom_object->featured= 0;
 //$rrbgate_joom_object->publish_up=$p_date_null;
-$rrbgate_joom_object->publish_down=$p_date_rec ;
+//$rrbgate_joom_object->publish_down=$p_date_rec ;
 $rrbgate_joom_object->access= 1;
 $rrbgate_joom_object->asset_id= 62;
 $rrbgate_joom_object->version= null;
@@ -221,6 +220,7 @@ $rrbgate_joom_object->metadesc= null;
 $rrbgate_joom_object->metadata= "null";
 $rrbgate_joom_object->parameters= "null";
 $rrbgate_joom_object->custom_fields= '{"image1":"images\/for_base\/0002.jpg","image1_caption":"Ghbdtn","image1_credit":"sdgfasdg","link1":"www.yandex.ru","link1_text":"www.yandex.ru123325"}';
+
 $rrbgate_joom_object->save();
 
 

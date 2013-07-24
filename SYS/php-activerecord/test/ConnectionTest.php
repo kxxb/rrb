@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 use ActiveRecord\Connection;
 
 include 'helpers/config.php';

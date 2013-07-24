@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-          Lisa    
+          Contracter
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -21,7 +21,53 @@
         <script type="text/javascript" src="js/ext-3.2.1/adapter/ext/ext-base.js"></script>
         <script type="text/javascript" src="js/ext-3.2.1/ext-all-debug-w-comments.js"></script>
         <script type="text/javascript" src="login.js"></script>
-        
+           <script language="javascript" >
+                
+                
+                Ext.ns("app");    // extablish a namespace for all my component parts
+                Ext.BLANK_IMAGE_URL = '../js/ext-3.2.1/resources/images/default/s.gif';
+                
+                Ext.onReady(function(){
+                    Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+                    Ext.QuickTips.init();
+
+
+       
+
+
+
+
+                     var viewport = new Ext.Viewport({
+                         layout: 'border',
+                         renderTo: Ext.getBody(),
+                         items: [{
+                                 region: 'north',
+                                 xtype: 'panel',
+                                 height:28
+                                 //tbar:tb
+                             }// eof    region: 'north',
+                             ,{region: 'center'
+                                 /*здесь будут все табы*/
+                                 ,xtype :'housing_root'
+                                 
+                                 //,html:'Справочники'
+                        
+
+
+                             } // eof region: 'center'
+                             ,{region: 'south',
+                                 /*пустое пространство*/
+                                 height:28,
+                                 items: [{
+                                         html:'X'
+                                     }
+                                 ]
+                             } // eof region: 'south'
+                         ] //eof viewport items
+                     });//eof viewport
+                 });
+            
+            </script>
     </head>   
  <body>   
 

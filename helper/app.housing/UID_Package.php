@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 
 /*
  * To change this template, choose Tools | Templates
@@ -24,12 +24,13 @@ $C_MYSQL_SET_NAMES = "SET NAMES 'cp1251'";
  */
 
 function uid_rrb_apartment_comlex(
-$p_connect, $p_id, $p_complex_name, $p_last_user_id, $p_date_rec,  $p_mode) {
+$p_connect, $p_id, $p_complex_name, $p_last_user_id, $p_date_rec,
+        $p_state_id,   $v_city, $v_csv_object_id, $p_mode) {
     $v_result = "";
-    $query_ui = "CALL uid_rrb_apartment_comlex(?,?,?,?,?,@output);";
+    $query_ui = "CALL uid_rrb_apartment_comlex(?,?,?,?,?,?,?,?,@output);";
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "isiss", $p_id, $p_complex_name, $p_last_user_id, $p_date_rec,  $p_mode
+    mysqli_stmt_bind_param($stmt, "isisssis", $p_id, $p_complex_name, $p_last_user_id, $p_date_rec, $p_state_id,   $v_city, $v_csv_object_id, $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
@@ -61,13 +62,15 @@ $p_connect, $p_id, $p_complex_name, $p_last_user_id, $p_date_rec,  $p_mode) {
 
 function uid_rrb_housing(
 $p_connect, $p_id, $p_name, $p_corpse_number, $p_apartment_coplex_id,
-           $p_last_user_id, $p_date_rec,  $p_mode) {
+           $p_last_user_id, $p_date_rec, $v_OBJECTID, $p_state_id,
+                 $v_city,  $p_mode) {
     $v_result = "";
-    $query_ui = "CALL uid_rrb_housing(?,?,?,?,?,?,?,@output);";
+    $query_ui = "CALL uid_rrb_housing(?,?,?,?,?,?,?,?,?,?,@output);";
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "issiiss", $p_id, $p_name, $p_corpse_number, 
-            $p_apartment_coplex_id, $p_last_user_id, $p_date_rec,  $p_mode
+    mysqli_stmt_bind_param($stmt, "issiisiiss", $p_id, $p_name, $p_corpse_number, 
+            $p_apartment_coplex_id, $p_last_user_id, $p_date_rec, $v_OBJECTID, $p_state_id,
+                 $v_city, $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
@@ -105,23 +108,23 @@ function uid_rrb_housing_address($p_connect,
         $p_region, $p_settlement, $p_city, $p_vgt, $p_street_type_id, 
         $p_street, $p_house_number, $p_house_letter, $p_house_corps, $p_house_building, 
         $p_house_ownership, $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, $p_last_user_id, 
-        $p_date_rec, $p_mode) {
+        $p_date_rec, $p_Subway_station, $p_Railway_station, $p_mode) {
     $v_result = "";
     $query_ui = "CALL uid_rrb_housing_address(?,?,?,?,?,
                                               ?,?,?,?,?,
                                               ?,?,?,?,?,
                                               ?,?,?,?,?,
                                               ?,?,?,?,?,
-                                              ?,?,@output);";
+                                              ?,?,?,?,@output);";
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iiisiiisssssssisssssssssiss", 
+    mysqli_stmt_bind_param($stmt, "iiisiiisssssssisssssssssissss", 
             $p_id, $p_rrb_housing_id, $p_state_id, $p_building_address, $p_ot_mkad, 
             $p_dirrection_id, $p_subject_of_state_id, $p_okato_code, $p_cadastral_code, $p_district_of_subject, 
             $p_region, $p_settlement, $p_city, $p_vgt, $p_street_type_id, 
             $p_street, $p_house_number, $p_house_letter, $p_house_corps, $p_house_building, 
             $p_house_ownership, $p_longitude_yandex, $p_latitude_yandex, $p_cadastral_number, $p_last_user_id, 
-            $p_date_rec, $p_mode
+            $p_date_rec, $p_Subway_station, $p_Railway_station, $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);
@@ -285,7 +288,22 @@ function uid_rrb_housing_flat_info(
         $p_total_area_n_rooms, $p_total_count_all_flats, $p_total_count_studio, 
         $p_total_count_1_rooms, $p_total_count_2_rooms, $p_total_count_3_rooms,
         $p_total_count_4_rooms, $p_total_count_5_rooms, $p_total_count_6_rooms, 
-        $p_total_count_n_rooms, $p_rrb_housing_id,  $p_mode) {
+        $p_total_count_n_rooms, $p_rrb_housing_id, 
+        $v_Price_Avg_1_wo_st,    
+        $v_Price_Avg_Studio,    
+        $v_Quantity_Sell_1_wo_st,    
+        $v_Quantity_Sell_Studio,    
+        $v_Total_Area_Offer_1r_wo_st,    
+        $v_Total_Wh_Price_1r_wo_st,    
+        $v_Total_Area_Offer_Studio,    
+        $v_Total_Wh_Price_Studio,    
+        $v_Seller_1,    
+        $v_Seller_2,    
+        $v_Seller_3,    
+        $v_Seller_4,    
+        $v_Seller_5,    
+        $v_Seller_6, 
+        $p_mode) {
     $v_result = "";
     $query_ui = "CALL uid_rrb_housing_flat_info(?,?,?,?,?,?,?,?,?,?,
                                                 ?,?,?,?,?,?,?,?,?,?,
@@ -293,11 +311,12 @@ function uid_rrb_housing_flat_info(
                                                 ?,?,?,?,?,?,?,?,?,?,
                                                 ?,?,?,?,?,?,?,?,?,?,
                                                 ?,?,?,?,?,?,?,?,?,?,
-                                                ?,?,?,@output);";
+                                                ?,?,?,?,?,?,?,?,?,?,
+                                                ?,?,?,?,?,?,?,@output);";
     //$p_connect->query($C_MYSQL_SET_NAMES);
     $p_connect->query("SET NAMES 'cp1251'");
     $stmt = $p_connect->prepare($query_ui);
-    mysqli_stmt_bind_param($stmt, "iisssssssssssssssssssssssssssssssssssssssssssssssssssssssssssis", 
+    mysqli_stmt_bind_param($stmt, "iisssssssssssssssssssssssssssssssssssssssssssssssssssssssssssisssssssssssssss", 
             $p_id, $p_last_user_id, $p_date_rec, $p_total_area_all_flats,
             $p_total_area_studio, $p_total_area_1rooms, $p_total_area_2rooms,
             $p_total_area_3rooms, $p_total_area_4rooms, $p_total_area_5rooms, 
@@ -315,7 +334,23 @@ function uid_rrb_housing_flat_info(
             $p_max_area_n_wo_unheat, $p_total_area_n_rooms, $p_total_count_all_flats,
             $p_total_count_studio, $p_total_count_1_rooms, $p_total_count_2_rooms, 
             $p_total_count_3_rooms, $p_total_count_4_rooms, $p_total_count_5_rooms, 
-            $p_total_count_6_rooms, $p_total_count_n_rooms, $p_rrb_housing_id,  $p_mode
+            $p_total_count_6_rooms, $p_total_count_n_rooms, $p_rrb_housing_id, 
+            $v_Price_Avg_1_wo_st,    
+            $v_Price_Avg_Studio,    
+            $v_Quantity_Sell_1_wo_st,    
+            $v_Quantity_Sell_Studio,    
+            $v_Total_Area_Offer_1r_wo_st,    
+            $v_Total_Wh_Price_1r_wo_st,    
+            $v_Total_Area_Offer_Studio,    
+            $v_Total_Wh_Price_Studio,    
+            $v_Seller_1,    
+            $v_Seller_2,    
+            $v_Seller_3,    
+            $v_Seller_4,    
+            $v_Seller_5,    
+            $v_Seller_6, 
+            
+            $p_mode
     );
     if ($results_insupdhndb = mysqli_stmt_execute($stmt)) {
         mysqli_stmt_close($stmt);

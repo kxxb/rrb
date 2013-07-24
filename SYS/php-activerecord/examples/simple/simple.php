@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 require_once dirname(__FILE__) . '/../../ActiveRecord.php';
 
 // assumes a table named "books" with a pk named "id"

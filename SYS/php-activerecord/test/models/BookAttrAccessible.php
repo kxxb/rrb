@@ -1,4 +1,4 @@
-<?php
+<?php	                                       			
 class BookAttrAccessible extends ActiveRecord\Model
 {
 	static $pk = 'book_id';

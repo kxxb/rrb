@@ -129,6 +129,14 @@ var ColsHandbooks =  [
                     sortable: true,
                     hidden: false
                   }
+                  ,{
+                    header: 'Маска',
+                    readOnly: true,
+                    dataIndex: 'hndb_mask', // this is where the mapped name is important!
+                    width: 850,
+                    sortable: true,
+                    hidden: false
+                  }
                   ];
 
 var ColsHndbDesc =  [
@@ -148,6 +156,7 @@ var ColsHndbDesc =  [
                     sortable: true,
                     hidden: false
                   }
+                   
                   
                   ];
 
@@ -164,7 +173,8 @@ var store_handboks = new Ext.data.JsonStore({
         
         fields: [
                 {name: 'id', mapping:'id', type: 'int'},
-                {name: 'name', mapping:'name', type: 'string'}
+                {name: 'name', mapping:'name', type: 'string'},
+                {name: 'hndb_mask', mapping:'hndb_mask', type: 'string'}
 
         ],  
 

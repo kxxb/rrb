@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<?php
+<?php	                                       			
 //phpinfo();
 
 $fp = fopen('new_handbooks.csv','r') or die("can't open file");

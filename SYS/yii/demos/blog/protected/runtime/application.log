@@ -1,0 +1,202 @@
+2012/10/10 13:14:35 [error] [exception.CDbException] could not find driver
+2012/10/10 13:14:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php:388
+Stack trace:
+#0 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
+#2 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(431): CModule->getComponent('db')
+#4 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(624): CApplication->getDb()
+#5 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Post))
+#7 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CActiveDataProvider.php(75): CActiveRecord::model('Post')
+#8 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/controllers/PostController.php(132): CActiveDataProvider->__construct('Post', Array)
+#9 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/actions/CInlineAction.php(50): PostController->actionIndex()
+#10 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(283): CController->run('')
+#19 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#20 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/Contracter/SYS/yii/demos/blog/index.php
+---
+2012/10/17 15:46:02 [error] [exception.CDbException] could not find driver
+2012/10/17 15:46:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php:388
+Stack trace:
+#0 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
+#2 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(431): CModule->getComponent('db')
+#4 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(624): CApplication->getDb()
+#5 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Post))
+#7 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CActiveDataProvider.php(75): CActiveRecord::model('Post')
+#8 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/controllers/PostController.php(132): CActiveDataProvider->__construct('Post', Array)
+#9 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/actions/CInlineAction.php(50): PostController->actionIndex()
+#10 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(283): CController->run('')
+#19 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#20 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/Contracter/SYS/yii/demos/blog/index.php
+---
+2012/10/17 15:46:15 [error] [exception.CDbException] could not find driver
+2012/10/17 15:46:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php:388
+Stack trace:
+#0 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
+#2 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(431): CModule->getComponent('db')
+#4 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(624): CApplication->getDb()
+#5 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Post))
+#7 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CActiveDataProvider.php(75): CActiveRecord::model('Post')
+#8 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/controllers/PostController.php(132): CActiveDataProvider->__construct('Post', Array)
+#9 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/actions/CInlineAction.php(50): PostController->actionIndex()
+#10 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(283): CController->run('')
+#19 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#20 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/Contracter/SYS/yii/demos/blog/index.php
+---
+2012/10/17 15:46:29 [error] [exception.CDbException] could not find driver
+2012/10/17 15:46:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php:388
+Stack trace:
+#0 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
+#2 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(431): CModule->getComponent('db')
+#4 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(624): CApplication->getDb()
+#5 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(User))
+#7 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/models/User.php(21): CActiveRecord::model('User')
+#8 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/components/UserIdentity.php(18): User::model()
+#9 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/models/LoginForm.php(50): UserIdentity->authenticate()
+#10 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/validators/CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#11 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/validators/CValidator.php(214): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#12 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModel.php(158): CValidator->validate(Object(LoginForm), NULL)
+#13 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/widgets/CActiveForm.php(836): CModel->validate(NULL)
+#14 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/controllers/SiteController.php(70): CActiveForm::validate(Object(LoginForm))
+#15 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#16 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#17 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#18 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(283): CController->run('login')
+#20 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/login')
+#21 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#22 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/index.php(11): CApplication->run()
+#23 {main}
+REQUEST_URI=/Contracter/SYS/yii/demos/blog/index.php/site/login
+HTTP_REFERER=http://localhost/Contracter/SYS/yii/demos/blog/index.php/site/login
+---
+2012/10/17 15:46:32 [error] [exception.CDbException] could not find driver
+2012/10/17 15:46:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php:388
+Stack trace:
+#0 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
+#2 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(431): CModule->getComponent('db')
+#4 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(624): CApplication->getDb()
+#5 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(User))
+#7 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/models/User.php(21): CActiveRecord::model('User')
+#8 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/components/UserIdentity.php(18): User::model()
+#9 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/models/LoginForm.php(50): UserIdentity->authenticate()
+#10 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/validators/CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#11 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/validators/CValidator.php(214): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#12 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModel.php(158): CValidator->validate(Object(LoginForm), NULL)
+#13 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/widgets/CActiveForm.php(836): CModel->validate(NULL)
+#14 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/controllers/SiteController.php(70): CActiveForm::validate(Object(LoginForm))
+#15 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#16 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#17 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#18 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(283): CController->run('login')
+#20 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/login')
+#21 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#22 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/index.php(11): CApplication->run()
+#23 {main}
+REQUEST_URI=/Contracter/SYS/yii/demos/blog/index.php/site/login
+HTTP_REFERER=http://localhost/Contracter/SYS/yii/demos/blog/index.php/site/login
+---
+2012/10/17 15:46:32 [error] [exception.CDbException] could not find driver
+2012/10/17 15:46:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php:388
+Stack trace:
+#0 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
+#2 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(431): CModule->getComponent('db')
+#4 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(624): CApplication->getDb()
+#5 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(User))
+#7 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/models/User.php(21): CActiveRecord::model('User')
+#8 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/components/UserIdentity.php(18): User::model()
+#9 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/models/LoginForm.php(50): UserIdentity->authenticate()
+#10 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/validators/CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#11 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/validators/CValidator.php(214): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#12 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModel.php(158): CValidator->validate(Object(LoginForm), NULL)
+#13 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/controllers/SiteController.php(79): CModel->validate()
+#14 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#15 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#16 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#17 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(283): CController->run('login')
+#19 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/login')
+#20 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/Contracter/SYS/yii/demos/blog/index.php/site/login
+HTTP_REFERER=http://localhost/Contracter/SYS/yii/demos/blog/index.php/site/login
+---
+2012/10/17 15:46:39 [error] [exception.CDbException] could not find driver
+2012/10/17 15:46:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php:388
+Stack trace:
+#0 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
+#2 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(431): CModule->getComponent('db')
+#4 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(624): CApplication->getDb()
+#5 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/db/ar/CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Post))
+#7 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CActiveDataProvider.php(75): CActiveRecord::model('Post')
+#8 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/protected/controllers/PostController.php(132): CActiveDataProvider->__construct('Post', Array)
+#9 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/actions/CInlineAction.php(50): PostController->actionIndex()
+#10 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#19 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('post/index')
+#20 /home/kxxb/Develop/www/Contracter/SYS/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /home/kxxb/Develop/www/Contracter/SYS/yii/demos/blog/index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/Contracter/SYS/yii/demos/blog/index.php/post/index
+HTTP_REFERER=http://localhost/Contracter/SYS/yii/demos/blog/index.php/site/contact
+---

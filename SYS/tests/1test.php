@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<?php
+<?php	                                       			
 $timestamp = '20.08.2012';
   echo date('Y-m-d H:i:s', strtotime ($timestamp));
 
