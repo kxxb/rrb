@@ -101,7 +101,8 @@ try {
 
 
             $cplx_array['cplx_name']                = $apartments[0]->complex_name;
-            $cplx_array['image_path']               = 'images/for_base/0003.jpg';
+            $cplx_array['image_path']               = 'images/for_base/0001.jpg';
+            //$cplx_array['image_path']               = 'http://img0.liveinternet.ru/images/attach/c/3/74/893/74893012_large_3589298_0_280d5_b7fd9668_XL.png';
             $cplx_array['file_path']                = 'images/sampledata/fruitshop';
             $cplx_array['gallery']                  = 'mos3';
 
@@ -144,7 +145,7 @@ try {
             $cplx_array['zastoyshik']               = nvl($h_builders[0]->investor);
             $cplx_array['comment_txt']              = nvl($h_finances[0]->comment_txt);
             $out_studio = array();
-            $out_studio = calculate_flat_data(conn(), $cplx_id, 'пусто' );
+            $out_studio = calculate_price_diapazon(conn(), $cplx_id);
             $cplx_array['cena_kavartiry']           = 'от '.$out_studio[1].' до '.$out_studio[3];
             //$cplx_array['korpus_type']              = get_hnbdb_value($h_specifications[0]->type_of_building));
             $cplx_array['korpus_type']              = $bearing_material;
@@ -176,8 +177,8 @@ try {
                     $h_builders           = rrb_builder::all($cond);
                     $h_infrastructures    = rrb_infrastructure::all($cond);
                     $h_specifications     = rrb_spec::all($cond);
-                    $h_flat_info         = rrb_housing_flat_info::all($cond);
-                    $h_finance         =  rrb_housing_finance::all($cond);
+                    $h_flat_info          = rrb_housing_flat_info::all($cond);
+                    $h_finance            = rrb_housing_finance::all($cond);
 
 
                     switch ($h_builders[0]->build_stage_id):
@@ -237,7 +238,8 @@ try {
                 $v_str = "<td align='center'><img width='16' height='16' src='http://kod-design.ru/templates/beez_20/images/minus.png' alt='check'></td>";
                 $corps_array[$i]['ploshad_studio_tpl']      = $v_str;
             } else {
-                $v_str = '<td>от <strong>'.nvl($h_flat_info[0]->min_area_studio).'</strong><br/>до <strong>'.$h_flat_info[0]->max_area_studio.'</strong></td>';
+                $v_str = '<td>от <strong>'.nvl($h_flat_info[0]->min_area_studio).
+                         '</strong><br/>до <strong>'.$h_flat_info[0]->max_area_studio.'</strong></td>';
                 $corps_array[$i]['ploshad_studio_tpl']      = $v_str;
             }
             
@@ -245,7 +247,8 @@ try {
                 $v_str = "<td align='center'><img width='16' height='16' src='http://kod-design.ru/templates/beez_20/images/minus.png' alt='check'></td>";
                 $corps_array[$i]['ploshad_1komn_tpl']      = $v_str;
             } else {
-                $v_str = '<td>от <strong>'.$h_flat_info[0]->min_area_1r.'</strong><br/>до <strong>'.$h_flat_info[0]->max_area_1r.'</strong></td>';
+                $v_str = '<td>от <strong>'.$h_flat_info[0]->min_area_1r.
+                         '</strong><br/>до <strong>'.$h_flat_info[0]->max_area_1r.'</strong></td>';
                 $corps_array[$i]['ploshad_1komn_tpl']      = $v_str;
             }
             
@@ -274,16 +277,6 @@ try {
                 $corps_array[$i]['ploshad_mnogokomn_tpl']      = $v_str;
             }
             
-//            $corps_array[$i]['ploshad_studio_from']      = $h_flat_info[0]->min_area_studio;
-//            $corps_array[$i]['ploshad_studio_to']        = $h_flat_info[0]->max_area_studio;
-//            $corps_array[$i]['ploshad_1komn_from']       = $h_flat_info[0]->min_area_1r;
-//            $corps_array[$i]['ploshad_1komn_to']         = $h_flat_info[0]->max_area_1r;
-//            $corps_array[$i]['ploshad_2komn_from']       = $h_flat_info[0]->min_area_2r;
-//            $corps_array[$i]['ploshad_2komn_to']         = $h_flat_info[0]->max_area_2r;
-//            $corps_array[$i]['ploshad_3komn_from']       = $h_flat_info[0]->min_area_3r;
-//            $corps_array[$i]['ploshad_3komn_to']         = $h_flat_info[0]->max_area_3r;
-//            $corps_array[$i]['ploshad_mnogokomn_from']   = $h_flat_info[0]->min_area_n_room;
-//            $corps_array[$i]['ploshad_mnogokomn_to']     = $h_flat_info[0]->max_area_n_room;
             
             $out_studio = array();
             $out_studio = calculate_flat_data(conn(), $housing->id, 'студия' );
@@ -304,92 +297,82 @@ try {
                 $v_str = "<td>от <strong>$out_studio[1]</strong><br/>до <strong>$out_studio[3]</strong></td>";
                 $corps_array[$i]['costflat_studio_tpl']      = $v_str;
             }
-            
-            
-//            $corps_array[$i]['costkvm_studio_from']      = $out_studio[9];
-//            $corps_array[$i]['costkvm_studio_to']        = $out_studio[10];
-//            $corps_array[$i]['costflat_studio_from']     = $out_studio[1];
-//            $corps_array[$i]['costflat_studio_to']       = $out_studio[3];
 
             $out_1 = array();
             $out_1 = calculate_flat_data(conn(), $housing->id, 1 );         
             
-            if(nvl($out_1[9]=='Н/Д')||$out_1[9]==='99999'||$out_1[9]==='0'){
+            if(nvl($out_1[19]=='Н/Д')||$out_1[9]==='99999'||$out_1[19]==='0'){
                 $v_str = "<td align='center'><img width='16' height='16' src='/templates/beez_20/images/minus.png' alt='check'></td>";
                 //$v_str = '<td align="center"><img width="16" height="16" src="http://kod-design.ru/templates/beez_20/images/minus.png" alt="check"></td>';
                 $corps_array[$i]['costkvm_1komn_tpl']      = $v_str;
             } else {
-                $v_str = "<td>от <strong>$out_1[9]</strong><br/>до <strong>$out_1[10]</strong></td>";
+                $v_str = "<td>от <strong>$out_1[19]</strong><br/>до <strong>$out_1[20]</strong></td>";
                 $corps_array[$i]['costkvm_1komn_tpl']      = $v_str;
             }
             
-             if(nvl($out_1[1]=='Н/Д')||$out_1[1]==='99999'||$out_1[1]==='0'){
+             if(nvl($out_1[11]=='Н/Д')||$out_1[11]==='99999'||$out_1[11]==='0'){
                 $v_str = '<td align="center"><img width="16" height="16" src="http://kod-design.ru/templates/beez_20/images/minus.png" alt="check"></td>';
                 $corps_array[$i]['costflat_1komn_tpl']      = $v_str;
             } else {
-                $v_str = "<td>от <strong>$out_1[1]</strong><br/>до <strong>$out_1[3]</strong></td>";
+                $v_str = "<td>от <strong>$out_1[11]</strong><br/>до <strong>$out_1[13]</strong></td>";
                 $corps_array[$i]['costflat_1komn_tpl']      = $v_str;
             }
             
-//            $corps_array[$i]['costkvm_1komn_from']       = $out_1[9];
-//            $corps_array[$i]['costkvm_1komn_to']         = $out_1[10];
-//            $corps_array[$i]['costflat_1komn_from']      = $out_1[1];
-//            $corps_array[$i]['costflat_1komn_to']        = $out_1[3];
             $out_2 = array();
             $out_2 = calculate_flat_data(conn(), $housing->id, 2 );            
-            if(nvl($out_2[9]=='Н/Д')||$out_2[9]==='99999'||$out_2[9]==='0'){
+            if(nvl($out_2[19]=='Н/Д')||$out_2[19]==='99999'||$out_2[19]==='0'){
                 $v_str = '<td align="center"><img width="16" height="16" src="http://kod-design.ru/templates/beez_20/images/minus.png" alt="check"></td>';
                 $corps_array[$i]['costkvm_2komn_tpl']      = $v_str;
             } else {
-                $v_str = "<td>от <strong>$out_2[9]</strong><br/>до <strong>$out_2[10]</strong></td>";
+                $v_str = "<td>от <strong>$out_2[19]</strong><br/>до <strong>$out_2[20]</strong></td>";
                 $corps_array[$i]['costkvm_2komn_tpl']      = $v_str;
             }
             
-             if(nvl($out_2[1]=='Н/Д')||$out_2[1]==='99999'||$out_2[1]==='0'){
+             if(nvl($out_2[11]=='Н/Д')||$out_2[11]==='99999'||$out_2[11]==='0'){
                 $v_str = '<td align="center"><img width="16" height="16" src="http://kod-design.ru/templates/beez_20/images/minus.png" alt="check"></td>';
                 $corps_array[$i]['costflat_2komn_tpl']      = $v_str;
             } else {
-                $v_str = "<td>от <strong>$out_2[1]</strong><br/>до <strong>$out_2[3]</strong></td>";
+                $v_str = "<td>от <strong>$out_2[11]</strong><br/>до <strong>$out_2[13]</strong></td>";
                 $corps_array[$i]['costflat_2komn_tpl']      = $v_str;
             }            
 
 
             $out_3 = array();
             $out_3 = calculate_flat_data(conn(), $housing->id, 3 );            
-            if(nvl($out_3[9]=='Н/Д')||$out_3[9]==='99999'||$out_3[9]==='0'){
+            if(nvl($out_3[19]=='Н/Д')||$out_3[19]==='99999'||$out_3[19]==='0'){
                 $v_str = '<td align="center"><img width="16" height="16" src="http://kod-design.ru/templates/beez_20/images/minus.png" alt="check"></td>';
                 $corps_array[$i]['costkvm_3komn_tpl']      = $v_str;
             } else {
-                $v_str = "<td>от <strong>$out_3[9]</strong><br/>до <strong>$out_3[10]</strong></td>";
+                $v_str = "<td>от <strong>$out_3[19]</strong><br/>до <strong>$out_3[20]</strong></td>";
                 $corps_array[$i]['costkvm_3komn_tpl']      = $v_str;
             }
             
-             if(nvl($out_3[1]=='Н/Д')||$out_3[1]==='99999'||$out_3[1]==='0'){
+             if(nvl($out_3[1]=='Н/Д')||$out_3[11]==='99999'||$out_3[11]==='0'){
                 $v_str = '<td align="center"><img width="16" height="16" src="http://kod-design.ru/templates/beez_20/images/minus.png" alt="check"></td>';
                 $corps_array[$i]['costflat_3komn_tpl']      = $v_str;
             } else {
-                $v_str = "<td>от <strong>$out_3[1]</strong><br/>до <strong>$out_3[3]</strong></td>";
+                $v_str = "<td>от <strong>$out_3[11]</strong><br/>до <strong>$out_3[13]</strong></td>";
                 $corps_array[$i]['costflat_3komn_tpl']      = $v_str;
             }            
             
 
             $out_4 = array();
             $out_4 = calculate_flat_data(conn(), $housing->id, 4 );            
-            if(nvl($out_4[9]=='Н/Д')||$out_4[9]==='99999'||$out_4[9]==='0'){
+            if(nvl($out_4[19]=='Н/Д')||$out_4[19]==='99999'||$out_4[19]==='0'){
                 $v_str = '<td align="center"><img width="16" height="16" src="http://kod-design.ru/templates/beez_20/images/minus.png" alt="check"></td>';
                 $corps_array[$i]['costkvm_mnogokomn_tpl']      = $v_str;
             } else {
-                $v_str = "<td>от <strong>$out_4[9]</strong><br/>до <strong>$out_4[10]</strong></td>";
+                $v_str = "<td>от <strong>$out_4[19]</strong><br/>до <strong>$out_4[20]</strong></td>";
                 $corps_array[$i]['costkvm_mnogokomn_tpl']      = $v_str;
             }
             
-             if(nvl($out_4[1]=='Н/Д')||$out_4[1]==='99999'||$out_4[1]==='0'){
+             if(nvl($out_4[11]=='Н/Д')||$out_4[11]==='99999'||$out_4[11]==='0'){
                 $v_str = '<td align="center"><img width="16" height="16" src="http://kod-design.ru/templates/beez_20/images/minus.png" alt="check"></td>';
                 $corps_array[$i]['costflat_mnogokomn_tpl']      = $v_str;
             } else {
                
                 
-                $v_str = "<td>от <strong>$out_4[1]</strong><br/>до <strong>$out_4[3]</strong></td>";
+                $v_str = "<td>от <strong>$out_4[11]</strong><br/>до <strong>$out_4[13]</strong></td>";
                 $corps_array[$i]['costflat_mnogokomn_tpl']      = $v_str;
             }            
             

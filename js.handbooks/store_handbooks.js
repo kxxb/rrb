@@ -12,9 +12,6 @@ var store_handbooks = new Ext.data.JsonStore({
                 {name: 'id', mapping:'id', type: 'int'},
                 {name: 'name', mapping:'name', type: 'string'}
         ],  
-
-        // load using script tags for cross domain, if the data in on the same domain as
-        // this page, an HttpProxy would be better
         proxy: new Ext.data.ScriptTagProxy({
             url: '../helper/handbooks/select_handbooks.php'
         }) 
@@ -32,10 +29,6 @@ win_handbooks =  Ext.extend(
                                 {name: 'id', mapping:'id', type: 'int'},
                                 {name: 'name', mapping:'name', type: 'string'}
                         ]
-//                        ,proxy: new Ext.data.ScriptTagProxy({
-//                            url: '../helper/handbooks/select_handbooks.php'
-//                        })
-                        
                   
                 }; // eo config object
             // Применяем config
@@ -45,7 +38,3 @@ win_handbooks =  Ext.extend(
   } // eo function initComponent
 });
 
-
-//hndb_proxy = new Ext.data.ScriptTagProxy({
-//                            url: '../helper/handbooks/select_handbooks.php'
-//                        });

@@ -50,7 +50,7 @@ function calculate_flat_data($p_connect, $rrb_housing_id, $p_quant_rooms_in_flat
                     IFNULL(t.total_flat_area, 0),
                     IFNULL(min(CONVERT( (t.price_whoole_payment),   DECIMAL(10,2) ) ), 0) as min_price_whoole_payment, 
                     IFNULL(CONVERT( (t.price_whoole_payment/t.total_flat_area),   DECIMAL(10,2) ), 0)  as sq_m_price,
-                    IFNULL(max(CONVERT( (t.price_whoole_payment),   DECIMAL(10,2) ) ), 0) AS max_price_whoole_payment,
+                    IFNULL(max(CONVERT( (t.price_whoole_payment),   DECIMAL(14,2) ) ), 0) AS max_price_whoole_payment,
                     IFNULL(CONVERT( (sum(t.price_whoole_payment) / sum(t.total_flat_area)),   DECIMAL(10,2) ), 0)  as avg_sq_m_price,
                     IFNULL(count(quant_rooms_in_flat), 0) as count_flats,
                     IFNULL(avg(t.total_flat_area), 0) as avg_area,
@@ -70,9 +70,106 @@ function calculate_flat_data($p_connect, $rrb_housing_id, $p_quant_rooms_in_flat
             
            } elseif ($p_quant_rooms_in_flat != null){
               $query = $query."  and  quant_rooms_in_flat = $p_quant_rooms_in_flat";      }
+     //$connection = conn();
+        $p_connect->query("SET NAMES 'cp1251'");
+        $stmt = $p_connect->prepare($query);
+        
+
+        /* execute query */
+        mysqli_stmt_execute($stmt);
+        
+        mysqli_stmt_store_result($stmt);
+        mysqli_stmt_bind_result($stmt, 
+                
+                 $v_total_flat_area,
+                 $v_min_price_whoole_payment ,
+                 $v_sq_m_price ,
+                 $v_max_price_whoole_payment ,
+                 $v_avg_sq_m_price,
+                 $v_count_flats,
+                 $v_avg_area,
+                 $v_sum_area,
+                 $v_sum_area,
+                 $v_min_sq_m_price,
+                 $v_max_sq_m_price
+                );
+          
+        while (mysqli_stmt_fetch($stmt)) {
+            $o_out[0]=  $v_total_flat_area;
+            //$o_out[1]=  number_format($v_min_price_whoole_payment, 0, ',', ' ');
+            $o_out[1]=  $v_min_price_whoole_payment;
+            $o_out[2]=  $v_sq_m_price;
+//            $o_out[2]=  number_format($v_sq_m_price, 0, ',', ' ') ;
+//            $o_out[3]=  number_format($v_max_price_whoole_payment, 0, ',', ' ');
+            $o_out[3]=  $v_max_price_whoole_payment;
+            //$o_out[4]=  number_format($v_avg_sq_m_price, 0, ',', ' ');
+            $o_out[4]= $v_avg_sq_m_price;
+            $o_out[5]=  $v_count_flats;
+            $o_out[6]=  $v_avg_area;
+            $o_out[7]=  $v_sum_area;
+            $o_out[8]=  $v_sum_area;
+            $o_out[9]=  $v_min_sq_m_price;
+            $o_out[10]= $v_max_sq_m_price;
+            //$o_out[9]=  number_format($v_min_sq_m_price, 0, ',', ' ');
+            //$o_out[10]= number_format($v_max_sq_m_price, 0, ',', ' ');
+            
+            $o_out[11]=  number_format($v_min_price_whoole_payment, 0, ',', ' ');
+            $o_out[12]=  number_format($v_sq_m_price, 0, ',', ' ') ;
+            $o_out[13]=  number_format($v_max_price_whoole_payment, 0, ',', ' ');
+            $o_out[14]=  number_format($v_avg_sq_m_price, 0, ',', ' ');
+            $o_out[19]=  number_format($v_min_sq_m_price, 0, ',', ' ');
+            $o_out[20]= number_format($v_max_sq_m_price, 0, ',', ' ');
+        }
+         mysqli_stmt_close($stmt);
+       return $o_out;  
+     } catch (Exception $exc) {
+            $o_out[0]= 0;
+            $o_out[1]= 0;
+            $o_out[2]= 0 ;
+            $o_out[3]= 0;
+            $o_out[4]= 0;
+            $o_out[5]= 0;
+            $o_out[6]= 0;
+            $o_out[7]= 0;
+            $o_out[8]= 0;
+            $o_out[11]= 0;
+            $o_out[12]= 0;
+            $o_out[13]= 0;
+            $o_out[14]= 0;
+            $o_out[19]= 0;
+            $o_out[20]=  0;
+            return $o_out;  
+    }
+                         
     
+}
+
+/*вспомоготельная функция для расчёта площадей и стоимостей квартир в корпусе*/
+function calculate_price_diapazon($p_connect, $cplx_id){
+    try{
+    $v_result ="";
+     $bad_message="";
+    $i=0;
+    $u=0;
+    $o_out= array();
+    $query = "   SELECT 
+                    IFNULL(t.total_flat_area, 0),
+                    IFNULL(min(CONVERT( (t.price_whoole_payment),   DECIMAL(10,2) ) ), 0) as min_price_whoole_payment, 
+                    IFNULL(CONVERT( (t.price_whoole_payment/t.total_flat_area),   DECIMAL(10,2) ), 0)  as sq_m_price,
+                    IFNULL(max(CONVERT( (t.price_whoole_payment),   DECIMAL(14,2) ) ), 0) AS max_price_whoole_payment,
+                    IFNULL(CONVERT( (sum(t.price_whoole_payment) / sum(t.total_flat_area)),   DECIMAL(10,2) ), 0)  as avg_sq_m_price,
+                    IFNULL(count(quant_rooms_in_flat), 0) as count_flats,
+                    IFNULL(avg(t.total_flat_area), 0) as avg_area,
+                    IFNULL(sum(t.total_flat_area), 0) as sum_area,
+                    IFNULL(sum(t.price_whoole_payment), 0) as sum_area,
+                    IFNULL(CONVERT( min((t.price_whoole_payment/t.total_flat_area)),   DECIMAL(10,2) ), 0)  as min_sq_m_price,
+                    IFNULL(CONVERT( max((t.price_whoole_payment/t.total_flat_area)),   DECIMAL(10,2) ), 0)  as max_sq_m_price
+            FROM rrb.rrb_flats t 
+            where rrb_housing_id   in (SELECT id FROM rrb.rrb_housing
+                where apartment_coplex_id =  $cplx_id)";
     
-    
+            
+           
      //$connection = conn();
         $p_connect->query("SET NAMES 'cp1251'");
         $stmt = $p_connect->prepare($query);
@@ -133,6 +230,8 @@ function calculate_flat_data($p_connect, $rrb_housing_id, $p_quant_rooms_in_flat
                          
     
 }
+
+
 
 
 function nvl($p_var){

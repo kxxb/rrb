@@ -301,8 +301,6 @@ public function getZooElements($el_array, $plx_array){
   $this->update_zoo_item($this->getItemId(), $result);
 
 
-
-
 }
     
     

@@ -35,10 +35,8 @@ function load_rrb_housing_investor_builder($p_connect){
         CONVERT( live_area,    DECIMAL(10,2)) as live_area	,
         CONVERT( kitchen_area,   DECIMAL(10,2)) as  kitchen_area	,
         CONVERT( balcony_area,    DECIMAL(10,2))  as balcony_area	,
-        CONVERT( price_whoole_payment,    DECIMAL(10,2)) as price_whoole_payment, 
-        CONVERT( price_lease_payment,    DECIMAL(10,2)) as price_lease_payment,
-
-
+        CONVERT( price_whoole_payment,    DECIMAL(14,2)) as price_whoole_payment, 
+        CONVERT( price_lease_payment,    DECIMAL(14,2)) as price_lease_payment,
 
         flat_descripton	,
         saler_name	,
@@ -77,7 +75,7 @@ function load_rrb_housing_investor_builder($p_connect){
             
             //$p_connect = conn();
             $p_state_id = $p_state_id = get_hndb_key($p_connect, 925, $v_state);
-            $a = get_suragat_key($p_connect, $v_komplex, $p_state_id, $v_city);
+            //$a = get_suragat_key($p_connect, $v_komplex, $p_state_id, $v_city);
             $p_rrb_housing_id = get_housing_key($p_connect, $p_state_id, $v_city, $p_rrb_housing_id);;
             $p_last_user_id = 1;
             $p_date_rec = date("Y-m-d H:i:s");
