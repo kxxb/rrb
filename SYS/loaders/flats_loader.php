@@ -20,15 +20,6 @@ function load_rrb_housing_investor_builder($p_connect){
         rrb_housing_id	,
         address	,
         section	,
-        /* CONVERT( REPLACE(floor_numb, ',', ''),   DECIMAL(10,2)) as  floor_numb	,
-        CONVERT( REPLACE(quant_rooms_in_flat, ',', ''),   DECIMAL(10,2)) as  quant_rooms_in_flat	,
-        CONVERT( REPLACE(total_flat_area, ',', ''),   DECIMAL(10,2)) as  total_flat_area	,
-        CONVERT( REPLACE(live_area, ',', ''),   DECIMAL(10,2)) as live_area	,
-        CONVERT( REPLACE(kitchen_area, ',', ''),   DECIMAL(10,2)) as  kitchen_area	,
-        CONVERT( REPLACE(balcony_area, ',', ''),   DECIMAL(10,2))  as balcony_area	,
-        CONVERT( REPLACE(price_whoole_payment, ',', ''),   DECIMAL(10,2)) as price_whoole_payment, 
-        CONVERT( REPLACE(price_lease_payment, ',', ''),   DECIMAL(10,2)) as price_lease_payment, */
-        
         CONVERT( floor_numb,  DECIMAL(10,2)) as  floor_numb	,
         CONVERT( quant_rooms_in_flat,  DECIMAL(10,2)) as  quant_rooms_in_flat	,
         CONVERT( total_flat_area,    DECIMAL(10,2)) as  total_flat_area	,
@@ -37,7 +28,6 @@ function load_rrb_housing_investor_builder($p_connect){
         CONVERT( balcony_area,    DECIMAL(10,2))  as balcony_area	,
         CONVERT( price_whoole_payment,    DECIMAL(14,2)) as price_whoole_payment, 
         CONVERT( price_lease_payment,    DECIMAL(14,2)) as price_lease_payment,
-
         flat_descripton	,
         saler_name	,
         saler_contact	,
@@ -46,13 +36,7 @@ function load_rrb_housing_investor_builder($p_connect){
         STR_TO_DATE(report_on_phase_dt, '%m/%d/%Y') as report_on_phase_dt,
         state,
         city
-	
-
  FROM rrb_temporary_flats;";
-    
-    
-    
-     //$connection = conn();
         $p_connect->query("SET NAMES 'cp1251'");
         $stmt = $p_connect->prepare($query);
         

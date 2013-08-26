@@ -9,8 +9,6 @@ session_start();
 $login_id = $_SESSION['uid'];
 $user_ip = $_SERVER['REMOTE_ADDR'];
 $user_id =  login_check($login_id,  $user_ip);
-
-
 if ($user_id != null) {
 
     require_once('../menu_creater.php');
@@ -34,8 +32,6 @@ if ($user_id != null) {
         <a href="hndb_loader_form.php">Справочники</a><br>
         </body>
     </html>
-
-
 
 <?
 } else {
