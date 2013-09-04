@@ -32,7 +32,7 @@ $connection = conn();
            // print '<tr>';
             for ($k = 0, $j = count($csv_line); $k < $j; $k++) {
                 if ($csv_line[$k]==null) {
-                $v_val ='is null';    
+                $v_val ='';    
                 }else {
                  $v_val = $csv_line[$k];
                 }

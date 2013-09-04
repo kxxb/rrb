@@ -35,7 +35,7 @@ while($csv_line = fgetcsv($fp,0,";")) {
    // print '<tr>';
     for ($k = 0, $j = count($csv_line); $k < $j; $k++) {
         if ($csv_line[$k]==null) {
-        $v_val ='99999';    
+        $v_val ='';    
         }else {
          $v_val = $csv_line[$k];
         }

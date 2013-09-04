@@ -7,8 +7,6 @@
 
 
 
-
-
 /* Получение значения из справочника
  * 
  */
@@ -61,7 +59,6 @@ function calculate_flat_data($p_connect, $rrb_housing_id, $p_quant_rooms_in_flat
             FROM rrb.rrb_flats t 
             where rrb_housing_id = $rrb_housing_id";
     
-            
             if ($p_quant_rooms_in_flat == 'студия') {
             $query = $query."  and  quant_rooms_in_flat = '$p_quant_rooms_in_flat'";      }
             
@@ -113,12 +110,20 @@ function calculate_flat_data($p_connect, $rrb_housing_id, $p_quant_rooms_in_flat
             //$o_out[9]=  number_format($v_min_sq_m_price, 0, ',', ' ');
             //$o_out[10]= number_format($v_max_sq_m_price, 0, ',', ' ');
             
-            $o_out[11]=  number_format($v_min_price_whoole_payment, 0, ',', ' ');
+            
+            /*$o_out[11]=  number_format($v_min_price_whoole_payment, 0, ',', ' ');
             $o_out[12]=  number_format($v_sq_m_price, 0, ',', ' ') ;
             $o_out[13]=  number_format($v_max_price_whoole_payment, 0, ',', ' ');
             $o_out[14]=  number_format($v_avg_sq_m_price, 0, ',', ' ');
             $o_out[19]=  number_format($v_min_sq_m_price, 0, ',', ' ');
             $o_out[20]= number_format($v_max_sq_m_price, 0, ',', ' ');
+            */
+            $o_out[11]=  round_tis($v_min_price_whoole_payment);
+            $o_out[12]=  round_tis($v_sq_m_price) ;
+            $o_out[13]=  round_tis($v_max_price_whoole_payment);
+            $o_out[14]=  round_tis($v_avg_sq_m_price);
+            $o_out[19]=  round_tis($v_min_sq_m_price);
+            $o_out[20]= round_tis($v_max_sq_m_price);
         }
          mysqli_stmt_close($stmt);
        return $o_out;  
@@ -165,12 +170,12 @@ function calculate_price_diapazon($p_connect, $cplx_id){
                     IFNULL(CONVERT( min((t.price_whoole_payment/t.total_flat_area)),   DECIMAL(10,2) ), 0)  as min_sq_m_price,
                     IFNULL(CONVERT( max((t.price_whoole_payment/t.total_flat_area)),   DECIMAL(10,2) ), 0)  as max_sq_m_price
             FROM rrb.rrb_flats t 
-            where rrb_housing_id   in (SELECT id FROM rrb.rrb_housing
-                where apartment_coplex_id =  $cplx_id)";
-    
-            
+            where rrb_housing_id   in (SELECT t.id FROM rrb.rrb_housing t,   rrb.rrb_housing_finance f
+                where apartment_coplex_id =   $cplx_id
+		    and  t.id = f.rrb_housing_id
+                    and f.impl_status_id = 50)";
            
-     //$connection = conn();
+       //$connection = conn();
         $p_connect->query("SET NAMES 'cp1251'");
         $stmt = $p_connect->prepare($query);
         
@@ -196,22 +201,27 @@ function calculate_price_diapazon($p_connect, $cplx_id){
           
         while (mysqli_stmt_fetch($stmt)) {
             $o_out[0]=  $v_total_flat_area;
-            $o_out[1]=  number_format($v_min_price_whoole_payment, 0, ',', ' ');
-            //$o_out[1]=  $v_min_price_whoole_payment;
-            //$o_out[2]=  $v_sq_m_price;
-            $o_out[2]=  number_format($v_sq_m_price, 0, ',', ' ') ;
-            $o_out[3]=  number_format($v_max_price_whoole_payment, 0, ',', ' ');
-            //$o_out[3]=  $v_max_price_whoole_payment;
-            $o_out[4]=  number_format($v_avg_sq_m_price, 0, ',', ' ');
-            //$o_out[4]= $v_avg_sq_m_price;
+//            $o_out[1]=  number_format($v_min_price_whoole_payment, 0, ',', ' ');
+//            $o_out[2]=  number_format($v_sq_m_price, 0, ',', ' ') ;
+//            $o_out[3]=  number_format($v_max_price_whoole_payment, 0, ',', ' ');
+//            $o_out[4]=  number_format($v_avg_sq_m_price, 0, ',', ' ');
+
+            
+            $o_out[1]=  round_tis($v_min_price_whoole_payment);
+            $o_out[2]=  round_tis($v_sq_m_price) ;
+            $o_out[3]=  round_tis($v_max_price_whoole_payment);
+            $o_out[4]=  round_tis($v_avg_sq_m_price);
+            
             $o_out[5]=  $v_count_flats;
             $o_out[6]=  $v_avg_area;
             $o_out[7]=  $v_sum_area;
             $o_out[8]=  $v_sum_area;
-            //$o_out[9]=  $v_min_sq_m_price;
-            //$o_out[10]= $v_max_sq_m_price;
-            $o_out[9]=  number_format($v_min_sq_m_price, 0, ',', ' ');
-            $o_out[10]= number_format($v_max_sq_m_price, 0, ',', ' ');
+            
+            
+//            $o_out[9]=  number_format($v_min_sq_m_price, 0, ',', ' ');
+//            $o_out[10]= number_format($v_max_sq_m_price, 0, ',', ' ');
+            $o_out[9]=  round_tis($v_min_sq_m_price);
+            $o_out[10]= round_tis($v_max_sq_m_price);
         }
          mysqli_stmt_close($stmt);
        return $o_out;  
@@ -235,6 +245,7 @@ function calculate_price_diapazon($p_connect, $cplx_id){
 
 
 function nvl($p_var){
+    //$val = 'ХУЙ';
     $val = 'Н/Д';
     if (is_null($p_var)) {
     return $val;}
@@ -342,7 +353,12 @@ function prepare_corpses_n($cplx_array, $CORPSE_TAB){
        $j_zoo_corpse = new zoo_corpse();
        $j_zoo_corpse->complex_id  = $cplx_array['complex_id'];
        $j_zoo_corpse->korpse_id   = $corpse['corpse_id'];
-       $j_zoo_corpse->korpse_name = 'Корпус '. $corpse['corpse_number'];
+       if (nvl($corpse['corpse_number'])=='Н/Д'){
+           $j_zoo_corpse->korpse_name = 'Корпус ';
+       } else {
+           $j_zoo_corpse->korpse_name = 'Корпус '. $corpse['corpse_number'];
+       }
+       
        $j_zoo_corpse->korpse_desc = $korps_tmp;
        $j_zoo_corpse->save();
        
@@ -365,6 +381,21 @@ function get_subject_state_id($p_aratmen_id){
     return $h_adreses[0]->subject_of_state_id;
 }
 
+function get_subject_code($p_aratmen_id){
+        $subject_code = 'zull';
+        $subj_id = get_subject_state_id($p_aratmen_id);
+        
+        if ($subj_id == 87 ){
+               $subject_code = 'MOS'; 
+        }elseif ($subj_id == 88) {
+               $subject_code = 'MOS_OBL';  
+        }elseif ($subj_id !=87 and $subj_id !=88 and $subj_id <141) {    
+               $subject_code = 'RUS';  
+        }elseif ($subj_id >140) {        
+               $subject_code = 'SNG';  
+        }
+        return $subject_code;
+}
 
 function get_cplx_id_by_subj($p_subj, $p_limit=10, $p_offset=0){
     $cplxids = null;
@@ -391,8 +422,35 @@ function get_cplx_id_by_subj($p_subj, $p_limit=10, $p_offset=0){
          }
          
     return $cplxids;
-    
-    
+}
+//
+//function round_tis($num){
+//    $num =round($num); 
+//    if ($num >= 1000 && $num < 1000000){
+//     $num =  substr($num, 0,(strlen($num)-3)).' тыс.';
+//    }
+//    if ($num >= 1000000 && $num < 1000000000 ){
+//     $num =  substr($num, 0,(strlen($num)-6)).' млн.';
+//    }
+//    if ($num >=  1000000000 ){
+//     $num =  substr($num, 0,(strlen($num)-9)).' млрд.';
+//    }
+//    return $num; 
+//}
+
+
+function round_tis($num){
+    $num =round($num); 
+    if ($num >= 1000 && $num < 1000000){
+     $num =  substr($num, 0,(strlen($num)-3)).','.substr($num, -3,1).' тыс.';
+    }
+    if ($num >= 1000000 && $num < 1000000000 ){
+     $num =  substr($num, 0,(strlen($num)-6)).','.substr($num, -6,1).' млн.';
+    }
+    if ($num >=  1000000000 ){
+     $num =  substr($num, 0,(strlen($num)-9)).','.substr($num, -9,1).' млрд.';
+    }
+    return $num; 
 }
 
 ?>

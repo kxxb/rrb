@@ -97,17 +97,17 @@ function load_rrb_housing_comlex($p_connect){
     $o_out="";
     $query = "
         SELECT
-                     id ,
-                     date_rec ,
-                     batch_number ,
-                     OBJECTID ,
-                      case when komplex = 'is null' then ADDRESS else komplex end, 
-                     ADDRESS,
-                     BUILDING,
-                     state,
-                     city,
-                     CplxID
-                   FROM  rrb_temporary_load";
+            id ,
+            date_rec ,
+            batch_number ,
+            OBJECTID ,
+             case when komplex = 'is null' then ADDRESS else komplex end, 
+            ADDRESS,
+            BUILDING,
+            state,
+            city,
+            CplxID
+          FROM  rrb_temporary_load";
     
     
     

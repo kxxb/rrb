@@ -41,7 +41,7 @@ try {
         //$build_stage      = get_hnbdb_value($h_builders[0]->build_stage_id);
 
          $build_date = null;
-                    switch ($h_builders[0]->build_stage_id):
+                   switch ($h_builders[0]->build_stage_id):
                         case 43:
                             $build_stage = "Проект";
                             break;
@@ -72,8 +72,9 @@ try {
         $contract_type    = get_hnbdb_mask($h_finances[0]->contract_type_id);
         $ipoteka          = get_hnbdb_value($h_finances[0]->ipoteka_id);
         $parking_type     = get_hnbdb_mask($h_specifications[0]->parking_type_id);
-        $etajnost_type     = get_hnbdb_value($h_specifications[0]->floors_type_id);
-
+        $etajnost_type    = get_hnbdb_value($h_specifications[0]->floors_type_id);
+        $srok_sdachi =    substr(nvl($h_builders[0]->commissioning),-4);
+        
          if ($h_flat_info[0]->seller_1!=null and nvl(mb_strtoupper($h_flat_info[0]->seller_1, 'UTF-8'))!='Н/Д'){ $sellers .= '{slider=Продавец 1}<p>'. $h_flat_info[0]->seller_1.'</p>{/slider}<br />' ; }
          if ($h_flat_info[0]->seller_2!=null and nvl(mb_strtoupper($h_flat_info[0]->seller_2, 'UTF-8'))!='Н/Д'){ $sellers .= '{slider=Продавец 2}<p> '.$h_flat_info[0]->seller_2.'</p>{/slider}<br />' ; }
          if ($h_flat_info[0]->seller_3!=null and nvl(mb_strtoupper($h_flat_info[0]->seller_3, 'UTF-8'))!='Н/Д'){ $sellers .= '{slider=Продавец 3}<p> '.$h_flat_info[0]->seller_3.'</p>{/slider}<br />' ; }
@@ -95,14 +96,26 @@ try {
           $cond =array('conditions'=>array('id in (?) ',  $infrastructure_ids));
           $infr_names = rrb_handbooks::all($cond);
            foreach($infr_names as $infr_name ) 
-             $vokrug .=  $infr_name->hndb_value."<br>";
-
-
+            $vokrug .=  $infr_name->hndb_value."<br>";
+             
+            $subject_code = null;            
+            $subject_code = get_subject_code($cplx_id);
+           
             $cplx_array['cplx_name']                = $apartments[0]->complex_name;
-            $cplx_array['image_path']               = 'images/for_base/0001.jpg';
+            
+            //  $cplx_array['image_path']               = 'images/for_base/0001.jpg';
             //$cplx_array['image_path']               = 'http://img0.liveinternet.ru/images/attach/c/3/74/893/74893012_large_3589298_0_280d5_b7fd9668_XL.png';
-            $cplx_array['file_path']                = 'images/sampledata/fruitshop';
-            $cplx_array['gallery']                  = 'mos3';
+            //$cplx_array['file_path']                = 'images/sampledata/fruitshop';
+            //$cplx_array['gallery']                  = 'mos3';
+
+            
+//            //"file": "images\/for_base\/obj\/MOS_OBL\/745256\/001.jpeg",
+          // $cplx_array['image_path']               = "images/for_base/obj/MOS_OBL/745256/001.jpeg";
+            $cplx_array['image_path']               = 'images/for_base/obj/'.$subject_code.'/'.$apartments[0]->id.'/001.jpeg';
+//            //"file": "images\/for_base\/obj\/MOS_OBL\/745256\/files",
+            $cplx_array['file_path']                = 'images/for_base/obj/'.$subject_code.'/'.$apartments[0]->id.'/files';
+//            //"value": "obj\/MOS_OBL\/745256\/images"
+            $cplx_array['gallery']                  = 'obj/'.$subject_code.'/'.$apartments[0]->id.'/images';
 
             $cplx_array['description']              = 'описание';
             $cplx_array['state']                    = get_hnbdb_value($apartments[0]->state_id);
@@ -112,9 +125,7 @@ try {
             }else{
                 $cplx_array['okrug']                    = $dirrection_name;
             }
-                        
             $cplx_array['direction']                = $dirrection_name;
-            
             if ($h_adreses[0]->subject_of_state_id == 87 || $h_adreses[0]->subject_of_state_id == 88){
                $cplx_array['rayon']                    = nvl($h_adreses[0]->region);
             } else {
@@ -132,7 +143,8 @@ try {
             $cplx_array['balun']                    = $apartments[0]->complex_name;
 
             $cplx_array['complex_type']             = nvl($bearing_material);
-            $cplx_array['deadline']                 = nvl($srok_sdachi);
+            
+            $cplx_array['deadline']                 = $srok_sdachi;
             $cplx_array['construction_stage']       = nvl($build_stage);
             $cplx_array['parking']                  = nvl($parking_type);
             $cplx_array['contact_type']             = nvl($contract_type);
@@ -192,19 +204,19 @@ try {
                             $build_stage = "Проект";
                             break;
                         case 45:
-                            $build_stage      = "Строится";
+                            $build_stage  = "Строится";
                             break;
                        case 46:
-                            $build_stage      = "Строится";
+                            $build_stage  = "Строится";
                             break;
                         case 47:
-                            $build_stage      = "Построен";
+                            $build_stage  = "Построен";
                             break;
                         case 48:
-                            $build_stage      = "Сдан ГК";
+                            $build_stage  = "Сдан ГК";
                             break;
                         case 49:
-                            $build_stage      = "Сдан ГК";
+                            $build_stage  = "Сдан ГК";
                             break;
                         default:
                             $build_stage = "Не понятно пока ещё :) " . $h_builders[0]->build_stage_id;

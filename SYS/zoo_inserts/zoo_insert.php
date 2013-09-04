@@ -581,14 +581,16 @@ public function meta_params($p_complex_id, $p_primary_category){
         
            $i=0;
            $arr = array();
-            if ($plx_array['ipoteka']!='н/д'){
+           
+            if (mb_strtoupper($plx_array['ipoteka'], 'UTF-8')!='Н/Д'){
                 $arr[$i]="ipoteka"; 
-                 $this->insertIndexses('Рассрочка', $element_id); 
+                $this->insertIndexses('Ипотека', $element_id); 
                 ++$i;
             }
-            if ($plx_array['rassrochka']!='н/д'){
+            if (mb_strtoupper($plx_array['rassrochka'], 'UTF-8')!='Н/Д'){
                 $arr[$i]="rassrochka"; 
-                 $this->insertIndexses('Ипотека', $element_id); 
+                 $this->insertIndexses('Рассрочка', $element_id); 
+                 
             }
 
            $arr1 = array("option"=>$arr,
